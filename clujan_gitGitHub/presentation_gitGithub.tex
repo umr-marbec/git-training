@@ -11,8 +11,8 @@
 \usepackage{color}
 \usepackage{hyperref}
 \usepackage[lofdepth,lotdepth]{subfig}
-\usepackage[british]{babel}
-\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fontawesome}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -42,9 +42,9 @@
  
 \lstset{style=mystyle}
 
-\newcommand{\SubItem}[1]{
-    {\setlength\itemindent{15pt} \item[-] #1}
-}
+% \newcommand{\SubItem}[1]{
+%     {\setlength\itemindent{15pt} \item[-] #1}
+% }
 
 %------------
 %	TITLE PAGE
@@ -100,10 +100,10 @@ Also known as \textbf{revision control} or \textbf{source control}. \hfill \brea
 \begin{frame}
 \frametitle{Why is important version control?}
 \begin{itemize}
-    \item Storing \textbf{version} (properly) \hfill \break
-    \item \textbf{Restoring} previous versions \hfill \break
-    \item \textbf{Collaborations} (networking) \hfill \break
-    \item Save \textbf{time} \hfill \break
+    \item Storing \textbf{version} (properly). \hfill \break
+    \item \textbf{Restoring} previous versions. \hfill \break
+    \item \textbf{Collaborations} (networking). \hfill \break
+    \item Save \textbf{time}. \hfill \break
 \end{itemize}
 \end{frame}
 
@@ -133,18 +133,29 @@ Also known as \textbf{revision control} or \textbf{source control}. \hfill \brea
 \frametitle{Why use Git?}
 \begin{itemize}
     \item \textbf{Popular and successful}
-      \SubItem{Active development}
-      \SubItem{Fast}
+      \begin{itemize}
+      \item[$-$]{Active development}
+      \item[$-$]{Fast}
       \hfill \break
+      \end{itemize}
+      
     \item \textbf{Distributed}
-      \SubItem{Work online and offline}
-      \SubItem{Collaborate with large groups}
+      \begin{itemize}
+      \item[$-$]{Work online and offline}
+      \item[$-$]{Collaborate with large groups}
       \hfill \break
+      \end{itemize}
+    
     \item \textbf{Tracks any type of file}
-      \SubItem{Works best with text}
+      \begin{itemize}
+      \item[$-$]{Works best with text}
       \hfill \break
+      \end{itemize}
+    
     \item \textbf{Branching}
-      \SubItem{Smarter merges}
+      \begin{itemize}
+      \item[$-$]{Smarter merges}
+      \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -165,13 +176,60 @@ Also known as \textbf{revision control} or \textbf{source control}. \hfill \brea
 \begin{frame}
 \frametitle{GitHub Inc.}
 \begin{itemize}
-    \item Access to the control and collaboration features for every \textbf{project} \hfill \break
-    \item Work with public and private \textbf{repositories} \hfill \break
-    \item Develop a \textbf{networking} \hfill \break
-    \item \textbf{Plans} for enterprise, teams, pro and free accounts \hfill \break
-    \item Is the \textbf{largest} host of source code in the world! \hfill \break
+    \item Access to the control and collaboration features for every \textbf{project}. \hfill \break
+    \item Work with public and private \textbf{repositories}. \hfill \break
+    \item Develop a \textbf{networking}. \hfill \break
+    \item \textbf{Plans} for enterprise, teams, pro and free accounts. \hfill \break
+    \item Is the \textbf{largest} host of source code in the world! \emph{(28 million users, 57 million repositories (28 million public) - June 2018)}.
 \end{itemize}
 \end{frame}
+
+
+\begin{frame}
+\frametitle{Register a GitHub account}
+\begin{itemize}
+    \item Register an account with \href{https://github.com/}{\faStar GitHub} is free! \hfill \break
+    \item Free private repositories
+          \begin{itemize}
+          \item[$-$] Sudents, faculty, and educational / research staff: \href{https://education.github.com/}{\faStar GitHub Education}.
+          \item[$-$] Official nonprofit organizations and charities: \href{https://github.com/nonprofit}{\faStar GitHub for Good}.
+          \hfill \break
+          \end{itemize}
+    \item Pay for private repositories
+          \begin{itemize}
+          \item[$-$] Individual cost is 7 dolars per month: \href{https://github.com/pricing}{\faStar GitHub Pricing}.
+          \end{itemize}
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Git clients}
+
+Git and Git client \textbf{are not} the same! Like R and RStudio is not the same thing!
+\hfill \break
+
+Git client:
+\begin{itemize}
+    \item IDE (Integrated development environment)!
+    \item Make the experience more pleasant providing a richer visual representation.
+\end{itemize}
+
+\hfill 
+
+Some Git clients:
+\begin{itemize}
+    \item \href{https://www.sourcetreeapp.com/}{\faStar SourceTreen} 
+    \item \href{https://www.gitkraken.com/}{\faStar GitKraken}
+    \item \href{https://gitup.co/}{\faStar GitUp} 
+    \item \href{https://www.syntevo.com/smartgit/}{\faStar SmartGit} 
+    \item \href{https://git-cola.github.io/}{\faStar git-cola} 
+    \item ... others... 
+    \item \textbf{RStudio} 
+\end{itemize}
+\end{frame}
+
 
 
 \end{document}
