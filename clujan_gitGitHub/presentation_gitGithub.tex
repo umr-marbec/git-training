@@ -50,8 +50,8 @@
 %	TITLE PAGE
 %------------
 
-\title[Version control, Git and GitHub]{Introduction to Git} 
-\author{Criscely Luj\'{a}n}
+\title[Version control, Git, GitHub and GitFlow]{Introduction to Git and GitFlow} 
+\author{Criscely Luj\'{a}n and Nicolas Barrier}
 \institute[Universit\'{e} Paris-Sud, UMR MARBEC]  
 {Universit\'{e} Paris-Sud, UMR MARBEC \\ 
 \medskip
@@ -228,6 +228,161 @@ Some Git clients:
     \item ... others... 
     \item \textbf{RStudio} 
 \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Git workflows} % Table of contents slide, comment this block out to remove it
+There are several ways to use GIT (we talk about \textbf{workflows}). 
+
+\begin{itemize}
+    \item \emph{Centralized workflow}: one main branch, everyone commit in the same place.
+    \item \emph{Feature Branch Workflow}: developments are made in dedicated branches (feature branches), which are regularly merged to the master one.
+    \item \textbf{\textit{Gitflow Workflow}}: Strict branching model designed around the project release.
+\end{itemize}
+
+Source: \url{https://www.atlassian.com/git/tutorials/comparing-workflows}) for more details.
+
+\end{frame}
+
+\begin{frame}{GitFlow branches}
+
+GitFlow workflow contains two main branches:
+\begin{itemize}
+\item{\emph{master:} official release history. Branch which is shared to the world!}
+\item{\emph{develop:} integration branch for features}
+\end{itemize}
+
+It also contains additional temporal branches:
+\begin{itemize}
+\item{\emph{feature}: feature branches (one for each new feature to add to the code)}
+\item{\emph{release}: branch created when enough features have been added (new version of the code)}
+\item{\emph{hotfix}: branch for maintenance and bug correction of the production release}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{In summary...}
+
+\begin{center}
+\includegraphics[scale=0.5]{05-_2_.pdf}    
+\end{center}
+
+\end{frame}    
+
+\begin{frame}[fragile]{How it works in practice}
+
+Install the GitFlow extension:
+
+\begin{lstlisting}[language=bash]
+sudo apt-get install git-flow
+\end{lstlisting}
+
+\vspace{1em}
+Now, from your directory, initialize the GitFlow workflow:
+
+\begin{lstlisting}[language=bash]
+git flow init # create the develop branch
+git push origin develop # push the develop branch to the repository
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Creating new features}
+
+\begin{lstlisting}
+# recovers the latest develop branch
+git pull origin develop
+
+# create feature branch from develop and switch to it
+git flow feature start my-feature 
+
+# put the feature branch to the repo (not necessary)
+git flow feature publish my-feature 
+
+# edit/add files: new functionalities
+
+# commit changes to the my-feature branch
+git commit 
+
+# merge my-feature branch with develop and remove it
+# switch back to develop
+git flow feature finish
+
+# push updated develop branch
+git push origin develop
+
+# if conflict (someone has already pushed in develop)
+git pull origin develop
+git push origin develop
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Creating a new release}
+
+\begin{lstlisting}
+# recovers the latest develop branch
+git pull origin develop
+
+# create a new release branch
+git flow release start my-release
+
+# put the release branch to the repo (not necessary)
+git flow release publish my-release 
+
+# edit/add files: bug fixes + documentation
+
+# commit changes to the my-feature branch
+git commit 
+
+# finish the release
+git flow release finish
+
+# push updated develop/master and tags
+git push origin --tags
+git push origin develop
+git push origin master
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Creating hotfixes}
+\begin{lstlisting}
+# recovers the latest develop/master branches
+git pull origin develop
+
+# create a new hotfix branch from master
+# name should be a version name (1.3.2 for instance)
+git flow hotfix start hotfix-tag
+
+# edit/add files: bug corrections
+
+# commit changes to the hotfix-tag branch
+git commit 
+
+# finish the release
+# merge hotfix branch to master/develop
+git flow hotfix finish
+
+# push updated develop/master and tags
+git push origin --tags
+git push origin develop
+git push origin master
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{References} % Table of contents slide, comment this block out to remove it
+
+\begin{itemize}
+    \item \url{https://nvie.com/posts/a-successful-git-branching-model/}
+    \item \url{https://www.atlassian.com/git/tutorials/comparing-workflows}
+    \item \url{https://danielkummer.github.io/git-flow-cheatsheet/}
+    \item \url{https://gist.github.com/JamesMGreene/cdd0ac49f90c987e45ac}
+    \item \url{https://blog.xebia.fr/2018/03/28/gitflow-est-il-le-workflow-dont-jai-besoin/}
+\end{itemize}
+
 \end{frame}
 
 
