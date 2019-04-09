@@ -18,10 +18,6 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
-\hypersetup{
-    colorlinks=true,
-    urlcolor=SteelBlue
-}
 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
@@ -55,14 +51,19 @@
 %------------
 
 \title[Version control, Git, GitHub and GitFlow]{Introduction to Git and GitFlow} 
-\author{Criscely Luj\'{a}n and Nicolas Barrier}
+\author{Criscely Luj\'{a}n \\ criscely.lujan@ird.fr \\ \and
+Nicolas Barrier \\
+nicolas.barrier@ird.fr}
 \institute[Universit\'{e} Paris-Sud, UMR MARBEC]  
 {Universit\'{e} Paris-Sud, UMR MARBEC \\ 
 \medskip
-\textit{criscely.lujan@ird.fr}}
+\textit{criscely.lujan@ird.fr}
+}
+\author[shortname]{Criscely Luj\'{a}n\inst{1,2} \\ \vspace{-0.5em} \tiny \emph{\href{mailto:criscely.lujan@ird.fr}{criscely.lujan@ird.fr}} \normalsize \\ \vspace{1em}
+                         \and Nicolas Barrier\inst{2}\\  \tiny \emph{\href{mailto:nicolas.barrier@ird.fr}{nicolas.barrier@ird.fr}}}
+\institute[shortinst]{\inst{1} Universit\'{e} Paris-Sud, UMR MARBEC \and \inst{2} IRD, UMR MARBEC}
+
 \date{April 11, 2019}
-
-
 
 \begin{document}
 
@@ -78,6 +79,11 @@
     \end{center}
 \end{frame}
 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=white,
+    urlcolor=SteelBlue
+}
 
 \begin{frame}
     \frametitle{Version control}
@@ -220,7 +226,7 @@
         \item{\href{gitlab.intranet.ird.fr}{IRD GitLab}: GitLab IRD platform (IRD account required).}
     \end{itemize}
 
-    However, the projects hosted on these repositories may have less visibilities...
+    However, the projects hosted on these repositories may have less visibility...
 
 \end{frame}
 
@@ -262,7 +268,7 @@
         \item \textbf{\textit{Gitflow Workflow}}: Strict branching model designed around the project release.
     \end{itemize}
 
-    Source: \url{https://www.atlassian.com/git/tutorials/comparing-workflows}) for more details.
+    Source: \url{https://www.atlassian.com/git/tutorials/comparing-workflows}
 
 \end{frame}
 
@@ -291,107 +297,107 @@
 
 \end{frame}    
 
-\begin{frame}[fragile]{How it works in practice}
-
-    Install the GitFlow extension:
-
-    \begin{lstlisting}[language=bash]
-    sudo apt-get install git-flow
-    \end{lstlisting}
-
-    \vspace{1em}
-    Now, from your directory, initialize the GitFlow workflow:
-
-    \begin{lstlisting}[language=bash]
-    git flow init # create the develop branch
-    git push origin develop # push the develop branch to the repository
-    \end{lstlisting}
-
-\end{frame}
-
-\begin{frame}[fragile]{Creating new features}
-
-    \begin{lstlisting}
-    # recovers the latest develop branch
-    git pull origin develop
-
-    # create feature branch from develop and switch to it
-    git flow feature start my-feature 
-
-    # put the feature branch to the repo (not necessary)
-    git flow feature publish my-feature 
-
-    # edit/add files: new functionalities
-
-    # commit changes to the my-feature branch
-    git commit 
-
-    # merge my-feature branch with develop and remove it
-    # switch back to develop
-    git flow feature finish
-
-    # push updated develop branch
-    git push origin develop
-
-    # if conflict (someone has already pushed in develop)
-    git pull origin develop
-    git push origin develop
-    \end{lstlisting}
-
-\end{frame}
-
-\begin{frame}[fragile]{Creating a new release}
-
-    \begin{lstlisting}
-    # recovers the latest develop branch
-    git pull origin develop
-
-    # create a new release branch
-    git flow release start my-release
-
-    # put the release branch to the repo (not necessary)
-    git flow release publish my-release 
-
-    # edit/add files: bug fixes + documentation
-
-    # commit changes to the my-feature branch
-    git commit 
-
-    # finish the release
-    git flow release finish
-
-    # push updated develop/master and tags
-    git push origin --tags
-    git push origin develop
-    git push origin master
-    \end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-    \frametitle{Creating hotfixes}
-    \begin{lstlisting}
-    # recovers the latest develop/master branches
-    git pull origin develop
-
-    # create a new hotfix branch from master
-    # name should be a version name (1.3.2 for instance)
-    git flow hotfix start hotfix-tag
-
-    # edit/add files: bug corrections
-
-    # commit changes to the hotfix-tag branch
-    git commit 
-
-    # finish the release
-    # merge hotfix branch to master/develop
-    git flow hotfix finish
-
-    # push updated develop/master and tags
-    git push origin --tags
-    git push origin develop
-    git push origin master
-    \end{lstlisting}
-\end{frame}
+%\begin{frame}[fragile]{How it works in practice}
+%
+%    Install the GitFlow extension:
+%
+%    \begin{lstlisting}[language=bash]
+%    sudo apt-get install git-flow
+%    \end{lstlisting}
+%
+%    \vspace{1em}
+%    Now, from your directory, initialize the GitFlow workflow:
+%
+%    \begin{lstlisting}[language=bash]
+%    git flow init # create the develop branch
+%    git push origin develop # push the develop branch to the repository
+%    \end{lstlisting}
+%
+%\end{frame}
+%
+%\begin{frame}[fragile]{Creating new features}
+%
+%    \begin{lstlisting}
+%    # recovers the latest develop branch
+%    git pull origin develop
+%
+%    # create feature branch from develop and switch to it
+%    git flow feature start my-feature 
+%
+%    # put the feature branch to the repo (not necessary)
+%    git flow feature publish my-feature 
+%
+%    # edit/add files: new functionalities
+%
+%    # commit changes to the my-feature branch
+%    git commit 
+%
+%    # merge my-feature branch with develop and remove it
+%    # switch back to develop
+%    git flow feature finish
+%
+%    # push updated develop branch
+%    git push origin develop
+%
+%    # if conflict (someone has already pushed in develop)
+%    git pull origin develop
+%    git push origin develop
+%    \end{lstlisting}
+%
+%\end{frame}
+%
+%\begin{frame}[fragile]{Creating a new release}
+%
+%    \begin{lstlisting}
+%    # recovers the latest develop branch
+%    git pull origin develop
+%
+%    # create a new release branch
+%    git flow release start my-release
+%
+%    # put the release branch to the repo (not necessary)
+%    git flow release publish my-release 
+%
+%    # edit/add files: bug fixes + documentation
+%
+%    # commit changes to the my-feature branch
+%    git commit 
+%
+%    # finish the release
+%    git flow release finish
+%
+%    # push updated develop/master and tags
+%    git push origin --tags
+%    git push origin develop
+%    git push origin master
+%    \end{lstlisting}
+%\end{frame}
+%
+%\begin{frame}[fragile]
+%    \frametitle{Creating hotfixes}
+%    \begin{lstlisting}
+%    # recovers the latest develop/master branches
+%    git pull origin develop
+%
+%    # create a new hotfix branch from master
+%    # name should be a version name (1.3.2 for instance)
+%    git flow hotfix start hotfix-tag
+%
+%    # edit/add files: bug corrections
+%
+%    # commit changes to the hotfix-tag branch
+%    git commit 
+%
+%    # finish the release
+%    # merge hotfix branch to master/develop
+%    git flow hotfix finish
+%
+%    # push updated develop/master and tags
+%    git push origin --tags
+%    git push origin develop
+%    git push origin master
+%    \end{lstlisting}
+%\end{frame}
 
 \begin{frame}
     \frametitle{References} % Table of contents slide, comment this block out to remove it
