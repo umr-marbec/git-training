@@ -1,5 +1,5 @@
 
-\documentclass{beamer}
+\documentclass[svgnames]{beamer}
 
 \mode<presentation> {
 \usetheme{Warsaw}
@@ -9,15 +9,15 @@
 \usepackage{booktabs}
 \usepackage{listings}
 \usepackage{color}
-\usepackage{hyperref}
 \usepackage[lofdepth,lotdepth]{subfig}
-\usepackage{hyperref}
 \usepackage{fontawesome}
+\usepackage{hyperref}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
@@ -39,7 +39,7 @@
     tabsize=2,
     language=bash
 }
- 
+
 \lstset{style=mystyle}
 
 % \newcommand{\SubItem}[1]{
@@ -50,12 +50,18 @@
 %	TITLE PAGE
 %------------
 
-\title[Version control, Git and GitHub]{Introduction to Git - Practical session} 
-\author{Criscely Luj\'{a}n}
+\title[Practical session: Version control, Git, GitHub and GitFlow]{Practical session} \author{Criscely Luj\'{a}n \\ criscely.lujan@ird.fr \\ \and
+Nicolas Barrier \\
+nicolas.barrier@ird.fr}
 \institute[Universit\'{e} Paris-Sud, UMR MARBEC]  
 {Universit\'{e} Paris-Sud, UMR MARBEC \\ 
 \medskip
-\textit{criscely.lujan@ird.fr}}
+\textit{criscely.lujan@ird.fr}
+}
+\author[Criscely Luj\'{a}n \& Nicolas Barrier]{Criscely Luj\'{a}n\inst{1,2} \\ \vspace{-0.5em} \tiny \emph{\href{mailto:criscely.lujan@ird.fr}{criscely.lujan@ird.fr}} \normalsize \\ \vspace{1em}
+                         \and Nicolas Barrier\inst{2}\\  \tiny \emph{\href{mailto:nicolas.barrier@ird.fr}{nicolas.barrier@ird.fr}}}
+\institute[shortinst]{\inst{1} Universit\'{e} Paris-Sud, UMR MARBEC \and \inst{2} IRD, UMR MARBEC}
+
 \date{April 11, 2019}
 
 \begin{document}
@@ -156,55 +162,37 @@ If you plan to work using SSH protocol, you can follow \href{https://happygitwit
 \end{frame}
 
 
+% \begin{frame}
+% \frametitle{Git + RStudio + GitHub}
+% 
+% \begin{itemize}
+%     \item Tools, global options, Select Git/SVN tab.
+%     \item Create the RSA key.
+%     \item Click, view public key, and copy the displayed public key.
+%     \item Save the key on your GitHub account: Settings / SSH key / Add SSH key.
+% \end{itemize}
+% 
+% Step by step here: \href{https://www.r-bloggers.com/rstudio-and-github/}{\faStar Connecting RStudio and GitHub}.
+% 
+% \end{frame}
+
 \begin{frame}
-\frametitle{Git + RStudio + GitHub}
+\frametitle{Exercise 1: Cloning a repository}
 
 \begin{itemize}
-    \item Tools, global options, Select Git/SVN tab.
-    \item Create the RSA key.
-    \item Click, view public key, and copy the displayed public key.
-    \item Save the key on your GitHub account: Settings / SSH key / Add SSH key.
+    \item Go to the repository of the Git training: \url{https://github.com/umr-marbec/git-training}. 
+    \item Explore the repository: number of commits, contributors, stars, ... .
+    \item Have a look of the README file.
+    \item Clone the repository on your computer.
+    \item Explore its content in your computer.
 \end{itemize}
-
-Step by step here: \href{https://www.r-bloggers.com/rstudio-and-github/}{\faStar Connecting RStudio and GitHub}.
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Make a new repository}
-
-\begin{itemize}
-    \item Go to GitHub and login. Click in the green box called \textbf{New repository}. 
-    \item If you are on your own profile page, go to the section \textbf{Repositories}, then click the green box called \textbf{New}.
-    \item Assign a name for the \textbf{repository} and include a \textbf{description} (this is optional but is recommended!).
-    \item Public or private.
-    \item Initialize the repository using the \textbf{README}.
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Make a new repository}
-\begin{center}
-\includegraphics[scale=0.27]{img/github_makeRepo.png}
-\end{center}
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{Clone a repository: Using RStudio}
-\begin{itemize}
-    \item File / New project. 
-    \item Version control.
-    \item Git.
-    \item Fill \textbf{Repository URL} and project name (what you want the folder to be called locally).
-\end{itemize}
-\end{frame}
+\frametitle{Exercise 1: Cloning a repository using terminal}
 
-\begin{frame}[fragile]
-\frametitle{Clone a repository: Using terminal}
-
-- Create a new directory, open it and perform the following code:
+- Create a new directory, open it in terminal and perform the following code:
 
 \begin{lstlisting}
 git init # to create a new git repository
@@ -221,6 +209,46 @@ This path is copied from the repository that we will be cloned.
 
 
 \begin{frame}[fragile]
+\frametitle{Exercise 1: Cloning a repository using RStudio}
+\begin{itemize}
+    \item File / New project. 
+    \item Version control.
+    \item Git.
+    \item Fill \textbf{Repository URL} and project name (what you want the folder to be called locally).
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exercise 2: Creation of a repository}
+
+\begin{itemize}
+    \item Go to GitHub and login. Click in the green box called \textbf{New repository}. 
+    \item If you are on your own profile page, go to the section \textbf{Repositories}, then click the green box called \textbf{New}.
+    \item Assign a name for the \textbf{repository} and include a \textbf{description} (this is optional but is recommended!).
+    \item Public or private.
+    \item Initialize the repository without the \textbf{README}.
+    
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exercise 2: Creation of a repository}
+\begin{center}
+\includegraphics[scale=0.27]{img/github_makeRepo.png}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercise 2: Creation of a repository}
+
+\begin{itemize}
+     \item Go to your GitHub profile and see the section called Repositories!.
+    \item Clone the repository already created (following steps in exercise 1) in your computer!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{Workflow}
 
 Your local repository consists of three trees maintained by git.
@@ -233,35 +261,33 @@ Your local repository consists of three trees maintained by git.
 
 
 \begin{frame}[fragile]
-\frametitle{Add, commit and push}
+\frametitle{Exercise 3: Make changes in the cloned repository}
 
-- After clone the repository on your computer, you can make changes using \textbf{add}, \textbf{commit}, and \textbf{push}:
+- After clone the repository on your computer, you are able to make changes using \textbf{add}, \textbf{commit}, and \textbf{push}:
 
 \begin{lstlisting}
 git add <filename> # adding changes for specific file
 git add . # adding all changes
 git commit -m "Commit message" # changes commited to the HEAD
-git push origin master #  changes to the remote repository (MASTER)
+git push origin master #  changes to the remote repository
 \end{lstlisting}
+
+- Check the changes in your remote repository.
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Exercise!!!}
+\frametitle{Exercise 4: TODO!! About the conflicts }
 
-\begin{itemize}
-    \item Create a repository in GitHub.
-    \item Clone the repository in your computer.
-    \item Make changes (edit README.md and .gitignore).
-    \item Make commits, if is possible include emojis to have fun! 
-    \item Use: push / pull / merge / status / etc.
-    \item Check the changes in you remore repository.
-    \item Develop a new branch, delete it, play, and ... enjoy! \faSmileO
-\end{itemize}
-
+- How we can talk about it? or how to do it? 
 
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Exercise 5: TODO!! About the git flow}
 
+- How we can talk about it? or how to do it? 
+
+\end{frame}
 
 \end{document}
