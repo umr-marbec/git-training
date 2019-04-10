@@ -289,5 +289,106 @@ git push origin master #  changes to the remote repository
 - How we can talk about it? or how to do it? 
 
 \end{frame}
+\begin{frame}[fragile]{How it works in practice}
+
+    Install the GitFlow extension:
+
+    \begin{lstlisting}[language=bash]
+    sudo apt-get install git-flow
+    \end{lstlisting}
+
+    \vspace{1em}
+    Now, from your directory, initialize the GitFlow workflow:
+
+    \begin{lstlisting}[language=bash]
+    git flow init # create the develop branch
+    git push origin develop # push the develop branch to the repository
+    \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Creating new features}
+
+    \begin{lstlisting}
+    # recovers the latest develop branch
+    git pull origin develop
+
+    # create feature branch from develop and switch to it
+    git flow feature start my-feature 
+
+    # put the feature branch to the repo (not necessary)
+    git flow feature publish my-feature 
+
+    # edit/add files: new functionalities
+
+    # commit changes to the my-feature branch
+    git commit 
+
+    # merge my-feature branch with develop and remove it
+    # switch back to develop
+    git flow feature finish
+
+    # push updated develop branch
+    git push origin develop
+
+    # if conflict (someone has already pushed in develop)
+    git pull origin develop
+    git push origin develop
+    \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Creating a new release}
+
+    \begin{lstlisting}
+    # recovers the latest develop branch
+    git pull origin develop
+
+    # create a new release branch
+    git flow release start my-release
+
+    # put the release branch to the repo (not necessary)
+    git flow release publish my-release 
+
+    # edit/add files: bug fixes + documentation
+
+    # commit changes to the my-feature branch
+    git commit 
+
+    # finish the release
+    git flow release finish
+
+    # push updated develop/master and tags
+    git push origin --tags
+    git push origin develop
+    git push origin master
+    \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Creating hotfixes}
+    \begin{lstlisting}
+    # recovers the latest develop/master branches
+    git pull origin develop
+
+    # create a new hotfix branch from master
+    # name should be a version name (1.3.2 for instance)
+    git flow hotfix start hotfix-tag
+
+    # edit/add files: bug corrections
+
+    # commit changes to the hotfix-tag branch
+    git commit 
+
+    # finish the release
+    # merge hotfix branch to master/develop
+    git flow hotfix finish
+
+    # push updated develop/master and tags
+    git push origin --tags
+    git push origin develop
+    git push origin master
+    \end{lstlisting}
+\end{frame}
 
 \end{document}
