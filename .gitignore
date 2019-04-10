@@ -4,5 +4,8 @@
 **/*.out
 **/*.snm
 **/*.toc
+**/*.gz
 **/*.vrb
 .Rproj.user
+.Rproj
+.Rhistory
