@@ -7,5 +7,5 @@
 **/*.gz
 **/*.vrb
 .Rproj.user
-.Rproj
+*.Rproj
 .Rhistory
