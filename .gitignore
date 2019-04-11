@@ -6,6 +6,7 @@
 **/*.toc
 **/*.gz
 **/*.vrb
+**/*.sh
 .Rproj.user
 *.Rproj
 .Rhistory
