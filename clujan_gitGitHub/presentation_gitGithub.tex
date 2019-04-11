@@ -19,6 +19,8 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
+\beamertemplatenavigationsymbolsempty
+
 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
@@ -297,11 +299,11 @@ Save \textbf{time}.
 \begin{frame}
 \frametitle{Register a GitHub account}
   \begin{itemize}
-    \item Create an account in \href{https://github.com/}{\faStar GitHub} is free! \hfill \break
+    \item Create an account in \href{https://github.com/}{ GitHub} is free! \hfill \break
     \item Free private repositories
         \begin{itemize}
-        \item[$-$] Students, faculty, and educational / research staff: \href{https://education.github.com/}{\faStar GitHub Education}.
-        \item[$-$] Official nonprofit organizations and charities: \href{https://github.com/nonprofit}{\faStar GitHub for Good}.
+        \item[$-$] Students, faculty, and educational / research staff: \href{https://education.github.com/}{ GitHub Education}.
+        \item[$-$] Official nonprofit organizations and charities: \href{https://github.com/nonprofit}{ GitHub for Good}.
        \end{itemize}
         
 \end{itemize}
@@ -312,7 +314,7 @@ Save \textbf{time}.
 \begin{itemize}
     \item Pay for private repositories
     \begin{itemize}
-    \item[$-$] Individual cost is 7 dollars per month: \href{https://github.com/pricing}{\faStar GitHub Pricing}.
+    \item[$-$] Individual cost is 7 dollars per month: \href{https://github.com/pricing}{ GitHub Pricing}.
     \end{itemize}
 
 \end{itemize}
@@ -323,10 +325,12 @@ Save \textbf{time}.
 \end{frame}
 
 \begin{frame}
-\frametitle{Marbec in github}
+\frametitle{Marbec in GitHub}
+
+    All the materials of Pole Modelisation's technical "workshop" are now stored in an institutionnal GitHub account: \url{https://github.com/umr-marbec}.
 
 \begin{center}
-\includegraphics[scale=0.25]{img/github_marbec.png}
+\includegraphics[scale=0.2]{img/github_marbec.png}
 \end{center}  
 \end{frame}
 
@@ -360,15 +364,14 @@ Save \textbf{time}.
 
     \hfill 
 
-    Some Git clients:
+    Some example of Git clients:
     \begin{itemize}
-        \item \href{https://www.sourcetreeapp.com/}{\faStar SourceTreen} 
-        \item \href{https://www.gitkraken.com/}{\faStar GitKraken}
-        \item \href{https://gitup.co/}{\faStar GitUp} 
-        \item \href{https://www.syntevo.com/smartgit/}{\faStar SmartGit} 
-        \item \href{https://git-cola.github.io/}{\faStar git-cola} 
-        \item ... others... 
-        \item \textbf{RStudio} 
+        \item \href{https://www.sourcetreeapp.com/}{ SourceTreen} 
+        \item \href{https://www.gitkraken.com/}{ GitKraken}
+        \item \href{https://gitup.co/}{ GitUp} 
+        \item \href{https://www.syntevo.com/smartgit/}{ SmartGit} 
+        \item \href{https://git-cola.github.io/}{ git-cola} 
+        \item \href{https://www.rstudio.com/}{ RStudio}
     \end{itemize}
 
     \vspace{3em}
@@ -380,7 +383,7 @@ Save \textbf{time}.
     One main advantage of Git is the use of \emph{branches}, which allow multiple developments of the same code at the same time.
 
     \begin{block}{Definition}
-        A branch in Git is simply a lightweight movable pointer to one of these commits.
+        A branch in Git is simply a lightweight movable pointer to one of thes commits.
     \end{block}
     
     \begin{center}
@@ -389,7 +392,8 @@ Save \textbf{time}.
         \includegraphics[height=2.5cm]{img/git-branch-bis.png}
     \end{center}
 
-    In this example, the \emph{master} branch points to the \verb+f30ab+ commit, while the \emph{testing} branch points to the \verb+c2b9e+ one.
+    In this example, the \verb+master+ branch points to the \verb+f30ab+ commit, while the \verb+testing+ branch points to the \verb+c2b9e+ one. \verb+HEAD+ points
+    to the active branch (here, \verb+testing+).
 
     \vspace{1em}
     \tiny Source: \url{https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is}
@@ -415,7 +419,7 @@ Save \textbf{time}.
                 \includegraphics[scale=0.3]{img/git-merge-2.png}
                 \label{git-rebase}
             }
-            \caption{Merging \emph{experiment} into \emph{master}}
+            \caption{Merging versus rebasing}
         \end{figure}
     \end{center}
 
@@ -429,27 +433,27 @@ Save \textbf{time}.
 
     \begin{itemize}
         \item \emph{Centralized workflow}: one main branch, everyone commit in the same place.
-        \item \emph{Feature Branch Workflow}: developments are made in dedicated branches (feature branches), which are regularly merged to the master one.
+        \item \emph{Feature Branch Workflow}: developments are made in dedicated branches (feature branches), which are regularly merged into the master one.
         \item \textbf{\textit{Gitflow Workflow}}: Strict branching model designed around the project release.
     \end{itemize}
 
-    Source: \url{https://www.atlassian.com/git/tutorials/comparing-workflows}
+    \tiny Source: \url{https://www.atlassian.com/git/tutorials/comparing-workflows}
 
 \end{frame}
 
-\begin{frame}{GitFlow branches}
+\begin{frame}[fragile]{GitFlow branches}
 
     GitFlow workflow contains two main branches:
     \begin{itemize}
-        \item{\emph{master:} official release history. Branch which is shared to the world!}
-        \item{\emph{develop:} integration branch for features}
+        \item{\verb+master+: official release history. Branch which is shared to the world!}
+        \item{\verb+develop+: integration branch for features}
     \end{itemize}
 
     It also contains additional temporal branches:
     \begin{itemize}
-        \item{\emph{feature}: feature branches (one for each new feature to add to the code)}
-        \item{\emph{release}: branch created when enough features have been added (new version of the code)}
-        \item{\emph{hotfix}: branch for maintenance and bug correction of the production release}
+        \item{\verb+feature+: feature branches (one for each new feature to add to the code)}
+        \item{\verb+release+: branch created when enough features have been added (new version of the code) to develop}
+        \item{\verb+hotfix+: branch for maintenance and bug correction of the production release}
     \end{itemize}
 
 \end{frame}
@@ -459,21 +463,23 @@ Save \textbf{time}.
     \begin{center}
         \includegraphics[scale=0.5]{img/05-_2_.pdf}    
     \end{center}
+    
+    \tiny Source: \url{https://www.atlassian.com/git/tutorials/comparing-workflows}
 
 \end{frame}    
 
 
 \begin{frame}
-    \frametitle{References} % Table of contents slide, comment this block out to remove it
+    \frametitle{Thanks for your attention} % Table of contents slide, comment this block out to remove it
 
-    \begin{itemize}
-        \item \url{https://nvie.com/posts/a-successful-git-branching-model/}
-        \item \url{https://www.atlassian.com/git/tutorials/comparing-workflows}
-        \item \url{https://danielkummer.github.io/git-flow-cheatsheet/}
-        \item \url{https://gist.github.com/JamesMGreene/cdd0ac49f90c987e45ac}
-        \item \url{https://blog.xebia.fr/2018/03/28/gitflow-est-il-le-workflow-dont-jai-besoin/}
-    \end{itemize}
+            \begin{center}
+                \textbf{Now, let's crack on it!}\\
+                \vspace{2em}
 
+                \includegraphics[scale=0.15]{img/funny.jpg}\\
+                \vspace{1em}
+                \tiny Source: \url{https://www.pinterest.fr/pin/447263806724736402/}
+            \end{center}
 \end{frame}
 
 
