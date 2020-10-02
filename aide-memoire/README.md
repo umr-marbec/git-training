@@ -14,12 +14,14 @@ Github aide-memoire
 
 ## GitHub account
 
+First step is to create a GitHub account [here](https://github.com/join)
+
 Tips about the name account:
 
 -   Use your actual name!
 -   Shorter is better than longer!
 -   Be as unique as possible!
--   Re-use your name from other context, e.g. , , !
+-   Re-use your name from other context
 
 ## Git is already installed?
 
