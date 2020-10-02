@@ -77,4 +77,3 @@ for more information.
 If you plan to work using SSH protocol, you can follow [Set up keys
 for SSH](https://happygitwithr.com/ssh-keys.html#ssh-keys) for more
 information.
->>>>>>> 697f94c9ec5f00b595969e67a9c3f456349c01a0
