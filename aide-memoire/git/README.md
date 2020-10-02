@@ -64,10 +64,7 @@ git config --global --list
 
 # Git clients
 
-Git and Git client **are not** the same! Like R and RStudio is not the same thing! They are just tools that help you manipulate Git repositories
-
-Git client:
-
+Git and Git client **are not** the same! Like R and RStudio is not the same thing! They are just tools that help you manipulate Git repositories:
 -   IDE (Integrated development environment)!
 -   Make the experience more pleasant providing a richer visual
     representation.
