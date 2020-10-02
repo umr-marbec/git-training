@@ -7,19 +7,15 @@ Introduction to version control
 Also known as **revision control** or **source control**.
 
 \... "*is the management of changes:*
-
 -   documents
-
 -   computer programs
-
 -   large web sites
-
 -   other collections of information \... "
 
 # Why version control is important?
-
-![image](../../presentation_gitTraining/img//phd_comics.png)
-
+<div align=center>
+    <img src="../../presentation_gitTraining/img//phd_comics.png" width=50%>
+</div>
 # Why version control is important?
 
 Storing **version** (properly).
