@@ -39,11 +39,13 @@ Storing **version** (properly).
 <div align=center>
 <img src="../../presentation_gitTraining/img//networking.png"  width=30%>
 </div>
+
 Save **time**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//version-control.png"  width=30%>
+<img src="../../presentation_gitTraining/img//version-control.png"  width=40%>
 </div>
+
 # Version control software
 
 <div align=center>
@@ -87,7 +89,7 @@ source code during the development of software.
 **Git**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//github_logos.png">
+<img src="../../presentation_gitTraining/img//github_logos.png"  width=30%>
 </div>
 
 ### GitHub Inc.
@@ -96,7 +98,7 @@ source code during the development of software.
     **project**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//githubRepo_settings.png">
+<img src="../../presentation_gitTraining/img//githubRepo_settings.png" width=30%>
 </div>
 
 ### GitHub Inc.
@@ -104,7 +106,7 @@ source code during the development of software.
 -   Work with public and private **repositories**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//githubRepo_features.png">
+<img src="../../presentation_gitTraining/img//githubRepo_features.png" width=30%>
 </div>
 
 ### GitHub Inc.
@@ -112,7 +114,7 @@ source code during the development of software.
 -   Develop a **networking**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//githubRepo_networking.png)
+<img src="../../presentation_gitTraining/img//githubRepo_networking.png"  width=30%>
 </div>
           
 ### GitHub Inc.
@@ -120,7 +122,7 @@ source code during the development of software.
 -   Source of information.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//github_projects.png)
+<img src="../../presentation_gitTraining/img//github_projects.png" width=30%>
 </div>
           
 ### GitHub Inc.
