@@ -1,11 +1,20 @@
+
 Github aide-memoire
 =====================
 
+
 <div align="center">
-    <img height=100 src="../presentation_gitTraining/img/logo_psud.jpg">
-    <img height=100 src="../presentation_gitTraining/img/logo_marbec.png">
-    <img height=100 src="../presentation_gitTraining/img/logo_ird.png">
+    <div style="width:200px;float: left;">
+        <img height=100 src="../presentation_gitTraining/img/logo_psud.jpg">
+    </div>
+    <div style="width:200px;float: left;">
+        <img height=100 src="../presentation_gitTraining/img/logo_marbec.png">
+    </div>
+    <div style="width:200px;float: left;">
+        <img height=100 src="../presentation_gitTraining/img/logo_ird.png">
+    </div>
 </div>
+
 
 # GitHub install
 
