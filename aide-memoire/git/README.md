@@ -24,6 +24,64 @@ source code during the development of software.
 -   **Branching**
     -   Smarter merges
     
+# Git is already installed?
+
+To check that go to shell (terminal / command line / console) and enter
+**which git** to request the path to your Git executable:
+
+```
+which git
+```
+
+Then enter **git --version** to see its version:
+
+```
+git --version
+```
+
+If git is not installed YET: See [Install git](https://happygitwithr.com/install-git.html) to follow the correct
+steps to install git according your system
+
+# Introduce yourself to Git
+
+Let **git** to know about you, following this simple configuration
+steps!
+
+```
+# Example
+git config --global user.name "Criscely Lujan"
+git config --global user.email "criscelylujan@gmail.com"
+git config --global core.editor vim
+git config --global --list
+```
+
+-   **user.name** can be your username. Your commits will be labelled
+    with this name, so this should be informative!
+
+-   **user.email** must be the email that you use to sign up for GitHub.
+
+-   **core.editor** There are diverse options of [Git editor](http://swcarpentry.github.io/git-novice/02-setup/).
+
+# Git clients
+
+Git and Git client **are not** the same! Like R and RStudio is not the same thing! They are just tools that help you manipulate Git repositories
+
+Git client:
+
+-   IDE (Integrated development environment)!
+-   Make the experience more pleasant providing a richer visual
+    representation.
+
+Some example of Git clients:
+
+- [SourceTreen](https://www.sourcetreeapp.com/)
+- [GitKraken](https://www.gitkraken.com/)
+- [GitUp](https://gitup.co/)
+- [SmartGit](https://www.syntevo.com/smartgit/)
+- [git-cola](https://git-cola.github.io/)
+- [RStudio](https://www.rstudio.com/)
+- [TortoiseGit](https://tortoisegit.org/)
+    
 # Concepts
 
 <div align="center">
@@ -53,25 +111,6 @@ If you have modified the files in your **workspace**:
 - `git commit` allows to send the files from the **index** to the **local repository**
 - `git push` allows to send the files from the **local** to the remote **repository**
 
-# Git clients
-
-Git and Git client **are not** the same! Like R and RStudio is not the same thing! They are just tools that help you manipulate Git repositories
-
-Git client:
-
--   IDE (Integrated development environment)!
--   Make the experience more pleasant providing a richer visual
-    representation.
-
-Some example of Git clients:
-
-- [SourceTreen](https://www.sourcetreeapp.com/)
-- [GitKraken](https://www.gitkraken.com/
-- [GitUp](https://gitup.co/)
-- [SmartGit](https://www.syntevo.com/smartgit/)
-- [git-cola](https://git-cola.github.io/)
-- [RStudio](https://www.rstudio.com/)
-- [TortoiseGit](https://tortoisegit.org/)
 
 
 <!--
