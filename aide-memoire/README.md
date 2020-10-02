@@ -10,3 +10,4 @@ Git, GitHub and GitFlow
 - [Version manager](version-manager/README.md) 
 - [Introduction to Git](git/README.md) 
 - [Introduction to GitHub](github-install/README.md)
+- [Introduction to GitFlow](gitflow/README.md)
