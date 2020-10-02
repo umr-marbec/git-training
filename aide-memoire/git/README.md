@@ -23,7 +23,12 @@ source code during the development of software.
     -   Works best with text
 -   **Branching**
     -   Smarter merges
+    
+# Concepts
 
+<div align="center">
+ <img src="Git-commands.png">
+</div>
 
 ### Git branches
 
