@@ -50,7 +50,31 @@ Git commands allow to communicate among these three parts of the git repository.
 
 If you have modified the files in your **workspace**:
 - `git add` allows to select the files that will be sent to the **local** and eventually to the **remote** directory. These files are stored in an **index**. 
+- `git commit` allows to send the files from the **index** to the **local repository**
+- `git push` allows to send the files from the **local** to the remote **repository**
 
+# Git clients
+
+Git and Git client **are not** the same! Like R and RStudio is not the same thing! They are just tools that help you manipulate Git repositories
+
+Git client:
+
+-   IDE (Integrated development environment)!
+-   Make the experience more pleasant providing a richer visual
+    representation.
+
+Some example of Git clients:
+
+- [SourceTreen](https://www.sourcetreeapp.com/)
+- [GitKraken](https://www.gitkraken.com/
+- [GitUp](https://gitup.co/)
+- [SmartGit](https://www.syntevo.com/smartgit/)
+- [git-cola](https://git-cola.github.io/)
+- [RStudio](https://www.rstudio.com/)
+- [TortoiseGit](https://tortoisegit.org/)
+
+
+<!--
 ### Git branches
 
 One main advantage of Git is the use of *branches*, which allow multiple
@@ -131,26 +155,4 @@ It also contains additional temporal branches:
 
 -   `hotfix`: branch for maintenance and bug correction of the
     production release
-    
-    
-# Git clients
-
-Git and Git client **are not** the same! Like R and RStudio is not the
-same thing!
-
-Git client:
-
--   IDE (Integrated development environment)!
--   Make the experience more pleasant providing a richer visual
-    representation.
-
-Some example of Git clients:
-
-- [SourceTreen](https://www.sourcetreeapp.com/)
-- [GitKraken](https://www.gitkraken.com/
-- [GitUp](https://gitup.co/)
-- [SmartGit](https://www.syntevo.com/smartgit/)
-- [git-cola](https://git-cola.github.io/)
-- [RStudio](https://www.rstudio.com/)
-- [TortoiseGit](https://tortoisegit.org/)
-
+-->
