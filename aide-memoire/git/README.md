@@ -24,30 +24,6 @@ source code during the development of software.
 -   **Branching**
     -   Smarter merges
 
-# Git clients
-
-Git and Git client **are not** the same! Like R and RStudio is not the
-same thing!
-
-Git client:
-
--   IDE (Integrated development environment)!
--   Make the experience more pleasant providing a richer visual
-    representation.
-
-Some example of Git clients:
-
--   [ SourceTreen](https://www.sourcetreeapp.com/)
-
--   [ GitKraken](https://www.gitkraken.com/)
-
--   [ GitUp](https://gitup.co/)
-
--   [ SmartGit](https://www.syntevo.com/smartgit/)
-
--   [ git-cola](https://git-cola.github.io/)
-
--   [ RStudio](https://www.rstudio.com/)
 
 ### Git branches
 
@@ -130,4 +106,26 @@ It also contains additional temporal branches:
 
 -   `hotfix`: branch for maintenance and bug correction of the
     production release
+    
+    
+# Git clients
+
+Git and Git client **are not** the same! Like R and RStudio is not the
+same thing!
+
+Git client:
+
+-   IDE (Integrated development environment)!
+-   Make the experience more pleasant providing a richer visual
+    representation.
+
+Some example of Git clients:
+
+- [SourceTreen](https://www.sourcetreeapp.com/)
+- [GitKraken](https://www.gitkraken.com/
+- [GitUp](https://gitup.co/)
+- [SmartGit](https://www.syntevo.com/smartgit/)
+- [git-cola](https://git-cola.github.io/)
+- [RStudio](https://www.rstudio.com/)
+- [TortoiseGit](https://tortoisegit.org/)
 
