@@ -30,6 +30,27 @@ source code during the development of software.
  <img src="Git-commands.png">
 </div>
 
+As shown in the figure, a Git repository is made of:
+- A **local workspace**, which is the content of your working directory.
+- A **local repository**, which contains **locally** all the history of your files.
+- A **remote repository**, which contains **remotely** all the history of your files.
+
+# Git commands
+
+Git commands allow to communicate among these three parts of the git repository. 
+
+## From the remote repository
+
+- `git clone` allows to download the **remote repository** into your **local one** and put the content into your **workspace**. This is the first thing to do.
+- `git fetch` allows to update the **local repository** from the **local repository**
+- `git checkout` updates the **workspace** from the **local repository**
+- `git pull` does a `git fetch` and a `git clone`, therefore updates both the **local repo.** and the **workspace** from the **remote repository** 
+
+## To the remote repository
+
+If you have modified the files in your **workspace**:
+- `git add` allows to select the files that will be sent to the **local** and eventually to the **remote** directory. These files are stored in an **index**. 
+
 ### Git branches
 
 One main advantage of Git is the use of *branches*, which allow multiple
