@@ -1,4 +1,4 @@
-Github aide-memoire
+Github
 =====================
 
 # What is GitHub Inc.?
