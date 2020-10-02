@@ -49,8 +49,10 @@ Save **time**.
 # Version control software
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//controlVersion.png"  width=40%>
+<img src="../../presentation_gitTraining/img//controlVersion.png"  width=70%>
 </div>
+
+
 
 
 
@@ -104,7 +106,6 @@ source code during the development of software.
 <img src="../../presentation_gitTraining/img//githubRepo_networking.png"  width=30%>
 </div>
           
-
 -   Source of information.
 
 <div align=center>
@@ -123,7 +124,6 @@ source code during the development of software.
 <div align=center>
     <img src="../../presentation_gitTraining/img//microsoft-github-800x421.png">
 </div>
-
 
 
 ### Register a GitHub account
