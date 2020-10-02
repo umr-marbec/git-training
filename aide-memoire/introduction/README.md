@@ -1,27 +1,8 @@
----
-author:
-- |
-    Criscely Luján\
-    criscely.lujan\@ird.fr\
-- |
-    Nicolas Barrier\
-    nicolas.barrier\@ird.fr
-- |
-    Criscely Luján\
-    *<criscely.lujan@ird.fr>*\
-- |
-    Nicolas Barrier\
-    *<nicolas.barrier@ird.fr>*
-date: 'April 11, 2019'
-title: 'Version control, Git, GitHub and GitFlow'
----
 
-\titlepage 
-![image](img/logo_psud.jpg){height="1.5cm"}
-![image](img/logo_marbec.png){height="1.5cm"}
-![image](img/logo_ird.png){height="1.5cm"}
+Introduction to version control
+===============================================
 
-### Version control
+# Version control
 
 Also known as **revision control** or **source control**.
 
@@ -35,11 +16,11 @@ Also known as **revision control** or **source control**.
 
 -   other collections of information \... "
 
-### Why version control is important?
+# Why version control is important?
 
-![image](img/phd_comics.png)
+![image](../../presentation_gitTraining/img//phd_comics.png)
 
-### Why version control is important?
+# Why version control is important?
 
 Storing **version** (properly).
 
@@ -47,40 +28,40 @@ Storing **version** (properly).
 
 -   Versioning (v0.1)
 
-![image](img/storingVersion.jpg)
+![image](../../presentation_gitTraining/img//storingVersion.jpg)
 
-### Why version control is important?
+# Why version control is important?
 
 **Restoring** previous versions.
 
-![image](img/storingVersion2.png)
+![image](../../presentation_gitTraining/img//storingVersion2.png)
 
-### Why version control is important?
+# Why version control is important?
 
 **Collaborations** (networking).
 
-![image](img/networking.png)
+![image](../../presentation_gitTraining/img//networking.png)
 
-### Why version control is important?
+# Why version control is important?
 
 Save **time**.
 
-![image](img/version-control.png)
+![image](../../presentation_gitTraining/img//version-control.png)
 
-### Version control software
+# Version control software
 
-![image](img/controlVersion.png)
+![image](../../presentation_gitTraining/img//controlVersion.png)
 
-### What is Git?
+# What is Git?
 
 **Git** is a distributed version control system for tracking changes in
 source code during the development of software.
 
 \hfill 
 \break
-![image](img/git_logo.png)
+![image](../../presentation_gitTraining/img//git_logo.png)
 
-### Why use Git?
+# Why use Git?
 
 -   **Popular and successful**
 
@@ -107,45 +88,45 @@ source code during the development of software.
 **GitHub** is a web-based hosting service for version control using
 **Git**.
 
-![image](img/github_logos.png)
+![image](../../presentation_gitTraining/img//github_logos.png)
 
 ### GitHub Inc.
 
 -   Access to the control and collaboration features for every
     **project**.
 
-![image](img/githubRepo_settings.png)
+![image](../../presentation_gitTraining/img//githubRepo_settings.png)
 
 ### GitHub Inc.
 
 -   Work with public and private **repositories**.
 
-![image](img/githubRepo_features.png)
+![image](../../presentation_gitTraining/img//githubRepo_features.png)
 
 ### GitHub Inc.
 
 -   Develop a **networking**.
 
-![image](img/githubRepo_networking.png)
+![image](../../presentation_gitTraining/img//githubRepo_networking.png)
 
 ### GitHub Inc.
 
 -   Source of information.
 
-![image](img/github_projects.png)
+![image](../../presentation_gitTraining/img//github_projects.png)
 
 ### GitHub Inc.
 
 -   **Plans** for enterprise, teams, pro and free accounts.
 
-![image](img/github_plans.png)
+![image](../../presentation_gitTraining/img//github_plans.png)
 
 ### GitHub Inc.
 
 -   Is the **largest** host of source code in the world! *(28 million
     users, 57 million repositories (28 million public) - June 2018)*.
 
-![image](img/microsoft-github-800x421.png)
+![image](../../presentation_gitTraining/img//microsoft-github-800x421.png)
 
 ### Register a GitHub account
 
@@ -153,11 +134,9 @@ source code during the development of software.
 
 -   Free private repositories
 
-    -   Students, faculty, and educational / research staff: [ GitHub
-        Education](https://education.github.com/).
+    -   Students, faculty, and educational / research staff: [GitHub Education](https://education.github.com/).
 
-    -   Official nonprofit organizations and charities: [ GitHub for
-        Good](https://github.com/nonprofit).
+    -   Official nonprofit organizations and charities: [GitHub for Good](https://github.com/nonprofit).
 
 ### Register a GitHub account
 
@@ -166,7 +145,7 @@ source code during the development of software.
     -   Individual cost is 7 dollars per month: [ GitHub
         Pricing](https://github.com/pricing).
 
-![image](img/github_pricing.jpg)
+![image](../../presentation_gitTraining/img//github_pricing.jpg)
 
 ### Marbec in GitHub
 
@@ -174,7 +153,7 @@ All the materials of Pole Modelisation's technical \"workshop\" are now
 stored in an institutionnal GitHub account:
 <https://github.com/umr-marbec>.
 
-![image](img/github_marbec.png)
+![image](../../presentation_gitTraining/img//github_marbec.png)
 
 ### Institutionnal repositories
 
@@ -230,8 +209,8 @@ developments of the same code at the same time.
 Definition A branch in Git is simply a lightweight movable pointer to
 one of thes commits.
 
-![image](img/git-branch-ter.png){height="2.5cm"}
-![image](img/git-branch-bis.png){height="2.5cm"}
+![image](../../presentation_gitTraining/img//git-branch-ter.png){height="2.5cm"}
+![image](../../presentation_gitTraining/img//git-branch-bis.png){height="2.5cm"}
 
 In this example, the `master` branch points to the `f30ab` commit, while
 the `testing` branch points to the `c2b9e` one. `HEAD` points to the
@@ -251,12 +230,12 @@ instance the main one), several options are offered.
 -   `rebase`: Compresses all the changes into a single "patch."
 
 \subfloat[Merge]{
-                \includegraphics[scale=0.3]{img/git-merge-1.png}
+                \includegraphics[scale=0.3]{../../presentation_gitTraining/img//git-merge-1.png}
                 \label{git-merge}
             }
 \hspace{3em}
 \subfloat[Rebase]{
-                \includegraphics[scale=0.3]{img/git-merge-2.png}
+                \includegraphics[scale=0.3]{../../presentation_gitTraining/img//git-merge-2.png}
                 \label{git-rebase}
             }
 Source: <https://git-scm.com/book/fr/v1/Les-branches-avec-Git-Rebaser>
@@ -300,7 +279,7 @@ It also contains additional temporal branches:
 
 In summary\...
 
-![image](img/05-_2_.pdf)
+![image](../../presentation_gitTraining/img//05-_2_.pdf)
 
 Source: <https://www.atlassian.com/git/tutorials/comparing-workflows>
 
@@ -308,11 +287,11 @@ Source: <https://www.atlassian.com/git/tutorials/comparing-workflows>
 
 **Now, let's crack on it!**\
 
-![image](img/funny.jpg)\
+![image](../../presentation_gitTraining/img//funny.jpg)\
 Source: <https://www.pinterest.fr/pin/447263806724736402/>
 
 ### This is the end
 
-![image](img/that_s_all_folks.png)\
+![image](../../presentation_gitTraining/img//that_s_all_folks.png)\
 Source:
 [poshpete117.deviantart.com/journal/Thats-All-Folks-427323458/](poshpete117.deviantart.com/journal/Thats-All-Folks-427323458/)
