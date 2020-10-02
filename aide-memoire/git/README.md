@@ -34,11 +34,11 @@ Definition A branch in Git is simply a lightweight movable pointer to
 one of thes commits.
 
 <div align="center">
- img src="../../presentation_gitTraining/img//git-branch-ter.png"
+ <img src="../../presentation_gitTraining/img//git-branch-ter.png">
 </div>
 
 <div align="center">
- ../../presentation_gitTraining/img//git-branch-bis.png"
+ <img src="../../presentation_gitTraining/img//git-branch-bis.png">
 </div>
 
 
@@ -60,11 +60,11 @@ instance the main one), several options are offered.
 -   `rebase`: Compresses all the changes into a single "patch."
 
 <div align="center">
- img src="../../presentation_gitTraining/img//git-merge-1.png"
+ <img src="../../presentation_gitTraining/img//git-merge-1.png">
 </div>
 
 <div align="center">
- img src="../../presentation_gitTraining/img//git-merge-2.png"
+ <img src="../../presentation_gitTraining/img//git-merge-2.png">
 </div>
 
 Source: <https://git-scm.com/book/fr/v1/Les-branches-avec-Git-Rebaser>
