@@ -4,15 +4,9 @@ Github aide-memoire
 
 
 <div align="center">
-    <div style="width:200px;float: left;">
         <img height=100 src="../presentation_gitTraining/img/logo_psud.jpg">
-    </div>
-    <div style="width:200px;float: left;">
         <img height=100 src="../presentation_gitTraining/img/logo_marbec.png">
-    </div>
-    <div style="width:200px;float: left;">
         <img height=100 src="../presentation_gitTraining/img/logo_ird.png">
-    </div>
 </div>
 
 
