@@ -80,10 +80,10 @@ Source: <https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is>
 To merge a branch (for instance a feature branch) to another branch (for
 instance the main one), several options are offered.
 
--   `merge`: Three-points branch (common ancestor + tips of the two
+- `merge`: Three-points branch (common ancestor + tips of the two
     branches)
 
--   `rebase`: Compresses all the changes into a single "patch."
+- `rebase`: Compresses all the changes into a single "patch."
 
 <div align="center">
  <img src="../../presentation_gitTraining/img//git-merge-1.png">
@@ -103,7 +103,6 @@ There are several ways to use Git branches (we talk about
 
 -   *Centralized workflow*: one main branch, everyone commit in the same
     place.
-
 -   *Feature Branch Workflow*: developments are made in dedicated
     branches (feature branches), which are regularly merged into the
     master one.
