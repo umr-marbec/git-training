@@ -49,8 +49,10 @@ Save **time**.
 # Version control software
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//controlVersion.png"  width=30%>
+<img src="../../presentation_gitTraining/img//controlVersion.png"  width=40%>
 </div>
+
+
 
 # What is Git?
 
@@ -58,41 +60,30 @@ Save **time**.
 source code during the development of software.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//git_logo.png">
+<img src="../../presentation_gitTraining/img//git_logo.png"  width=30%>
 </div>
+
 
 # Why use Git?
 
 -   **Popular and successful**
-
     -   Active development
-
     -   Fast
-
 -   **Distributed**
-
     -   Work online and offline
-
     -   Collaborate with large groups
-
 -   **Tracks any type of file**
-
     -   Works best with text
-
 -   **Branching**
-
     -   Smarter merges
 
-### What is GitHub Inc.?
+# What is GitHub Inc.?
 
-**GitHub** is a web-based hosting service for version control using
-**Git**.
+**GitHub** is a web-based hosting service for version control using **Git**.
 
 <div align=center>
 <img src="../../presentation_gitTraining/img//github_logos.png"  width=30%>
 </div>
-
-### GitHub Inc.
 
 -   Access to the control and collaboration features for every
     **project**.
@@ -101,15 +92,11 @@ source code during the development of software.
 <img src="../../presentation_gitTraining/img//githubRepo_settings.png" width=30%>
 </div>
 
-### GitHub Inc.
-
 -   Work with public and private **repositories**.
 
 <div align=center>
 <img src="../../presentation_gitTraining/img//githubRepo_features.png" width=30%>
 </div>
-
-### GitHub Inc.
 
 -   Develop a **networking**.
 
@@ -117,7 +104,6 @@ source code during the development of software.
 <img src="../../presentation_gitTraining/img//githubRepo_networking.png"  width=30%>
 </div>
           
-### GitHub Inc.
 
 -   Source of information.
 
@@ -125,15 +111,11 @@ source code during the development of software.
 <img src="../../presentation_gitTraining/img//github_projects.png" width=30%>
 </div>
           
-### GitHub Inc.
-
 -   **Plans** for enterprise, teams, pro and free accounts.
 
 <div align=center>
 <img src="../../presentation_gitTraining/img//github_plans.png">
 </div>
-
-### GitHub Inc.
 
 -   Is the **largest** host of source code in the world! *(28 million
     users, 57 million repositories (28 million public) - June 2018)*.
@@ -141,6 +123,8 @@ source code during the development of software.
 <div align=center>
     <img src="../../presentation_gitTraining/img//microsoft-github-800x421.png">
 </div>
+
+
 
 ### Register a GitHub account
 
