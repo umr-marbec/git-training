@@ -6,7 +6,7 @@ Github
 **GitHub** is a web-based hosting service for version control using **Git**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//github_logos.png"  width=30%>
+<img src="../../presentation_gitTraining/img//github_logos.png"  width=50%>
 </div>
 
 - Access to the control and collaboration features for every
@@ -73,7 +73,7 @@ stored in an institutionnal GitHub account:
 
 
 <div align=center>
-img src="../../presentation_gitTraining/img//github_marbec.png">
+   <img src="../../presentation_gitTraining/img//github_marbec.png">
 </div>
 
 
