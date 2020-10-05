@@ -108,8 +108,60 @@ If you have modified the files in your **workspace**:
 - `git commit` allows to send the files from the **index** to the **local repository**
 - `git push` allows to send the files from the **local** to the remote **repository**
 
-
 *Note: It is not necessary to work with a remote repository. You can only work locally.*
+
+## Repository history
+
+To have a brief history of the repository, type `git log`
+
+## Find differences
+
+To find what changes are in your workspace, type `git status`.
+
+To have the difference between your workspace and your local repository (i.e. what is not yet in the `index`):
+
+```
+git diff
+```
+
+This can also be achieved using some specific `diff` editors (`vimdiff`, `tkdiff`) by using:
+
+```
+git difftool
+```
+
+To have a list of changes that are on `index`:
+
+```
+git diff --cached
+```
+
+To find differences between your current workspace and your last commit:
+
+```
+git diff HEAD
+```
+
+To find differences between the last commits of two branches:
+
+```
+git diff master..develop
+```
+
+
+
+## File removing and displacement
+
+To keep file history, some specific commands need to be used:
+- To move files (either rename or displace), use `git mv oldname newname`
+- To remove files, use `git rm filename`.
+
+When done, commit file:
+
+```
+git commit
+git push
+```
 
 ## Listing remote repositories
 
