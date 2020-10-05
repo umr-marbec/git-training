@@ -37,15 +37,17 @@ Github
 -   **Plans** for enterprise, teams, pro and free accounts.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//github_plans.png">
+<img src="../../presentation_gitTraining/img//github_plans.png" width=50%>
 </div>
 
 -   Is the **largest** host of source code in the world! *(28 million
     users, 57 million repositories (28 million public) - June 2018)*.
 
 <div align=center>
-    <img src="../../presentation_gitTraining/img//microsoft-github-800x421.png">
+    <img src="../../presentation_gitTraining/img//microsoft-github-800x421.png" width=40%>
 </div>
+
+- Allows to host personal websites
 
 ### Register a GitHub account
 
