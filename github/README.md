@@ -97,3 +97,18 @@ for more information.
 If you plan to work using SSH protocol, you can follow [Set up keys
 for SSH](https://happygitwithr.com/ssh-keys.html#ssh-keys) for more
 information.
+
+# Create a repository
+
+To create a repository, click on the `Repositories` link of your profile and click on `New`. You should see the following:
+
+<div align="center">
+  <img src="img/github-repo1.png" width=80%>
+</div>
+
+Fill on the informations. If you create an empty repository, you should see the following:
+
+<div align="center">
+  <img src="img/github-repo2.png" width=80%>
+</div>
+
