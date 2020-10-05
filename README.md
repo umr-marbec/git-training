@@ -19,8 +19,6 @@ The target audience is not only researchs that works around the use and developi
 - [Introduction to GitHub Pages](github-pages)
 
 
-
-
 ## Details of the event:
 - Speakers: [Criscely Lujan](https://github.com/CriscelyLP) and [Nicolas Barrier](https://github.com/barriern).
 - Date: 11 April 2019
