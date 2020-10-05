@@ -27,4 +27,5 @@ many files as you want.
 
 # Website address
 
-Your website will be accessible at the **https://username.github.io address**
+Your website will be accessible at the **https://username.github.io**. For example, the https://w3c.github.io/ page is 
+associated with the https://github.com/w3c/w3c.github.io repository
