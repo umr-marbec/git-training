@@ -8,6 +8,19 @@ The aim of the present talk is to introduce the importance of version control, d
 
 The target audience is not only researchs that works around the use and developing of models but also public in general wich can take advantages of those tools in their works.
 
+## Materials
+- [Class materials](presentation_gitTraining)
+- [Version manager](version-manager)
+- [Introduction to Git](git)
+- [Introduction to Git Branches](git-branches)
+- [Introduction to Git Flow](gitflow)
+- [Introduction to Git LFS](git-lfs)
+- [Introduction to GitHub](github)
+- [Introduction to GitHub Pages](github-pages)
+
+
+
+
 ## Details of the event:
 - Speakers: [Criscely Lujan](https://github.com/CriscelyLP) and [Nicolas Barrier](https://github.com/barriern).
 - Date: 11 April 2019
