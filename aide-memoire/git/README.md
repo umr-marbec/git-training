@@ -111,6 +111,56 @@ If you have modified the files in your **workspace**:
 
 *Note: It is not necessary to work with a remote repository. You can only work locally.*
 
+## Listing remote repositories
+
+There are some commands that allow to manipulate/define remote repositories. 
+
+To list all remote repositories:
+
+```
+git remote -vv
+```
+
+You should see something like this:
+
+```
+origin	git@github.com:osmose-model/osmose-private.git (fetch)
+origin	git@github.com:osmose-model/osmose-private.git (push)
+pub	git@github.com:osmose-model/osmose.git (fetch)
+pub	git@github.com:osmose-model/osmose.git (push)
+```
+
+By default, all `push` and `pull` will be done on the `origin` remote. However, if you want to push or pull from another repository:
+
+```
+git pull git master
+git push git master
+```
+
+**Warning: when pushing/pulling from another remote that *origin*, you need to specify the branch on the remote**
+
+Complete list of commands related to remotes is shown below (outputs of `git remote -h`)
+
+```
+usage : git remote [-v | --verbose]
+   ou : git remote add [-t <branche>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <nom> <url>
+   ou : git remote rename <ancienne> <nouvelle>
+   ou : git remote remove <nom>
+   ou : git remote set-head <nom> (-a | --auto | -d | --delete | <branche>)
+   ou : git remote [-v | --verbose] show [-n] <nom>
+   ou : git remote prune [-n | --dry-run] <nom>
+   ou : git remote [-v | --verbose] update [-p | --prune] [(<groupe> | <distante>)...]
+   ou : git remote set-branches [--add] <nom> <branche>...
+   ou : git remote get-url [--push] [--all] <nom>
+   ou : git remote set-url [--push] <nom> <nouvelle-URL> [<ancienne-URL>]
+   ou : git remote set-url --add <nom> <nouvelle-URL>
+   ou : git remote set-url --delete <nom> <url>
+```
+
+
+
+
+
 
 <!--
 ### Git branches
