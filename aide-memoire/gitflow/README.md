@@ -69,11 +69,28 @@ Commands related to `feature` branches are listed below:
 - `git flow feature checkout feature_name` allows to swith to another feature branch
 - `git flow feature publish` pushed the local feature branch to the remote repository and connect it with the local one.
 - `git flow feature track feature_name` pulls a remote feature branch
+- `git flow feature pull` updates the local branch from the remote branch
 - `git flow feature finish` finishes the current feature branch. It deletes the branch **locally, not remotely**, and merges it into `develop`
 - `git flow feature rebase` rebases the current feature branch with `develop`.
 
 Notes: 
 - to delete the eventual **remote** branch with a call to `finish`, add the `-F` option. Or type: `git push origin :feature/feature_name`. 
 - after a `finish`, push the `develop` branch to the remote repository using `git push`
-- **prior to a `rebase`, make sure that the local develop branch is up-to-date**
+- **prior to a `rebase`, make sure that the local develop branch is up-to-date**. Make rebase  on a regular basis to avoid conflicts when finishing features
+- **It is strongly advised that any time a feature is added, the release note (for instance `RELEASE.md`) is updated.
 
+# Release branch
+
+These branches are temporary branches between `develop` and `master`
+
+To create a release branch, the available commands are:
+- `git flow release` list all the release branches that exist
+- `git flow release start version_name` creates a **local** release branch from `develop`
+- `git flow release publish` pushed the local release branch to the remote repository and connect it with the local one.
+- `git flow release track version_name` pulls a remote release branch
+- `git flow release finish` finishes the current release branch. It deletes the branch **locally, not remotely**, and merges it into `develop` and `master`.
+
+Notes:
+- contrary to `feature` branches, the names of the `release` branch must be a version number, for instance `1.0.1`
+
+# Hotfix branch
