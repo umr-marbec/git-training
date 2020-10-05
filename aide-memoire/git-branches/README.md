@@ -7,14 +7,13 @@ One main advantage of Git is the use of *branches*, which allow multiple
 developments of the same code at the same time.
 
 *Definition: A branch in Git is simply a lightweight movable pointer to
-one of thes commits.*
+one of thes commits.* 
+
+In the following,
 
 <div align="center">
- <img src="../../presentation_gitTraining/img//git-branch-ter.png">
-</div>
-
-<div align="center">
- <img src="../../presentation_gitTraining/img//git-branch-bis.png">
+ <img src="../../presentation_gitTraining/img//git-branch-ter.png" width=30% hspace=50>
+  <img src="../../presentation_gitTraining/img//git-branch-bis.png" width=30% >
 </div>
 
 In this example, the `master` branch points to the `f30ab` commit, while
