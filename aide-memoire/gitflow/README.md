@@ -8,11 +8,9 @@ There are several ways to use Git branches (we talk about **workflows**).
 
 -   *Centralized workflow*: one main branch, everyone commit in the same
     place. 
-
 -   *Feature Branch Workflow*: developments are made in dedicated
     branches (feature branches), which are regularly merged into the
     master one.
-
 -   ***Gitflow Workflow***: Strict branching model designed around the
     project release.
 
