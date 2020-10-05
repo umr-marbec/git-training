@@ -59,7 +59,7 @@ All the materials of Pole Modelisation's technical \"workshop\" are now
 stored in an institutionnal GitHub account: <https://github.com/umr-marbec>.
 
 <div align=center>
-   <img src="../../presentation_gitTraining/img//github_marbec.png">
+   <img src="../../presentation_gitTraining/img//github_marbec.png" width=60%>
 </div>
 
 # First steps
