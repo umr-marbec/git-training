@@ -109,6 +109,8 @@ If you have modified the files in your **workspace**:
 - `git push` allows to send the files from the **local** to the remote **repository**
 
 
+*Note: It is not necessary to work with a remote repository. You can only work locally.*
+
 
 <!--
 ### Git branches
