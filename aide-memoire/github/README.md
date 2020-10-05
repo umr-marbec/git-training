@@ -1,7 +1,9 @@
 Github
 =====================
 
-# What is GitHub Inc.?
+# Introduction
+
+## What is GitHub Inc.?
 
 **GitHub** is a web-based hosting service for version control using **Git**.
 
@@ -47,52 +49,36 @@ Github
     <img src="../../presentation_gitTraining/img//microsoft-github-800x421.png" width=40%>
 </div>
 
-- Allows to host personal websites
+- Allows to **host personal websites**
 
-### Register a GitHub account
+- Possibilities to use **continuous integration** using [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions)
 
--   Create an account in [ GitHub](https://github.com/) is free!
--   Free private repositories
-    -   Students, faculty, and educational / research staff: [GitHub Education](https://education.github.com/).
-    -   Official nonprofit organizations and charities: [GitHub for Good](https://github.com/nonprofit).
-
-### Register a GitHub account
-
--   Pay for private repositories
-
-    -   Individual cost is 7 dollars per month: [ GitHub
-        Pricing](https://github.com/pricing).
-
-<div align=center>
-    <img src="../../presentation_gitTraining/img//github_pricing.jpg">
-</div>
-
-### Marbec in GitHub
+## Marbec in GitHub
 
 All the materials of Pole Modelisation's technical \"workshop\" are now
-stored in an institutionnal GitHub account:
-<https://github.com/umr-marbec>.
-
+stored in an institutionnal GitHub account: <https://github.com/umr-marbec>.
 
 <div align=center>
    <img src="../../presentation_gitTraining/img//github_marbec.png">
 </div>
 
+# First steps
 
-# GitHub install
+## Register a GitHub account
 
-## GitHub account
+-   Create an account in [GitHub](https://github.com/) is free!
+-   There are some advantages for: 
+    -   Students, faculty, and educational / research staff: [GitHub Education](https://education.github.com/).
+    -   Official nonprofit organizations and charities: [GitHub for Good](https://github.com/nonprofit).
 
-First step is to create a GitHub account [here](https://github.com/join)
+To create a GitHub account, click [here](https://github.com/join)
 
 Tips about the name account:
 
--   Use your actual name!
+-   Use your actual name (especially if you plan to host your website)!
 -   Shorter is better than longer!
 -   Be as unique as possible!
 -   Re-use your name from other context
-
-
 
 ## How authenticating yourself with GitHub
 
