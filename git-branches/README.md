@@ -13,8 +13,8 @@ In the following, the green boxes show different commits of a git repository, an
 show the two branches associated with the repository.
 
 <div align="center">
-  <img src="../../presentation_gitTraining/img//git-branch-ter.png" height=200 hspace=100>
-  <img src="../../presentation_gitTraining/img//git-branch-bis.png" height=200 >
+  <img src="presentation_gitTraining/img//git-branch-ter.png" height=200 hspace=100>
+  <img src="presentation_gitTraining/img//git-branch-bis.png" height=200 >
 </div>
 
 The `master` branch points to the `f30ab` commit, while
@@ -87,8 +87,8 @@ instance the `master` one), two options are offered.
 - `rebase`: Compresses all the changes into a single "patch."
 
 <div align="center">
- <img src="../../presentation_gitTraining/img//git-merge-1.png" height=200 hspace=50>
-  <img src="../../presentation_gitTraining/img//git-merge-2.png" height=200>
+ <img src="presentation_gitTraining/img//git-merge-1.png" height=200 hspace=50>
+  <img src="presentation_gitTraining/img//git-merge-2.png" height=200>
 </div>
 
 Source: <https://git-scm.com/book/fr/v1/Les-branches-avec-Git-Rebaser>

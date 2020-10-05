@@ -15,7 +15,7 @@ Also known as **revision control** or **source control**.
 # Why version control is important?
 
 <div align=center>
-    <img src="../../presentation_gitTraining/img//phd_comics.png" width=30%>
+    <img src="presentation_gitTraining/img//phd_comics.png" width=30%>
 </div>
 
 Storing **version** (properly).
@@ -25,29 +25,29 @@ Storing **version** (properly).
 
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//storingVersion.jpg"  width=30%>
+<img src="presentation_gitTraining/img//storingVersion.jpg"  width=30%>
 </div>
 
 **Restoring** previous versions.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//storingVersion2.png" width=30%>
+<img src="presentation_gitTraining/img//storingVersion2.png" width=30%>
 </div>
 
 **Collaborations** (networking).
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//networking.png"  width=30%>
+<img src="presentation_gitTraining/img//networking.png"  width=30%>
 </div>
 
 Save **time**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//version-control.png"  width=40%>
+<img src="presentation_gitTraining/img//version-control.png"  width=40%>
 </div>
 
 # Version control software
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//controlVersion.png"  width=70%>
+<img src="presentation_gitTraining/img//controlVersion.png"  width=70%>
 </div>

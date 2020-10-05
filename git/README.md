@@ -8,7 +8,7 @@ Introduction to GIT
 source code during the development of software.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//git_logo.png"  width=20%>
+    <img src="presentation_gitTraining/img//git_logo.png"  width=20%>
 </div>
 
 # Why use Git?

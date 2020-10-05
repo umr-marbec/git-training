@@ -8,38 +8,38 @@ Github
 **GitHub** is a web-based hosting service for version control using **Git**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//github_logos.png"  width=50%>
+<img src="presentation_gitTraining/img//github_logos.png"  width=50%>
 </div>
 
 - Access to the control and collaboration features for every
     **project**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//githubRepo_settings.png" width=30%>
+<img src="presentation_gitTraining/img//githubRepo_settings.png" width=30%>
 </div>
 
 - Work with public and private **repositories**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//githubRepo_features.png" width=30%>
+<img src="presentation_gitTraining/img//githubRepo_features.png" width=30%>
 </div>
 
 -   Develop a **networking**.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//githubRepo_networking.png"  width=30%>
+<img src="presentation_gitTraining/img//githubRepo_networking.png"  width=30%>
 </div>
           
 -   Source of information.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//github_projects.png" width=30%>
+<img src="presentation_gitTraining/img//github_projects.png" width=30%>
 </div>
           
 -   **Plans** for enterprise, teams, pro and free accounts.
 
 <div align=center>
-<img src="../../presentation_gitTraining/img//github_plans.png" width=50%>
+<img src="presentation_gitTraining/img//github_plans.png" width=50%>
 </div>
 
 -   Is the **largest** host of source code in the world! *(28 million
@@ -59,7 +59,7 @@ All the materials of Pole Modelisation's technical \"workshop\" are now
 stored in an institutionnal GitHub account: <https://github.com/umr-marbec>.
 
 <div align=center>
-   <img src="../../presentation_gitTraining/img//github_marbec.png" width=60%>
+   <img src="presentation_gitTraining/img//github_marbec.png" width=60%>
 </div>
 
 # First steps
