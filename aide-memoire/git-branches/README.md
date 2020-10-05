@@ -87,11 +87,8 @@ instance the `master` one), two options are offered.
 - `rebase`: Compresses all the changes into a single "patch."
 
 <div align="center">
- <img src="../../presentation_gitTraining/img//git-merge-1.png">
-</div>
-
-<div align="center">
- <img src="../../presentation_gitTraining/img//git-merge-2.png">
+ <img src="../../presentation_gitTraining/img//git-merge-1.png" height=200 hspace=50>
+  <img src="../../presentation_gitTraining/img//git-merge-2.png" height=200>
 </div>
 
 Source: <https://git-scm.com/book/fr/v1/Les-branches-avec-Git-Rebaser>
