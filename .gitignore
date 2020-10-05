@@ -10,3 +10,5 @@
 .Rproj.user
 *.Rproj
 .Rhistory
+**/*.html
+**/*.swp
