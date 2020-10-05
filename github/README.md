@@ -8,32 +8,32 @@ Github
 **GitHub** is a web-based hosting service for version control using **Git**.
 
 <div align=center>
-<img src="../presentation_gitTraining/img//github_logos.png"  width=50%>
+<img src="../presentation_gitTraining/img//github_logos.png"  width=70%>
 </div>
 
 - Access to the control and collaboration features for every
     **project**.
 
 <div align=center>
-<img src="../presentation_gitTraining/img//githubRepo_settings.png" width=30%>
+<img src="../presentation_gitTraining/img//githubRepo_settings.png" width=60%>
 </div>
 
 - Work with public and private **repositories**.
 
 <div align=center>
-<img src="../presentation_gitTraining/img//githubRepo_features.png" width=30%>
+<img src="../presentation_gitTraining/img//githubRepo_features.png" width=60%>
 </div>
 
 -   Develop a **networking**.
 
 <div align=center>
-<img src="../presentation_gitTraining/img//githubRepo_networking.png"  width=30%>
+<img src="../presentation_gitTraining/img//githubRepo_networking.png"  width=60%>
 </div>
           
 -   Source of information.
 
 <div align=center>
-<img src="../presentation_gitTraining/img//github_projects.png" width=30%>
+<img src="../presentation_gitTraining/img//github_projects.png" width=60%>
 </div>
           
 -   **Plans** for enterprise, teams, pro and free accounts.
