@@ -77,7 +77,7 @@ Notes:
 - to delete the eventual **remote** branch with a call to `finish`, add the `-F` option. Or type: `git push origin :feature/feature_name`. 
 - after a `finish`, push the `develop` branch to the remote repository using `git push`
 - **prior to a `rebase`, make sure that the local develop branch is up-to-date**. Make rebase  on a regular basis to avoid conflicts when finishing features
-- **It is strongly advised that any time a feature is added, the release note (for instance `RELEASE.md`) is updated.
+- **It is strongly advised that any time a feature is added, the release note (for instance `RELEASE.md`) is updated.**
 
 # Release branch
 
@@ -92,5 +92,18 @@ To create a release branch, the available commands are:
 
 Notes:
 - contrary to `feature` branches, the names of the `release` branch must be a version number, for instance `1.0.1`
+- after a `finish`, push tags to the remote repository using `git push --tags`. 
+- push the new `master` branch to the remote repository using `git checkout master` and `git push`
 
 # Hotfix branch
+
+Hotfix branches are used to correct bugs that are urgent to correct. 
+
+To create a hotfix branch:
+- `git flow hotfix start hotfix_name` starts a `hotfix` based on **the `master` branch** 
+- `git flow hotfix finish hotfix_name` finishes the `hotfix` and merges the corrections into `master` and `develop`
+
+Notes:
+- The local `master` and `develop` branches must be up-to-date
+- The `hotfix_name` must be a version number, basically the increment of the last release.
+
