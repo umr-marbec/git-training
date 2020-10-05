@@ -38,3 +38,42 @@ It also contains additional temporal branches:
  </div>
  
  Source: https://blog.engineering.publicissapient.fr/2018/03/28/gitflow-est-il-le-workflow-dont-jai-besoin/
+ 
+ # Using `git flow` extension
+ 
+ It is possible to use the `git flow` workflow using standard git commands (`merge`, `checkout`, `rebase`, etc.). **However, it is strongly recommended to use the `git flow` extension**. 
+ 
+ It can be installed following the [Installation page](https://github.com/nvie/gitflow/wiki/Installation). On Linux, type:
+
+```
+sudo apt-get install git-flow
+```
+
+ A full list of `git flow` command is available [here](https://github.com/nvie/gitflow/wiki/Command-Line-Arguments)
+
+# Initialisation
+
+To activate the `git flow` tool, go in your repository and type: 
+
+```
+git flow init
+```
+
+Then press `Enter` until the end of the initialisation process to keep the standard names. You will be automatically moved to the `develop` branch.
+
+# Feature branches
+
+Commands related to `feature` branches are listed below:
+- `git flow feature` list all the feature branches that exist
+- `git flow feature start feature_name` creates a **local** feature branch from `develop`
+- `git flow feature checkout feature_name` allows to swith to another feature branch
+- `git flow feature publish` pushed the local feature branch to the remote repository and connect it with the local one.
+- `git flow feature track feature_name` pulls a remote feature branch
+- `git flow feature finish` finishes the current feature branch. It deletes the branch **locally, not remotely**, and merges it into `develop`
+- `git flow feature rebase` rebases the current feature branch with `develop`.
+
+Notes: 
+- to delete the eventual **remote** branch with a call to `finish`, add the `-F` option. Or type: `git push origin :feature/feature_name`. 
+- after a `finish`, push the `develop` branch to the remote repository using `git push`
+- **prior to a `rebase`, make sure that the local develop branch is up-to-date**
+
