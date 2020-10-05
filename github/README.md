@@ -103,12 +103,24 @@ information.
 To create a repository, click on the `Repositories` link of your profile and click on `New`. You should see the following:
 
 <div align="center">
-  <img src="img/github-repo1.png" width=80%>
+  <img src="img/github-repo1.png" width=100%>
 </div>
 
 Fill on the informations. If you create an empty repository, you should see the following:
 
 <div align="center">
-  <img src="img/github-repo2.png" width=80%>
+  <img src="img/github-repo2.png" width=100%>
 </div>
 
+In this case, there is nothing in the repository, i.e. there is no branch. 
+
+**It is strongly advised to initialise the repository using a `README.md`, a `.gitignore` and a `LICENSE` file.**. In this case, a `master` branch containing
+any of these files will be created as the starting point of your work.
+
+# Delete a repository
+
+To delete a repository, click on the `Settings` link of the repository and scroll down at the very bottom. You will find the following:
+
+<div align="center">
+  <img src="img/github-repo3.png" width=100%>
+</div>
