@@ -50,27 +50,29 @@ The following must be the different steps of the job (cf. below for some steps).
 ```
 - To install a Java environment:
 ```
-  - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
+- name: Set up JDK 1.8
+  uses: actions/setup-java@v1
+  with:
+     java-version: 1.8
 ```
 - To install an R environment:
 ```
-      - name: R install
-        uses: r-lib/actions/setup-r@master
+- name: R install
+  uses: r-lib/actions/setup-r@master
 ```
 - To install some R packages
 ```
-      - name: Install Osmose dependencies
-        run: install.packages(c("rlist", "knitr", "rmarkdown", "stringr", "ncdf4", "mgcv", "fields"), repos="http://cran.us.r-project.org")
-        shell: Rscript {0}
+- name: Install Osmose dependencies
+  run: install.packages(c("rlist", "knitr", "rmarkdown", "stringr", "ncdf4", "mgcv", "fields"), repos="http://cran.us.r-project.org")
+  shell: Rscript {0}
 ```
+
 The R packages will be installed in `/home/runner/work/_temp/Library`
 
 - To install Aptitude packages
-```      - name: Install NetCDF and Latex
-        run: sudo apt-get update && sudo apt-get install -yq libnetcdf-dev texlive-latex-base texlive-fonts-recommended texlive-fonts-extra
+```      
+- name: Install NetCDF and Latex
+  run: sudo apt-get update && sudo apt-get install -yq libnetcdf-dev texlive-latex-base texlive-fonts-recommended texlive-fonts-extra
 ```
         
  # Caching
@@ -80,18 +82,18 @@ The R packages will be installed in `/home/runner/work/_temp/Library`
  This is done by adding the following:
  
  ```
-       - name: Cache R dependencies
-        id: r-dep
-        uses: actions/cache@v2
-        env:
-            cache-name: r-dep-modules
-        with:
-            path: /home/runner/work/_temp/Library
-            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/DESCRIPTION') }}
-            restore-keys: |
-                ${{ runner.os }}-build-${{ env.cache-name }}-
-                ${{ runner.os }}-build-
-                ${{ runner.os }}-
+- name: Cache R dependencies
+  id: r-dep
+  uses: actions/cache@v2
+  env:
+     cache-name: r-dep-modules
+  with:
+     path: /home/runner/work/_temp/Library
+     key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/DESCRIPTION') }}
+     restore-keys: |
+         ${{ runner.os }}-build-${{ env.cache-name }}-
+         ${{ runner.os }}-build-
+         ${{ runner.os }}-
 ```  
 
 You can decide to skip some actions depending on whether the cache was restored or not. This is done by adding a `if` statement:
@@ -102,11 +104,36 @@ if: steps.r-dep.outputs.cache-hit != 'true'
 Note that in this case, `r-dep` is the `id` of the caching action.
 
 ```
-      - name: Install Osmose dependencies
-        if: steps.r-dep.outputs.cache-hit != 'true'
-        run: install.packages(c("rlist", "knitr", "rmarkdown", "stringr", "ncdf4", "mgcv", "fields"), repos="http://cran.us.r-project.org")
-        shell: Rscript {0}
+- name: Install Osmose dependencies
+  if: steps.r-dep.outputs.cache-hit != 'true'
+  run: install.packages(c("rlist", "knitr", "rmarkdown", "stringr", "ncdf4", "mgcv", "fields"), repos="http://cran.us.r-project.org")
+  shell: Rscript {0}
 ```
                 
 Some examples are provided [here](https://github.com/actions/cache).
  
+# GitHub Badges
+
+If you want to show on your repository page the results of the compilation tests, you need to add badges at the top of the `README.md` file.
+
+Below is a list possible badges (more badges are available [here](https://shields.io/)
+
+## CRAN badge
+```
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/osmose)](https://cran.r-project.org/package=osmose)
+```
+
+## Last Release badge
+```
+[![Latest Release](https://img.shields.io/github/release/osmose-model/osmose.svg)](https://github.com/osmose-model/osmose/releases)
+```
+
+## Action badge
+```
+[![R Build Status](https://github.com/osmose-model/osmose-private/workflows/r-build/badge.svg)](https://github.com/osmose-model/osmose-private/actions)
+```
+
+### Issues badge
+```
+[![GitHub issues](https://img.shields.io/github/issues/osmose-model/osmose.svg)](https://github.com/osmose-model/osmose/issues)
+```
