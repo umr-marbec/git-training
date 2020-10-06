@@ -8,4 +8,8 @@ the goal of [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/act
 
 On your repository, click on the `Actions` button. You will come up on a page suggesting different GitHub Action templates depending on your project (Python, R, Java, etc.).
 
-# 
+<div align="center">
+  <img src="capture_actions.png">
+</div>
+
+# Some actions
