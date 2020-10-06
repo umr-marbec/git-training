@@ -40,7 +40,7 @@ The following must be the different steps of the job (cf. below for some steps).
 
 **Notes:**
 - It is advised that each workflow contains a single job.
-- It is advised that the `workflow` and `jobs` names are consistent, **and contains no spaces**
+- It is advised that the `workflow` and `jobs` names are consistent, **and are of Unix types**
 
 # Some steps 
 
@@ -116,7 +116,7 @@ Some examples are provided [here](https://github.com/actions/cache).
 
 If you want to show on your repository page the results of the compilation tests, you need to add badges at the top of the `README.md` file.
 
-Below is a list possible badges (more badges are available [here](https://shields.io/)
+Below is a list possible badges (more badges are available [here](https://shields.io/)).
 
 ## CRAN badge
 ```
@@ -124,16 +124,25 @@ Below is a list possible badges (more badges are available [here](https://shield
 ```
 
 ## Last Release badge
+
+Only available on **public** repositories.
+
 ```
 [![Latest Release](https://img.shields.io/github/release/osmose-model/osmose.svg)](https://github.com/osmose-model/osmose/releases)
 ```
 
 ## Action badge
+
+**Only works if the workflow name is of Unix type**
+
 ```
 [![R Build Status](https://github.com/osmose-model/osmose-private/workflows/r-build/badge.svg)](https://github.com/osmose-model/osmose-private/actions)
 ```
 
 ### Issues badge
+
+Only available on **public** repositories.
+
 ```
 [![GitHub issues](https://img.shields.io/github/issues/osmose-model/osmose.svg)](https://github.com/osmose-model/osmose/issues)
 ```
