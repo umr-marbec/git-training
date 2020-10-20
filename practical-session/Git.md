@@ -68,7 +68,7 @@ echo "# README title" >> README.md
 git status
 ```
 
-Add and commit your file, as done previously using `git add` and `git commit`. To go quick, you can type:
+Add and commit your file, as done previously using `git add` and `git commit`. To save time, you can type:
 
 ```
 git commit README.md  # does a add and a commit in one shot
@@ -81,14 +81,12 @@ To update your local repository, type:
 ```
 git fetch
 git status
-ls
 ```
 
-You will see that the LICENSE file is not yet in your local workspace. This is normal, since it `fetch` puts it into the **local repository**. To update the workspace by merging your local commit and the, type:
+You will see that the LICENSE file is not yet in your local workspace. This is normal, since it `fetch` puts it into the **local repository**. To update the workspace by merging your local commit and the remote one, type:
 
 ```
 git pull
-ls
 ```
 
 A commit will be automatically created. It's goal is to merge the local commits (the update of the `README.md` file) with the one done in GitHub (the creation of the `LICENSE` file). Now type:
