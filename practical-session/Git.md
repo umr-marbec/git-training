@@ -103,6 +103,10 @@ You will see that the new commit was only made locally, and need to be update to
 git push
 ```
 
-To have an insight of what happened, visit https://github.com/barriern/git-class/network
+Check what happened in the `Insight -> Network` page of your repository or by typing:
+
+```bash
+git log --all --decorate --oneline --graph
+```
 
 **Note: `git pull` is a combination of two operations: `git fetch` and `git merge`. In the above, the `git fetch` is therefore unnecessary**
