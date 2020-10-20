@@ -17,7 +17,9 @@ The target audience is not only researchs that works around the use and developi
 - [Introduction to Git LFS](git-lfs)
 - [Introduction to GitHub](github)
 - [Introduction to GitHub Pages](github-pages)
-
+- Practical sessions:
+   - [Git](practical-session/Git.md)
+   - [Git flow](practical-session/GitFlow.md)
 
 ## Details of the event:
 - Speakers: [Criscely Lujan](https://github.com/CriscelyLP) and [Nicolas Barrier](https://github.com/barriern).
