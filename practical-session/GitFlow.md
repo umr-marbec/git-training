@@ -126,10 +126,10 @@ Create another feature branch and add two files **using two different commits**.
 git flow feature start feature-3
 touch feature3-A.txt
 git add feature3-A.txt
-git commit
+git commit -m "adding file 3A"
 touch feature3-B.txt
 git add feature3-B.txt
-git commit -m "adding file B"
+git commit -m "adding file 3B"
 ```
 
 Now go to your repository GitHub page, switch to the `develop` branch and edit the `README.md` file.
