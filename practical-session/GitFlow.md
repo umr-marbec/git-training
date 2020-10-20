@@ -118,7 +118,11 @@ The `test-feature` branch is automatically merged with the `develop` one. Now pu
 git push
 ```
 
-Check what happened in https://github.com/barriern/git-class/network
+Check what happened in the `Insight -> Network` page of your repository or by typing:
+
+```bash
+git log --all --decorate --oneline --graph
+```
 
 Create another feature branch and add two files **using two different commits**.
 
@@ -210,7 +214,7 @@ git checkout develop
 ```
 
 Releases created that way are not exactly releases from a GitHub point of vue. To create a GitHub release,
-go to the GitHub release page of your repository (https://github.com/barriern/git-class/releases) and click on `Draft a new release`. Then put the tag number (`1.0.0`) in the `Tag version` area and click on `Publish release`
+go to the GitHub release page of your repository and click on `Draft a new release`. Then put the tag number (`1.0.0`) in the `Tag version` area and click on `Publish release`
 
 ## Creation of `hotfix` branches.
 
