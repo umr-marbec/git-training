@@ -1,8 +1,8 @@
-# Practical session
+# Git
 
 The aim of the current session is to learn how to work on GitHub.
 
-## Git
+# Creation of a repository
 
 Create a `git-class` repository on your personal account following the given [steps](https://github.com/umr-marbec/git-training/tree/master/github)
 
@@ -12,6 +12,8 @@ When this is done, clone the repository either using HTTPS or SSH:
 git clone git@github.com:barriern/git-class.git 
 # git clone https://github.com/barriern/git-class.git
 ```
+
+# First commit
 
 Go in the directory and type:
 
@@ -54,6 +56,8 @@ git push
 git status
 git branch -vv
 ```
+
+# Fetch and Pull
 
 Visit the page of your repository and refresh. You should see the `README.md` file. From the web page, click on the `Add file -> Create new file` and type `LICENSE`. Then choose a license template, click on `Review and submit` and commit to the main branch (`master` or `main`)
 
