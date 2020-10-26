@@ -97,7 +97,7 @@ git status
 Close the feature branch by typing:
 
 ```
-git flow feature finish feature/second-feature
+git flow feature finish second-feature
 ```
 
 Move back to the first feature branch:
