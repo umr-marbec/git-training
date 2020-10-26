@@ -69,7 +69,7 @@ Commands related to `feature` branches are listed below:
 - `git flow feature track feature_name` pulls a remote feature branch
 - `git flow feature pull` updates the local branch from the remote branch
 - `git flow feature finish` finishes the current feature branch. It deletes the branch **locally, not remotely**, and merges it into `develop`
-- `git flow feature rebase` rebases the current feature branch with `develop`.
+- `git flow feature rebase` rebases the current feature branch with `develop`. **Never use on a branch that has been published!** Cf. the [rebase golden rules](https://www.atlassian.com/fr/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing).
 
 Notes: 
 - to delete the eventual **remote** branch with a call to `finish`, add the `-F` option. Or type: `git push origin :feature/feature_name`. 
