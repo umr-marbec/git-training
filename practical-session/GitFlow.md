@@ -181,6 +181,8 @@ If you do a `git push`, you will not have any errors.
 **Note: it is highly recommended to extensively use `git fetch origin develop:develop` and `
 git flow feature rebase`, to avoid conflicts**
 
+**Warning: Never use `git flow feature rebase` on a branch that has been published on the remote repository!!!!**
+
 ## Creation of `release` branch
 
 Create a release branch:
