@@ -97,7 +97,7 @@ git status
 Close the feature branch by typing:
 
 ```
-git flow feature finish feature/second-feature
+git flow feature finish second-feature
 ```
 
 Move back to the first feature branch:
@@ -180,6 +180,8 @@ If you do a `git push`, you will not have any errors.
 
 **Note: it is highly recommended to extensively use `git fetch origin develop:develop` and `
 git flow feature rebase`, to avoid conflicts**
+
+**Warning: Never use `git flow feature rebase` on a branch that has been published on the remote repository!!!!**
 
 ## Creation of `release` branch
 
