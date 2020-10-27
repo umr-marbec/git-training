@@ -181,7 +181,11 @@ If you do a `git push`, you will not have any errors.
 **Note: it is highly recommended to extensively use `git fetch origin develop:develop` and `
 git flow feature rebase`, to avoid conflicts**
 
-**Warning: Never use `git flow feature rebase` on a branch that has been published on the remote repository!!!!**
+**Warning: Never use `git flow feature rebase` on a branch that has been published on the remote repository!!!! If you did, remove first the remote branch and the tracking as follows:**
+```
+git branch -d -r origin/feature/feat15A
+git branch --unset-upstream
+ ```
 
 ## Creation of `release` branch
 
