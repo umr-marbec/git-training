@@ -108,3 +108,32 @@ git log --all --decorate --oneline --graph
 ```
 
 **Note: `git pull` is a combination of two operations: `git fetch` and `git merge`. In the above, the `git fetch` is therefore unnecessary**
+
+# Conflicts
+
+At the end of the `README.md` file, add the line `x = local`. Commit the change using `git add` and `git commit`. **Don't `push`!**
+
+Now from GitHub, add at the end of the `README.md` file, add the line `x = github` and commit to `master`.
+
+From the terminal, now try to `push`. An error occurs, inviting you to do a `git pull`. Do it.
+
+You should now see an error message relative to conflicts. Type `git status` to see what is going on.
+
+Now, open the README.md file from the Terminal. You should see something like this:
+
+```
+<<<<<<< HEAD
+x = local
+=======
+x = github
+>>>>>>> 2c87e6bfe6d70298ecfce00ec2a6f1822b354495
+```
+
+This invites you to conflict resolution. The lines between `HEAD` and `=======` is the content of your local repository, while the lines between 
+`=======` and `>>>>>>>` is the state of the commit you are trying to merge.
+
+To resolve conflict, choose one of the `x` values and remove all the conflict symbols. Save the file.
+
+Validate the manual merging by typing `git add README.md` and `git commit`. Push to the remote repository.
+
+**Warning: resolving conflicts is error prone! This can be avoided by regular push/pull**
