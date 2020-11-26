@@ -9,7 +9,6 @@ The aim of the present talk is to introduce the importance of version control, d
 The target audience is not only researchs that works around the use and developing of models but also public in general wich can take advantages of those tools in their works.
 
 ## Materials
-- [Class materials](presentation_gitTraining)
 - [Version manager](version-manager)
 - [Introduction to Git](git)
 - [Introduction to Git Branches](git-branches)
