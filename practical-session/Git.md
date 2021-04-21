@@ -33,17 +33,17 @@ git status
 Add the file to the index:
 
 ```
-git add README.md
+git add README.md 
 git status
 ```
 
 Commit the file by typing:
 
 ```
-git commit
+git commit -m "create readme.md"
 ``` 
 
-Add a commit message, for instance `Create README.md`. Then check status
+If you didn't use the `-m` argument, add a commit message, for instance `Create README.md`. Then check status
 
 ```
 git status
@@ -71,7 +71,7 @@ git status
 Add and commit your file, as done previously using `git add` and `git commit`. To save time, you can type:
 
 ```
-git commit README.md  # does a add and a commit in one shot
+git commit -m "update readme.md" README.md  # does a add and a commit in one shot
 ```
 
 Try to push your changes to the remote using `git push`. The push will fail, since the remote repository contains work that has not been updated into your local repository.
