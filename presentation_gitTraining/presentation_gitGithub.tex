@@ -43,7 +43,7 @@
     language=bash
 }
 
-
+\input{colors.tex}
 
 \lstset{style=mystyle}
 
@@ -60,7 +60,8 @@
 \author[Nicolas Barrier \& Criscely Luj\'{a}n]{
 Nicolas Barrier\inst{1}\\
 \tiny \emph{\href{mailto:nicolas.barrier@ird.fr}{nicolas.barrier@ird.fr}} \\
-\normalsize 
+\normalsize
+\vspace{1em} 
 Criscely Luj\'{a}n\inst{1,2}\\
 \tiny \emph{\href{mailto:criscely.lujan@ird.fr}{criscely.lujan@ird.fr}} \\
 \normalsize
@@ -72,7 +73,7 @@ Criscely Luj\'{a}n\inst{1,2}\\
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=white,
+    linkcolor=black,
     urlcolor=blue,
 }
 
@@ -93,127 +94,75 @@ Criscely Luj\'{a}n\inst{1,2}\\
 \begin{frame}
     \frametitle{Version control}
 
-    Also known as \textbf{revision control} or \textbf{source control} is the management of changes:
+    Also known as \textbf{revision control} or \textbf{source control} is the management of changes: \hfill
 
     \begin{itemize}
-        \item \textit{documents
+        \item documents
         \item computer programs
         \item large web sites
-        \item other collections of information ... }''
+        \item other collections of information ...
     \end{itemize}
 \end{frame}
 
 
 \begin{frame}
     \frametitle{Why version control is important?}
-    \begin{center}
-        \includegraphics[scale=0.29]{img/phd_comics.png}
-    \end{center}
+    \begin{columns}[c]
+    		\begin{column}{0.5\linewidth}
+        			\includegraphics[width=\linewidth]{img/phd_comics.png}
+    		\end{column}
+    		\begin{column}{0.5\linewidth}
+			\begin{itemize}
+				\item Track changes over time 	
+				\item Facilitate collaboration (multiple users)
+				\item Identify ("tag") versions
+			\end{itemize}
+    		\end{column}
+    \end{columns}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Why version control is important?}
-
-Storing \textbf{version} (properly). 
-  \begin{itemize}
-    \item [$-$] Saving successive changes (``commit")
-    \item [$-$] Versioning (v0.1)
-  \end{itemize}
-
+\frametitle{Version control softwares}
 
 \begin{center}
-\includegraphics[scale=0.15]{img/storingVersion.jpg}
+\includegraphics[scale=0.27]{img/controlVersion.png}
 \end{center}
-
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Why version control is important?}
-\textbf{Restoring} previous versions.
-
-\begin{center}
-\includegraphics[scale=0.20]{img/storingVersion2.png}
-\end{center}  
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Why version control is important?}
-\textbf{Collaborations} (networking).
-
-\begin{center}
-\includegraphics[scale=0.20]{img/networking.png}
-\end{center}
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Why version control is important?}
-Save \textbf{time}.
-
-\begin{center}
-\includegraphics[scale=0.35]{img/version-control.png}
-\end{center}
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Version control software}
-
-\begin{center}
-\includegraphics[scale=0.29]{img/controlVersion.png}
-\end{center}
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{What is Git?}
-
-    \textbf{Git} is a distributed version control system for tracking changes in source code during the development of software.
-
-    \hfill \break
-
-    \begin{center}
-        \includegraphics[scale=0.07]{img/git_logo.png}
-    \end{center}
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Why use Git?}
+    \frametitle{Why use \includegraphics[height=12pt]{img/git_logo.png}}
     \begin{itemize}
-        \item \textbf{Popular and successful}
+        \item{ \textbf{Popular and successful}
             \begin{itemize}
                 \item[$-$]{Active development}
-                \item[$-$]{Fast}
-                    \hfill \break
             \end{itemize}
+            }
 
-        \item \textbf{Distributed}
+        \item { \textbf{Distributed}
             \begin{itemize}
                 \item[$-$]{Work online and offline}
                 \item[$-$]{Collaborate with large groups}
-                    \hfill \break
+                \item[$-$]{Fast}
             \end{itemize}
-
-        \item \textbf{Tracks any type of file}
+		} 
+ 
+        \item{ \textbf{Tracks any type of file}
             \begin{itemize}
                 \item[$-$]{Works best with text}
-                    \hfill \break
+                \item[$-$]{Large files with \href{https://git-lfs.github.com/}{Git-LFS}}
             \end{itemize}
+            }
 
-        \item \textbf{Branching}
+        \item { \textbf{Branching}
             \begin{itemize}
                 \item[$-$]{Smarter merges}
+                \item[$-$]{Easy code management with \href{https://git-flow.readthedocs.io/fr/latest/index.html}{Git-Flow}}
             \end{itemize}
+        }
     \end{itemize}
 \end{frame}
-
 
 \begin{frame}
     \frametitle{What is GitHub Inc.?}
