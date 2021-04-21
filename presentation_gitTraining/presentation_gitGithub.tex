@@ -83,11 +83,11 @@ Criscely Luj\'{a}n\inst{1,2}\\
 \begin{frame}
     \titlepage 
     \begin{center}
-        \includegraphics[height=1.5cm]{img/logo_marbec.png}
-        \hspace{1em}
-        \includegraphics[height=1.5cm]{img/logo_ird.png}
-        \hspace{1em}
-        \includegraphics[height=1.5cm]{img/logo_psud.jpg}
+        \includegraphics[height=1.cm]{img/logo_marbec.png}
+        \hspace{2em}
+        \includegraphics[height=1.cm]{img/logo_ird.png}
+        \hspace{2em}
+        \includegraphics[height=1.cm]{img/logo_psud.jpg}
     \end{center}
 \end{frame}
 
@@ -116,6 +116,7 @@ Criscely Luj\'{a}n\inst{1,2}\\
 				\item Track changes over time 	
 				\item Facilitate collaboration (multiple users)
 				\item Identify ("tag") versions
+				\item Possibility to "undo" things
 			\end{itemize}
     		\end{column}
     \end{columns}
@@ -126,12 +127,11 @@ Criscely Luj\'{a}n\inst{1,2}\\
 \frametitle{Version control softwares}
 
 \begin{center}
-\includegraphics[scale=0.27]{img/controlVersion.png}
+\includegraphics[width=\linewidth]{img/controlVersion.png}
 \end{center}
 \end{frame}
 
-
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{Why use \includegraphics[height=12pt]{img/git_logo.png}}
     \begin{itemize}
         \item{ \textbf{Popular and successful}
@@ -139,18 +139,10 @@ Criscely Luj\'{a}n\inst{1,2}\\
                 \item[$-$]{Active development}
             \end{itemize}
             }
-
-        \item { \textbf{Distributed}
-            \begin{itemize}
-                \item[$-$]{Work online and offline}
-                \item[$-$]{Collaborate with large groups}
-                \item[$-$]{Fast}
-            \end{itemize}
-		} 
  
         \item{ \textbf{Tracks any type of file}
             \begin{itemize}
-                \item[$-$]{Works best with text}
+                \item[$-$]{Works best with text (\verb+.html+, \verb+.tex+, \verb+.R+, \verb+.c+, \verb+.f90+)}
                 \item[$-$]{Large files with \href{https://git-lfs.github.com/}{Git-LFS}}
             \end{itemize}
             }
@@ -161,294 +153,336 @@ Criscely Luj\'{a}n\inst{1,2}\\
                 \item[$-$]{Easy code management with \href{https://git-flow.readthedocs.io/fr/latest/index.html}{Git-Flow}}
             \end{itemize}
         }
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{What is GitHub Inc.?}
-
-    \begin{center}
-        \textbf{GitHub} is a web-based hosting service for version control using \textbf{Git}.
-    \end{center}
-
-    \begin{center}
-        \includegraphics[scale=0.2]{img/github_logos.png}
-    \end{center}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{GitHub Inc.}
-  \begin{itemize}
-  \item Access to the control and collaboration features for every \textbf{project}.
-  \end{itemize}
-
-\begin{center}
-\includegraphics[scale=0.25]{img/githubRepo_settings.png}
-\end{center}   
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{GitHub Inc.}
-  \begin{itemize}
-  \item Work with public and private \textbf{repositories}. 
-  \end{itemize}
-
-\begin{center}
-\includegraphics[scale=0.2]{img/githubRepo_features.png}
-\end{center}  
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{GitHub Inc.}
-\begin{itemize}
-  \item Develop a \textbf{networking}.
-\end{itemize}
-
-\begin{center}
-\includegraphics[scale=0.30]{img/githubRepo_networking.png}
-\end{center}  
-
-\end{frame}
-
-\begin{frame}
-\frametitle{GitHub Inc.}
-\begin{itemize}
-  \item Source of information.
-\end{itemize}
-\begin{center}
-\includegraphics[scale=0.20]{img/github_projects.png}
-\end{center}  
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{GitHub Inc.}
-    \begin{itemize}
-        \item \textbf{Plans} for enterprise, teams, pro and free accounts. \hfill \break
-    \end{itemize}
-
-\begin{center}
-\includegraphics[scale=0.20]{img/github_plans.png}
-\end{center}  
-
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{GitHub Inc.}
-\begin{itemize}
-\item Is the \textbf{largest} host of source code in the world! \emph{(28 million users, 57 million repositories (28 million public) - June 2018)}.
-\end{itemize}
-
-\begin{center}
-\includegraphics[scale=0.35]{img/microsoft-github-800x421.png}
-\end{center}  
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Register a GitHub account}
-  \begin{itemize}
-    \item Create an account in \href{https://github.com/}{ GitHub} is free! \hfill \break
-    \item Free private repositories
-        \begin{itemize}
-        \item[$-$] Students, faculty, and educational / research staff: \href{https://education.github.com/}{ GitHub Education}.
-        \item[$-$] Official nonprofit organizations and charities: \href{https://github.com/nonprofit}{ GitHub for Good}.
-       \end{itemize}
         
-\end{itemize}
+        \item { \textbf{Distributed}
+            \begin{itemize}
+                \item[$-$]{Work online and offline}
+                \item[$-$]{Collaborate with large groups}
+                \item[$-$]{Fast}
+            \end{itemize}
+		}         
+       
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Register a GitHub account}
+\frametitle{Git in practice}
+\centering
+\includegraphics[scale=0.45]{img/MgaV9.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Git hosting services}
+
+Several web-based hosting services are available:
+
 \begin{itemize}
-    \item Pay for private repositories
-    \begin{itemize}
-    \item[$-$] Individual cost is 7 dollars per month: \href{https://github.com/pricing}{ GitHub Pricing}.
-    \end{itemize}
-
+\item \href{https://sourcesup.renater.fr/}{SourceSup}
+\item \href{https://forge.ifremer.fr/}{Ifremer Forge}
+\item \href{https://gitlab.com/}{Gitlab}
+\item \textbf{\href{https://github.com/}{GitHub}}
 \end{itemize}
 
-\begin{center}
-\includegraphics[scale=0.35]{img/github_pricing.jpg}
-\end{center}  
-\end{frame}
-
-\begin{frame}
-\frametitle{Marbec in GitHub}
-
-    All the materials of Pole Modelisation's technical "workshop" are now stored in an institutionnal GitHub account: \url{https://github.com/umr-marbec}.
-
-\begin{center}
-\includegraphics[scale=0.2]{img/github_marbec.png}
-\end{center}  
-\end{frame}
-
-\begin{frame}
-    \frametitle{Institutionnal repositories}
-
-    GitHub is a private US company. There are also \emph{institutional} repositories on which Git can be used:
-
-    \begin{itemize}
-        \item{\href{https://sourcesup.renater.fr/}{Sourcesup}: this is a Renater platform (login possible from any French research institute or through CRU accounts)}
-        \item{\href{https://forge.ifremer.fr/}{Forge Ifremer}: very close to SourceSup (Ifremer extranet account required)}
-        \item{\href{gitlab.intranet.ird.fr}{IRD GitLab}: GitLab IRD platform (IRD account required).}
-    \end{itemize}
-
-    However, the projects hosted on these repositories may have less visibility...
-
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Git clients}
-
-    Git and Git client \textbf{are not} the same! Like R and RStudio is not the same thing!
-    \hfill \break
-
-    Git client:
-    \begin{itemize}
-        \item IDE (Integrated development environment)!
-        \item Make the experience more pleasant providing a richer visual representation.
-    \end{itemize}
-
-    \hfill 
-
-    Some example of Git clients:
-    \begin{itemize}
-        \item \href{https://www.sourcetreeapp.com/}{ SourceTreen} 
-        \item \href{https://www.gitkraken.com/}{ GitKraken}
-        \item \href{https://gitup.co/}{ GitUp} 
-        \item \href{https://www.syntevo.com/smartgit/}{ SmartGit} 
-        \item \href{https://git-cola.github.io/}{ git-cola} 
-        \item \href{https://www.rstudio.com/}{ RStudio}
-    \end{itemize}
-
-    \vspace{3em}
+Why use \includegraphics[height=20pt]{img/GitHub-Mark-120px-plus.png}  ?
+\begin{itemize}
+\item[$-$]{Free (and improved accounts for education)}
+\item[$-$]{Largest host of source code in the world}
+\item[$-$]{Association with Zenodo, Overleaf, LFS, CRAN, PyPI}
+\item[$-$]{Continuous integration (\href{https://github.com/features/actions}{GitHub Actions})}
+\item[$-$]{Institutions (\href{https://github.com/umr-marbec}{Marbec!})}
+\item[$-$]{Hosting personal websites}
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Git branches}
-    One main advantage of Git is the use of \emph{branches}, which allow multiple developments of the same code at the same time.
+\frametitle{Getting started}
 
-    \begin{block}{Definition}
-        A branch in Git is simply a lightweight movable pointer to one of thes commits.
-    \end{block}
-    
-    \begin{center}
-        \includegraphics[height=2.5cm]{img/git-branch-ter.png}
-        \hspace{3em}
-        \includegraphics[height=2.5cm]{img/git-branch-bis.png}
-    \end{center}
+Install Git from \url{https://git-scm.com/downloads}\\
+\hfill
 
-    In this example, the \verb+master+ branch points to the \verb+f30ab+ commit, while the \verb+testing+ branch points to the \verb+c2b9e+ one. \verb+HEAD+ points
-    to the active branch (here, \verb+testing+).
+%{(Install Git LFS from \url{https://git-lfs.github.com/})}\\
+%\hfill
 
-    \vspace{1em}
-    \tiny Source: \url{https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is}
+Create a GitHub account on \url{https://github.com}\\
+\hfill
+
+When done, login to your GitHub account\\
+\hfill
+
+Now, open \verb+Git Bash+ (Windows users) or \verb+Terminal+ (Linux/Mac Os X users) and type \verb+which git+. You should see something like this:
+
+\begin{verbatim}
+barrier@MPLCLTPO0803 ~ $ which git
+/usr/bin/git
+\end{verbatim}
+
+\textbf{All set? So let's start!}
+\url{https://github.com/umr-marbec/git-training/blob/master/practical-session/Git.md}
+
 
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{Merging branches}
-    To merge a branch (for instance a feature branch) to another branch (for instance the main one), several options are offered.
-    \begin{itemize}
-        \item{\verb+merge+: Three-points branch (common ancestor + tips of the two branches)} 
-        \item{\verb+rebase+: Compresses all the changes into a single “patch.” }
-    \end{itemize}
-
-    \begin{center}
-        \begin{figure}
-            \subfloat[Merge]{
-                \includegraphics[scale=0.3]{img/git-merge-1.png}
-                \label{git-merge}
-            }
-            \hspace{3em}
-            \subfloat[Rebase]{
-                \includegraphics[scale=0.3]{img/git-merge-2.png}
-                \label{git-rebase}
-            }
-            \caption{Merging versus rebasing}
-        \end{figure}
-    \end{center}
-
-    \tiny Source: \url{https://git-scm.com/book/fr/v1/Les-branches-avec-Git-Rebaser}
-
-\end{frame}
-
-\begin{frame}
-    \frametitle{Git workflows} % Table of contents slide, comment this block out to remove it
-    There are several ways to use Git branches (we talk about \textbf{workflows}). 
-
-    \begin{itemize}
-        \item \emph{Centralized workflow}: one main branch, everyone commit in the same place.
-        \item \emph{Feature Branch Workflow}: developments are made in dedicated branches (feature branches), which are regularly merged into the master one.
-        \item \textbf{\textit{Gitflow Workflow}}: Strict branching model designed around the project release.
-    \end{itemize}
-
-    \tiny Source: \url{https://www.atlassian.com/git/tutorials/comparing-workflows}
-
-\end{frame}
-
-\begin{frame}[fragile]{GitFlow branches}
-
-    GitFlow workflow contains two main branches:
-    \begin{itemize}
-        \item{\verb+master+: official release history. Branch which is shared to the world!}
-        \item{\verb+develop+: integration branch for features}
-    \end{itemize}
-
-    It also contains additional temporal branches:
-    \begin{itemize}
-        \item{\verb+feature+: feature branches (one for each new feature to add to the code)}
-        \item{\verb+release+: branch created when enough features have been added (new version of the code) to develop}
-        \item{\verb+hotfix+: branch for maintenance and bug correction of the production release}
-    \end{itemize}
-
-\end{frame}
-
-\begin{frame}{In summary...}
-
-    \begin{center}
-        \includegraphics[scale=0.5]{img/05-_2_.pdf}    
-    \end{center}
-    
-    \tiny Source: \url{https://www.atlassian.com/git/tutorials/comparing-workflows}
-
-\end{frame}    
-
-
-\begin{frame}
-    \frametitle{Thanks for your attention} % Table of contents slide, comment this block out to remove it
-
-            \begin{center}
-                \textbf{Now, let's crack on it!}\\
-                \vspace{2em}
-
-                \includegraphics[scale=0.55]{img/funny.jpg}\\
-                \vspace{1em}
-                \tiny Source: \url{https://www.pinterest.fr/pin/447263806724736402/}
-            \end{center}
-\end{frame}
-
-\begin{frame}
-    \frametitle{This is the end} % Table of contents slide, comment this block out to remove it
-
-            \begin{center}
-                
-                \includegraphics[scale=0.15]{img/that_s_all_folks.png}\\
-                \vspace{1em}
-                \tiny Source: \url{poshpete117.deviantart.com/journal/Thats-All-Folks-427323458/}
-            \end{center}
-\end{frame}
+%
+%\begin{frame}
+%\frametitle{GitHub Inc.}
+%  \begin{itemize}
+%  \item Work with public and private \textbf{repositories}. 
+%  \end{itemize}
+%
+%\begin{center}
+%\includegraphics[scale=0.2]{img/githubRepo_features.png}
+%\end{center}  
+%
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{GitHub Inc.}
+%\begin{itemize}
+%  \item Develop a \textbf{networking}.
+%\end{itemize}
+%
+%\begin{center}
+%\includegraphics[scale=0.30]{img/githubRepo_networking.png}
+%\end{center}  
+%
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{GitHub Inc.}
+%\begin{itemize}
+%  \item Source of information.
+%\end{itemize}
+%\begin{center}
+%\includegraphics[scale=0.20]{img/github_projects.png}
+%\end{center}  
+%
+%\end{frame}
+%
+%\begin{frame}
+%    \frametitle{GitHub Inc.}
+%    \begin{itemize}
+%        \item \textbf{Plans} for enterprise, teams, pro and free accounts. \hfill \break
+%    \end{itemize}
+%
+%\begin{center}
+%\includegraphics[scale=0.20]{img/github_plans.png}
+%\end{center}  
+%
+%
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{GitHub Inc.}
+%\begin{itemize}
+%\item Is the \textbf{largest} host of source code in the world! \emph{(28 million users, 57 million repositories (28 million public) - June 2018)}.
+%\end{itemize}
+%
+%\begin{center}
+%\includegraphics[scale=0.35]{img/microsoft-github-800x421.png}
+%\end{center}  
+%
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{Register a GitHub account}
+%  \begin{itemize}
+%    \item Create an account in \href{https://github.com/}{ GitHub} is free! \hfill \break
+%    \item Free private repositories
+%        \begin{itemize}
+%        \item[$-$] Students, faculty, and educational / research staff: \href{https://education.github.com/}{ GitHub Education}.
+%        \item[$-$] Official nonprofit organizations and charities: \href{https://github.com/nonprofit}{ GitHub for Good}.
+%       \end{itemize}
+%        
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Register a GitHub account}
+%\begin{itemize}
+%    \item Pay for private repositories
+%    \begin{itemize}
+%    \item[$-$] Individual cost is 7 dollars per month: \href{https://github.com/pricing}{ GitHub Pricing}.
+%    \end{itemize}
+%
+%\end{itemize}
+%
+%\begin{center}
+%\includegraphics[scale=0.35]{img/github_pricing.jpg}
+%\end{center}  
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{Marbec in GitHub}
+%
+%    All the materials of Pole Modelisation's technical "workshop" are now stored in an institutionnal GitHub account: \url{https://github.com/umr-marbec}.
+%
+%\begin{center}
+%\includegraphics[scale=0.2]{img/github_marbec.png}
+%\end{center}  
+%\end{frame}
+%
+%\begin{frame}
+%    \frametitle{Institutionnal repositories}
+%
+%    GitHub is a private US company. There are also \emph{institutional} repositories on which Git can be used:
+%
+%    \begin{itemize}
+%        \item{\href{https://sourcesup.renater.fr/}{Sourcesup}: this is a Renater platform (login possible from any French research institute or through CRU accounts)}
+%        \item{\href{https://forge.ifremer.fr/}{Forge Ifremer}: very close to SourceSup (Ifremer extranet account required)}
+%        \item{\href{gitlab.intranet.ird.fr}{IRD GitLab}: GitLab IRD platform (IRD account required).}
+%    \end{itemize}
+%
+%    However, the projects hosted on these repositories may have less visibility...
+%
+%\end{frame}
+%
+%
+%\begin{frame}
+%    \frametitle{Git clients}
+%
+%    Git and Git client \textbf{are not} the same! Like R and RStudio is not the same thing!
+%    \hfill \break
+%
+%    Git client:
+%    \begin{itemize}
+%        \item IDE (Integrated development environment)!
+%        \item Make the experience more pleasant providing a richer visual representation.
+%    \end{itemize}
+%
+%    \hfill 
+%
+%    Some example of Git clients:
+%    \begin{itemize}
+%        \item \href{https://www.sourcetreeapp.com/}{ SourceTreen} 
+%        \item \href{https://www.gitkraken.com/}{ GitKraken}
+%        \item \href{https://gitup.co/}{ GitUp} 
+%        \item \href{https://www.syntevo.com/smartgit/}{ SmartGit} 
+%        \item \href{https://git-cola.github.io/}{ git-cola} 
+%        \item \href{https://www.rstudio.com/}{ RStudio}
+%    \end{itemize}
+%
+%    \vspace{3em}
+%
+%\end{frame}
+%
+%\begin{frame}[fragile]
+%    \frametitle{Git branches}
+%    One main advantage of Git is the use of \emph{branches}, which allow multiple developments of the same code at the same time.
+%
+%    \begin{block}{Definition}
+%        A branch in Git is simply a lightweight movable pointer to one of thes commits.
+%    \end{block}
+%    
+%    \begin{center}
+%        \includegraphics[height=2.5cm]{img/git-branch-ter.png}
+%        \hspace{3em}
+%        \includegraphics[height=2.5cm]{img/git-branch-bis.png}
+%    \end{center}
+%
+%    In this example, the \verb+master+ branch points to the \verb+f30ab+ commit, while the \verb+testing+ branch points to the \verb+c2b9e+ one. \verb+HEAD+ points
+%    to the active branch (here, \verb+testing+).
+%
+%    \vspace{1em}
+%    \tiny Source: \url{https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is}
+%
+%\end{frame}
+%
+%\begin{frame}[fragile]
+%    \frametitle{Merging branches}
+%    To merge a branch (for instance a feature branch) to another branch (for instance the main one), several options are offered.
+%    \begin{itemize}
+%        \item{\verb+merge+: Three-points branch (common ancestor + tips of the two branches)} 
+%        \item{\verb+rebase+: Compresses all the changes into a single “patch.” }
+%    \end{itemize}
+%
+%    \begin{center}
+%        \begin{figure}
+%            \subfloat[Merge]{
+%                \includegraphics[scale=0.3]{img/git-merge-1.png}
+%                \label{git-merge}
+%            }
+%            \hspace{3em}
+%            \subfloat[Rebase]{
+%                \includegraphics[scale=0.3]{img/git-merge-2.png}
+%                \label{git-rebase}
+%            }
+%            \caption{Merging versus rebasing}
+%        \end{figure}
+%    \end{center}
+%
+%    \tiny Source: \url{https://git-scm.com/book/fr/v1/Les-branches-avec-Git-Rebaser}
+%
+%\end{frame}
+%
+%\begin{frame}
+%    \frametitle{Git workflows} % Table of contents slide, comment this block out to remove it
+%    There are several ways to use Git branches (we talk about \textbf{workflows}). 
+%
+%    \begin{itemize}
+%        \item \emph{Centralized workflow}: one main branch, everyone commit in the same place.
+%        \item \emph{Feature Branch Workflow}: developments are made in dedicated branches (feature branches), which are regularly merged into the master one.
+%        \item \textbf{\textit{Gitflow Workflow}}: Strict branching model designed around the project release.
+%    \end{itemize}
+%
+%    \tiny Source: \url{https://www.atlassian.com/git/tutorials/comparing-workflows}
+%
+%\end{frame}
+%
+%\begin{frame}[fragile]{GitFlow branches}
+%
+%    GitFlow workflow contains two main branches:
+%    \begin{itemize}
+%        \item{\verb+master+: official release history. Branch which is shared to the world!}
+%        \item{\verb+develop+: integration branch for features}
+%    \end{itemize}
+%
+%    It also contains additional temporal branches:
+%    \begin{itemize}
+%        \item{\verb+feature+: feature branches (one for each new feature to add to the code)}
+%        \item{\verb+release+: branch created when enough features have been added (new version of the code) to develop}
+%        \item{\verb+hotfix+: branch for maintenance and bug correction of the production release}
+%    \end{itemize}
+%
+%\end{frame}
+%
+%\begin{frame}{In summary...}
+%
+%    \begin{center}
+%        \includegraphics[scale=0.5]{img/05-_2_.pdf}    
+%    \end{center}
+%    
+%    \tiny Source: \url{https://www.atlassian.com/git/tutorials/comparing-workflows}
+%
+%\end{frame}    
+%
+%
+%\begin{frame}
+%    \frametitle{Thanks for your attention} % Table of contents slide, comment this block out to remove it
+%
+%            \begin{center}
+%                \textbf{Now, let's crack on it!}\\
+%                \vspace{2em}
+%
+%                \includegraphics[scale=0.55]{img/funny.jpg}\\
+%                \vspace{1em}
+%                \tiny Source: \url{https://www.pinterest.fr/pin/447263806724736402/}
+%            \end{center}
+%\end{frame}
+%
+%\begin{frame}
+%    \frametitle{This is the end} % Table of contents slide, comment this block out to remove it
+%
+%            \begin{center}
+%                
+%                \includegraphics[scale=0.15]{img/that_s_all_folks.png}\\
+%                \vspace{1em}
+%                \tiny Source: \url{poshpete117.deviantart.com/journal/Thats-All-Folks-427323458/}
+%            \end{center}
+%\end{frame}
 
 
 
