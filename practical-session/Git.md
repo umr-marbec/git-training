@@ -2,6 +2,10 @@
 
 The aim of the current session is to learn how to work on GitHub.
 
+# Create an authentification token
+
+https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
+
 # Creation of a repository
 
 Create a `git-class` repository on your personal account following the given [steps](https://github.com/umr-marbec/git-training/tree/master/github)
