@@ -91,18 +91,18 @@ Criscely Luj\'{a}n\inst{1,2}\\
     \end{center}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Version control}
-
-    Also known as \textbf{revision control} or \textbf{source control}, it is the management of changes in: \hfill
-
-    \begin{itemize}
-        \item documents
-        \item computer programs
-        \item large web sites
-        \item other collections of information ...
-    \end{itemize}
-\end{frame}
+%\begin{frame}
+%    \frametitle{Version control}
+%
+%    Also known as \textbf{revision control} or \textbf{source control}, it is the management of changes in: \hfill
+%
+%    \begin{itemize}
+%        \item documents
+%        \item computer programs
+%        \item large web sites
+%        \item other collections of information ...
+%    \end{itemize}
+%\end{frame}
 
 
 \begin{frame}
@@ -134,18 +134,25 @@ Source: \url{https://en.wikipedia.org/wiki/List_of_version-control_software}
 \end{frame}
 
 \begin{frame}[fragile]
-    \frametitle{Why use \includegraphics[height=12pt]{img/git_logo.png}}
+    \frametitle{Why use \includegraphics[height=12pt]{img/git_logo.png}?}
     \begin{itemize}
+        \item { \textbf{Distributed}
+            \begin{itemize}
+                \item[$-$]{Work online and offline}
+                \item[$-$]{Collaborate with large groups}
+                \item[$-$]{Fast}
+            \end{itemize}
+		}         
         \item{ \textbf{Popular and successful}
             \begin{itemize}
                 \item[$-$]{Active development}
             \end{itemize}
             }
  
-        \item{ \textbf{Tracks any type of file}
+        \item{ \textbf{Tracks any type of files}
             \begin{itemize}
-                \item[$-$]{Works best with text (\verb+.html+, \verb+.tex+, \verb+.R+, \verb+.c+, \verb+.f90+)}
-                \item[$-$]{Large files with \href{https://git-lfs.github.com/}{Git-LFS}}
+                \item[$-$]{Works best with ASCII files (\verb+.html+, \verb+.tex+, \verb+.R+, \verb+.c+, \verb+.f90+)}
+                \item[$-$]{Large binary files with \href{https://git-lfs.github.com/}{Git-LFS} (\verb+.nc+, \verb+.Rdata+, \verb+.mat+, \verb+.csv+)}
             \end{itemize}
             }
 
@@ -156,13 +163,6 @@ Source: \url{https://en.wikipedia.org/wiki/List_of_version-control_software}
             \end{itemize}
         }
         
-        \item { \textbf{Distributed}
-            \begin{itemize}
-                \item[$-$]{Work online and offline}
-                \item[$-$]{Collaborate with large groups}
-                \item[$-$]{Fast}
-            \end{itemize}
-		}         
        
     \end{itemize}
 \end{frame}
@@ -193,48 +193,48 @@ Several web-based hosting services are available:
 
 Why use \includegraphics[height=20pt]{img/GitHub-Mark-120px-plus.png}  ?
 \begin{itemize}
-\item[$-$]{Free (and improved accounts for education)}
+\item[$-$] Facilitates worldwide collaboration (no need of institional accounts)
 \item[$-$]{Largest host of source code in the world}
+\item[$-$]{Free (and improved accounts for education)}
 \item[$-$]{Association with Zenodo, Overleaf, LFS, CRAN, PyPI}
 \item[$-$]{Continuous integration (\href{https://github.com/features/actions}{GitHub Actions})}
 \item[$-$]{Institutions (\href{https://github.com/umr-marbec}{Marbec!})}
 \item[$-$]{Hosting personal websites}
 \item[$-$]{Possibility to provide feedbacks (\href{https://docs.github.com/en/github/managing-your-work-on-github/about-issues}{GitHub issues})}
-\item[$-$] Facilitates worldwide collaboration (no need of CRU accounts)
 \end{itemize}
 
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{Git clients}
-
-	\begin{block}{What are Git clients?}
-    IDEs (Integrated Development Environments) to make the experience more pleasant providing a richer visual representation.\\
-    \end{block}
-    \hfill
-
-Some examples:
-\href{https://www.sourcetreeapp.com/}{SourceTreen}, 
-\href{https://www.gitkraken.com/}{GitKraken},
-\href{https://gitup.co/}{GitUp},
-\href{https://www.syntevo.com/smartgit/}{SmartGit}, 
-\href{https://git-cola.github.io/}{git-cola}, 
-\href{https://tortoisegit.org/}{TortoiseGit},
-\href{https://www.rstudio.com/}{RStudio},
-\href{https://code.visualstudio.com/}{VSCode},
-\href{https://netbeans.apache.org/}{NetBeans}\\
-
-\hfill
-
-\begin{alertblock}{Warning!}
-Clients manipulate Git commands (\verb+commit+ , \verb+add+, ...) but in a \emph{hidden} way. 
-Make sure it does the right thing.
-\end{alertblock}
-\hfill
-
-\textbf{In the following, command lines (low level) will be used...}
-
-\end{frame}
+%\begin{frame}[fragile]
+%    \frametitle{Git clients}
+%
+%	\begin{block}{What are Git clients?}
+%    IDEs (Integrated Development Environments) to make the experience more pleasant providing a richer visual representation.\\
+%    \end{block}
+%    \hfill
+%
+%Some examples:
+%\href{https://www.sourcetreeapp.com/}{SourceTreen}, 
+%\href{https://www.gitkraken.com/}{GitKraken},
+%\href{https://gitup.co/}{GitUp},
+%\href{https://www.syntevo.com/smartgit/}{SmartGit}, 
+%\href{https://git-cola.github.io/}{git-cola}, 
+%\href{https://tortoisegit.org/}{TortoiseGit},
+%\href{https://www.rstudio.com/}{RStudio},
+%\href{https://code.visualstudio.com/}{VSCode},
+%\href{https://netbeans.apache.org/}{NetBeans}\\
+%
+%\hfill
+%
+%\begin{alertblock}{Warning!}
+%Clients manipulate Git commands (\verb+commit+ , \verb+add+, ...) but in a \emph{hidden} way. 
+%Make sure it does the right thing.
+%\end{alertblock}
+%\hfill
+%
+%\textbf{In the following, command lines (low level) will be used...}
+%
+%\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Getting started}
