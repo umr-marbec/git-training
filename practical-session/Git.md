@@ -141,3 +141,47 @@ To resolve conflict, choose one of the `x` values and remove all the conflict sy
 Validate the manual merging by typing `git add README.md` and `git commit`. Push to the remote repository.
 
 **Warning: resolving conflicts is error prone! This can be avoided by regular push/pull**
+
+# Branches
+
+Create a branch that derivates from master as follows:
+
+```
+git checkout -b develop
+```
+
+Check using `git branch -vv`
+
+Do some commits in that branch.
+
+Try to push. It fails since the branch does not exist remotely. Create the remote branch by using
+
+```
+git push --set-upstream origin develop
+```
+
+and check using `git branch -vv`
+
+Merge the `develop` branch into `master` as follows:
+
+```
+git checkout master
+git merge develop
+```
+
+Check using `git branch -vv`
+
+Push to `master`
+
+Remove the `develop` branch *locally*:
+
+```
+git branch -d develop
+git branch -vv
+```
+
+Now delete the branch *remotely*
+
+```
+git push origin --delete develop
+```
