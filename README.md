@@ -16,6 +16,7 @@ The target audience is not only researchs that works around the use and developi
 - [Introduction to Git LFS](git-lfs)
 - [Introduction to GitHub](github)
 - [Introduction to GitHub Pages](github-pages)
+- [Introduction to GitHub Actions](github-actions)
 - Practical sessions:
    - [Git](practical-session/Git.md)
    - [Git flow](practical-session/GitFlow.md)
