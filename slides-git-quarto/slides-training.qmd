@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Git"
+title: "Introduction to Version Control and Git"
 author: 
     - name: "Nicolas Barrier"
     - name: Criscely Lujan-Paredes
@@ -9,41 +9,57 @@ format:
         multiplex: true
 ---
 
-## What is Git?
+## What is version control?
 
-Git is a **version manager software** (also called version control) 
+Version Control Softwares (VCS, also known as Version Manager) allow to:
 
-Why is version control so important?
+<!-- ::: {.incremental} -->
 
-::: {.incremental}
-
-- Tracks changes (*commits*) over time
-    - Who? When? What change?    
-- Saves snapshots of a project (*tags*)
-    - Highlight critical stages of a project (new versions)
-- Creates derivates of a project (*branches*)
-- Facilitates collaboration among multiple users
+- Track changes (*commits*) of a project from the very beginning
+    - Who? When? What changes?    
+- Save snapshots of a project (*tags*)
+    - Highlight critical stages (new versions for instance)
+- Create derivates of a project (*branches*)
 - Eventually go back in time
+
+<!-- ::: -->
+
+## In other words...
+
+::: {layout-ncol=2 layout-valign="bottom"}
+
+![Without VCS](../presentation_gitTraining/img/phd_comics.png){#fig-version-1 width=350} 
+
+![With VCS](../presentation_gitTraining/img/git-flow.jpg){#fig-version-2 width=600}
+
 
 :::
 
-##
+## Other advantages of VCS
 
-![](presentation_gitTraining/img/phd_comics.png){fig-align="center" fig-alt="Reasons to use Version Manager"}
+In addition, VCS allow to:
+
+- Save a project remotely (GitHub, Gitlab, etc.)
+    - Synchronization with different computers (laptop, HPCs)
+- Share a project (codes, packages) with the community
+    - Reproducible science
+- Facilitate working organization
+    - One project (paper, package) = one repository
+    - Folder organization (sources, doc, data, etc.)
+    
+Source: UMR AMAP - Atelier MAIA P3M - Introduction à GIT - 04/04/2019
 
 ## Why use Git?
 
-Several version manager software exist (cf. [Wikipedia](https://en.wikipedia.org/wiki/List_of_version-control_software)). So why use Git?
+Several version control software exist (cf. [Wikipedia](https://en.wikipedia.org/wiki/List_of_version-control_software)). So why use ![](../presentation_gitTraining/img/git_logo.png){height=35 fig-align="center" layout-valign="center" .inline-image} ?
 
-- Distributed
-    - Work online and offline
-    - Collaborate with large groups
-    - Fast
+
+
 - Popular and successful
-    - Active development
+- Works offline (contrary to SVN)
+- Branching capabilities
+    - Cheap and easy to merge
+    - Even more so with the [Git-Flow](https://git-flow.readthedocs.io/fr/latest/index.html) extension
 - Tracks any type of files
-    - Works best with ASCII files (`.html`, `.tex`, `.R`, `.c`, `.f90`)
-    - Large binary files with [Git-LFS](https://git-lfs.github.com/) (`.nc`, `.Rdata`, `.mat`, `.csv`)
-- Branching
-    - Smarter merges
-    - Easy code management with [Git-Flow](https://git-flow.readthedocs.io/fr/latest/index.html)
+    - Works best with ASCII files (`.R`, `.py`, `.tex`)
+    - Large binary files with [Git-LFS](https://git-lfs.github.com/) (`.Rdata`, `.csv`, `.nc`) extension

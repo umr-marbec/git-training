@@ -3,18 +3,23 @@
 $presentation-font-smaller: 0.7 !default;
 $presentation-font-size-root: 30px !default;
 
+.inline-image{
+    margin: 0!important;
+    height: 30px;
+  }
+
 /*-- scss:rules --*/
 /*-- scss:defaults --*/
 
-// fonts
-@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
-@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap');
+// // fonts
+// @import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
+// @import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap');
 
-$font-family-sans-serif: "Atkinson Hyperlegible", sans-serif;
-$presentation-heading-color: #75AADB;
-$presentation-title-slide-text-align: "left";
-$link-color: #75AADB;
-$code-block-font-size: 0.9em;
+// $font-family-sans-serif: "Atkinson Hyperlegible", sans-serif;
+// $presentation-heading-color: #75AADB;
+// $presentation-title-slide-text-align: "left";
+// $link-color: #75AADB;
+// $code-block-font-size: 0.9em;
 
 // /*-- scss:rules --*/
 
