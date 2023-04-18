@@ -1,0 +1,49 @@
+---
+title: "Introduction to Git"
+author: 
+    - name: "Nicolas Barrier"
+    - name: Criscely Lujan-Paredes
+format:
+    revealjs:
+        theme: [custom.scss]
+        multiplex: true
+---
+
+## What is Git?
+
+Git is a **version manager software** (also called version control) 
+
+Why is version control so important?
+
+::: {.incremental}
+
+- Tracks changes (*commits*) over time
+    - Who? When? What change?    
+- Saves snapshots of a project (*tags*)
+    - Highlight critical stages of a project (new versions)
+- Creates derivates of a project (*branches*)
+- Facilitates collaboration among multiple users
+- Eventually go back in time
+
+:::
+
+##
+
+![](presentation_gitTraining/img/phd_comics.png){fig-align="center" fig-alt="Reasons to use Version Manager"}
+
+## Why use Git?
+
+Several version manager software exist (cf. [Wikipedia](https://en.wikipedia.org/wiki/List_of_version-control_software)). So why use Git?
+
+- Distributed
+    - Work online and offline
+    - Collaborate with large groups
+    - Fast
+- Popular and successful
+    - Active development
+- Tracks any type of files
+    - Works best with ASCII files (`.html`, `.tex`, `.R`, `.c`, `.f90`)
+    - Large binary files with [Git-LFS](https://git-lfs.github.com/) (`.nc`, `.Rdata`, `.mat`, `.csv`)
+- Branching
+    - Smarter merges
+    - Easy code management with [Git-Flow](https://git-flow.readthedocs.io/fr/latest/index.html)
