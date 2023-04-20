@@ -102,3 +102,13 @@ On `Git Bash` or in the Terminal, type:
 The first 2 lines define who you are (in order to know who modified the code).
 
 The last three lines specify Git aliases.
+
+## Git architecture
+
+![Git Architecture](../presentation_gitTraining/img/MgaV9.png){#fig-version-2 height=300}
+
+- `Workspace`: current state of your working directory
+- `Local repository`: contains the **local** history of your project
+- `Remote repository`: contains the **remote** history of your project
+
+<!-- Git commands allow to exchange information between these 3 components. -->
