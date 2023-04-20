@@ -24,7 +24,7 @@ Version Control Softwares (VCS, also known as Version Manager) allow to:
 
 <!-- ::: -->
 
-## In other words...
+## In short...
 
 ::: {layout-ncol=2 layout-valign="bottom"}
 
@@ -46,14 +46,14 @@ In addition, VCS allow to:
 - Facilitate working organization
     - One project (paper, package) = one repository
     - Folder organization (sources, doc, data, etc.)
+- Continuous integration
+    - Testing of your code when updates
     
 Source: UMR AMAP - Atelier MAIA P3M - Introduction à GIT - 04/04/2019
 
 ## Why use Git?
 
 Several version control software exist (cf. [Wikipedia](https://en.wikipedia.org/wiki/List_of_version-control_software)). So why use ![](../presentation_gitTraining/img/git_logo.png){height=35 fig-align="center" layout-valign="center" .inline-image} ?
-
-
 
 - Popular and successful
 - Works offline (contrary to SVN)
@@ -63,3 +63,42 @@ Several version control software exist (cf. [Wikipedia](https://en.wikipedia.org
 - Tracks any type of files
     - Works best with ASCII files (`.R`, `.py`, `.tex`)
     - Large binary files with [Git-LFS](https://git-lfs.github.com/) (`.Rdata`, `.csv`, `.nc`) extension
+- Possibility to use different remotes
+
+## Installing Git
+
+First, install Git. 
+
+**Windows and Mac**
+
+Download and install Git from [https://git-scm.com/downloads](https://git-scm.com/downloads).
+
+When done, open  `Git Bash`
+
+
+**Linux**
+
+Open a Terminal and type:
+
+`
+sudo apt install git git-lfs git-flow
+`
+
+## Git configuration
+
+On `Git Bash` or in the Terminal, type:
+
+`git config --global user.name "Nicolas Barrier"`
+
+`git config --global user.email "nicolas.barrier@ird.fr"`
+
+`git config --global alias.re "remote -vv"`
+
+`git config --global alias.br "branch -vv"`
+
+`git config --global alias.tree "log --all --decorate --oneline 
+--graph"`
+
+The first 2 lines define who you are (in order to know who modified the code).
+
+The last three lines specify Git aliases.
