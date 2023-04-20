@@ -112,3 +112,88 @@ The last three lines specify Git aliases.
 - `Remote repository`: contains the **remote** history of your project
 
 <!-- Git commands allow to exchange information between these 3 components. -->
+
+## Getting started
+
+- Create a folder called `training-git`. 
+- Right click on the folder and choose `Open in Git Bash` (Windows) or `Open in Terminal` (Linux/Mac). 
+- Type `ls -alrt`
+- Type `git init`
+- Type again `ls -alrt`. 
+
+A `.git` folder has appeared. It contains the `local` repository.
+
+- Type `git status` and `git log`
+
+## First commit
+
+- Now create a `README.md` file.
+- Type `git status`. 
+
+The `README.md` file is in the `Workspace` but not yet in the `Local repo.`
+
+- Type `git add README.md` and `git status`. 
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 1
+flowchart LR  
+  idw(Workspace) -->|git add| idi(Index)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef index remote:yellow,stroke:black,color:black
+
+class idw workspace;
+class idi index;
+```
+
+- Type `git commit -m "First commit"`
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 1
+flowchart LR  
+  idw(Index) -->|git commit| idl(Local)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef index remote:yellow,stroke:black,color:black
+
+class idw index;
+class idl local;
+```
+
+- Type `git status` and `git log`
+
+## Second commit and `git diff`
+
+- Open the `README.md` file and add the following lines:
+
+```
+# Readme for Git training
+```
+
+- Save the file
+
+- Type `git status`.
+- Type `git diff README.md`
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 1
+flowchart LR  
+  idw(Workspace) <-->|git diff| idl(Local)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef index remote:yellow,stroke:black,color:black
+
+class idw workspace;
+class idl local;
+```
+
+- Create a `LICENCE` file.
+- Type `git add LICENCE README.md`
+- Type `git commit -m "Second commit"`
+- Type `git log` and `git tree`
