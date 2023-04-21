@@ -202,14 +202,7 @@ gitGraph
 
 ## Second commit
 
-- Open the `README.md` file and add the following lines:
-
-```
-# Readme for Git training
-```
-
-- Save the file
-
+- Open the `README.md` file, add some lines and save the file
 - Type `git status`.
 - Type `git diff README.md`
 
@@ -245,10 +238,7 @@ gitGraph
 
 - Type `git checkout -b develop`
 - Type `git status`, `git br` and `git tree`
-- Open the `README.md` file and add the following lines:
-```
-## Git branch
-```
+- Open the `README.md` file, some text and save.
 - Then `git add README.md`
 - Type `git commit -m "3rd commit"`
 - Type `git br` and `git tree`
@@ -307,7 +297,7 @@ gitGraph
     merge develop
 ```
 
-The `merge` command puts the commits from the argument branch (here `develop`) and puts them into the current branch (here master).#
+The `merge` command puts the commits from the argument branch (here `develop`) and puts them into the current branch (here `main`).
 
 **Note that the merging creates another commit**
 
@@ -396,17 +386,17 @@ gitGraph
 
 For the difference between the `develop` and the `main` branch:
 
-`git diff develop master`
+`git diff develop main`
 
 You will see the text that has been added to the `LICENCE` file (4th commit)
 
-**Order matters: it shows what has been added to `master` branch compared to the `develop` branch**
+**Order matters: it shows what has been added to `main` branch compared to the `develop` branch**
 
 ```{mermaid}
 %%| fig-width: 10.5
 %%| fig-height: 1
 flowchart LR  
-  id1(Develop)-->|git diff| id2(Master)
+  id1(Develop)-->|git diff| id2(Main)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
 classDef local fill:lightgreen,stroke:black,color:black
@@ -417,7 +407,7 @@ class id1,id2 local;
 
 To compare with a given commit, find the index of the first commit. Then type:
 
-`git diff eb8fed1 master`
+`git diff eb8fed1 main`
 
 You will see the creation and filling of the `LICENCE` text and the filling of the `README.md` file.
 
@@ -425,7 +415,7 @@ You will see the creation and filling of the `LICENCE` text and the filling of t
 %%| fig-width: 10.5
 %%| fig-height: 1
 flowchart LR  
-  id1(eb8fed1)-->|git diff| id2(Master)
+  id1(eb8fed1)-->|git diff| id2(Main)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
 classDef local fill:lightgreen,stroke:black,color:black
@@ -433,6 +423,19 @@ classDef remote fill:yellow,stroke:black,color:black
 
 class id1,id2 local;
 ```
+
+## Deleting a branch
+
+- Type `git checkout main`
+- Type `git branch -d develop`
+- Type `git br`
+- Type `git branch -d feat-com`
+
+An error occurs! The suppression of `feat-com` implies the loss of the `6th` and `Rev. 6th` commits! To force the suppression, use `-D` instead of `-d`.
+
+- Type `git branch -D feat-com`
+
+Note: suppression of `develop` was ok because the content of commit `3rd` is included in the merge.
 
 ## Sources
 
