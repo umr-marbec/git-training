@@ -9,16 +9,15 @@ format:
         multiplex: true
 ---
 
-## What is version control?
-
-Version Control Softwares (VCS, also known as Version Manager) allow to:
+## What are version control softwares (VCS)?
 
 <!-- ::: {.incremental} -->
 
 - Track changes (*commits*) of a project from the very beginning
     - Who? When? What changes?    
-- Save snapshots of a project (*tags*)
-    - Highlight critical stages (new versions for instance)
+- Highlight specific moments in the project (*tags*)
+    - New version of a code
+    - Submitted, revised version of a paper
 - Create derivates of a project (*branches*)
 - Eventually go back in time
 
@@ -37,8 +36,6 @@ Version Control Softwares (VCS, also known as Version Manager) allow to:
 
 ## Other advantages of VCS
 
-In addition, VCS allow to:
-
 - Save a project remotely (GitHub, Gitlab, etc.)
     - Synchronization with different computers (laptop, HPCs)
 - Share a project (codes, packages) with the community
@@ -49,8 +46,6 @@ In addition, VCS allow to:
 - Continuous integration
     - Testing of your code when updates
     
-Source: UMR AMAP - Atelier MAIA P3M - Introduction à GIT - 04/04/2019
-
 ## Why use Git?
 
 Several version control software exist (cf. [Wikipedia](https://en.wikipedia.org/wiki/List_of_version-control_software)). So why use ![](../presentation_gitTraining/img/git_logo.png){height=35 fig-align="center" layout-valign="center" .inline-image} ?
@@ -64,10 +59,10 @@ Several version control software exist (cf. [Wikipedia](https://en.wikipedia.org
     - Works best with ASCII files (`.R`, `.py`, `.tex`)
     - Large binary files with [Git-LFS](https://git-lfs.github.com/) (`.Rdata`, `.csv`, `.nc`) extension
 - Possibility to use different remotes
+    - Private/Public
+    - Commercial/Institutionnal
 
 ## Installing Git
-
-First, install Git. 
 
 **Windows and Mac**
 
@@ -78,7 +73,7 @@ When done, open  `Git Bash`
 
 **Linux**
 
-Open a Terminal and type:
+Open a `Terminal` window and type:
 
 `
 sudo apt install git git-lfs git-flow
@@ -86,11 +81,13 @@ sudo apt install git git-lfs git-flow
 
 ## Git configuration
 
-On `Git Bash` or in the Terminal, type:
+On `Git Bash` or in the `Terminal`, type:
 
 `git config --global user.name "Nicolas Barrier"`
 
 `git config --global user.email "nicolas.barrier@ird.fr"`
+
+These two lines identify you when you update the project.
 
 `git config --global alias.re "remote -vv"`
 
@@ -99,17 +96,44 @@ On `Git Bash` or in the Terminal, type:
 `git config --global alias.tree "log --all --decorate --oneline 
 --graph"`
 
-The first 2 lines define who you are (in order to know who modified the code).
-
-The last three lines specify Git aliases.
+These three lines are shortcuts for usefull commands (like a project graph)
 
 ## Git architecture
 
-![Git Architecture](../presentation_gitTraining/img/MgaV9.png){#fig-version-2 height=300}
+<!-- ![Git Architecture](../presentation_gitTraining/img/MgaV9.png){#fig-version-2 height=300} -->
 
-- `Workspace`: current state of your working directory
-- `Local repository`: contains the **local** history of your project
-- `Remote repository`: contains the **remote** history of your project
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 2
+flowchart LR
+    idw(Workspace)
+    idi(Index)
+    idl(Local)
+    idr(Remote)
+    
+    idw -->|git add| idi
+    idi -->|git commit| idl
+    idl -->|git push| idr
+    idr --->|git pull| idw
+    idr --->|git fetch| idl
+    
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+    
+```
+
+- `Workspace`: current state of your working directory (your computer)
+- `Local`: contains the **local** history of your project
+- `Remote`: contains the **remote** history of your project
+- `Index`: a buffer between the `Workspace` and the `Local Repository`
 
 <!-- Git commands allow to exchange information between these 3 components. -->
 
@@ -136,13 +160,13 @@ The `README.md` file is in the `Workspace` but not yet in the `Local repo.`
 
 ```{mermaid}
 %%| fig-width: 10.5
-%%| fig-height: 1
+%%| fig-height: 0.8
 flowchart LR  
   idw(Workspace) -->|git add| idi(Index)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
 classDef local fill:lightgreen,stroke:black,color:black
-classDef index remote:yellow,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
 
 class idw workspace;
 class idi index;
@@ -152,19 +176,28 @@ class idi index;
 
 ```{mermaid}
 %%| fig-width: 10.5
-%%| fig-height: 1
+%%| fig-height: 0.8
 flowchart LR  
   idw(Index) -->|git commit| idl(Local)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
 classDef local fill:lightgreen,stroke:black,color:black
-classDef index remote:yellow,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
 
 class idw index;
 class idl local;
 ```
 
 - Type `git status` and `git log`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+   commit id: "1st"
+```
+
 
 ## Second commit and `git diff`
 
@@ -187,7 +220,7 @@ flowchart LR
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
 classDef local fill:lightgreen,stroke:black,color:black
-classDef index remote:yellow,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
 
 class idw workspace;
 class idl local;
@@ -197,3 +230,18 @@ class idl local;
 - Type `git add LICENCE README.md`
 - Type `git commit -m "Second commit"`
 - Type `git log` and `git tree`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "1st"
+    commit id: "2nd"
+```
+
+
+## Sources
+
+- Plateau bioinformatique, Montpellier: Formation Git(Lab) (05/04/2018)
+- UMR AMAP (Atelier MAIA P3M), Montpellier: Introduction à GIT (04/04/2019)
