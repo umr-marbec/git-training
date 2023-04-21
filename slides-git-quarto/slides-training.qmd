@@ -192,14 +192,15 @@ class idl local;
 
 ```{mermaid}
 %%| fig-width: 10
-%%| fig-height: 1
+%%| fig-height: 1   
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
    commit id: "1st"
 ```
 
+`HEAD` is a special pointer that shows your "location" on the project.
 
-## Second commit and `git diff`
+## Second commit
 
 - Open the `README.md` file and add the following lines:
 
@@ -240,6 +241,198 @@ gitGraph
     commit id: "2nd"
 ```
 
+## Creating branches
+
+- Type `git checkout -b develop`
+- Type `git status`, `git br` and `git tree`
+- Open the `README.md` file and add the following lines:
+```
+## Git branch
+```
+- Then `git add README.md`
+- Type `git commit -m "3rd commit"`
+- Type `git br` and `git tree`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 2
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "1st"
+    commit id: "2nd"
+    branch develop
+    commit id: "3rd"
+```
+
+## Switching branch
+
+- Type `git checkout main` (or `git checkout master`)
+- Type `git br`
+- Open the `LICENCE` file and add some text in it
+- Type `git add LICENCE`
+- Type `git commit -m "Fourth commit"`
+- Type `git tree`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 2
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "1st"
+    commit id: "2nd"
+    branch develop
+    checkout develop
+    commit id: "3rd"
+    checkout main
+    commit id: "4th"
+```
+
+## Merging branches
+
+- On the `main` branch, type `git merge develop -m "merge-develop"`
+- Type `git log` and `git tree`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 2
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "1st"
+    commit id: "2nd"
+    branch develop
+    checkout develop
+    commit id: "3rd"
+    checkout main
+    commit id: "4th"
+    merge develop
+```
+
+The `merge` command puts the commits from the argument branch (here `develop`) and puts them into the current branch (here master).#
+
+**Note that the merging creates another commit**
+
+## Creating branch from another branch
+
+- Type `git checkout -b feature develop`
+- Create a `script.R` file
+- Type `git add script.R`
+- Type `git commit -m "Fifth commit"`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 3
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "1st"
+    commit id: "2nd"
+    branch develop
+    checkout develop
+    commit id: "3rd"
+    checkout main
+    commit id: "4th"
+    merge develop
+    checkout develop
+    branch feature
+    commit id: "5th"
+```
+
+## Creating branch from a commit
+
+- Identify the number of your 2nd commit using `git log`
+- Type `git checkout -b feat-com 1831e4e` replacing `1831e4e` by the commit ID.
+- Create a `script.py` file
+- Type `git add script.py`
+- Type `git commit -m "Sixth commit"`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 4
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "1st"
+    commit id: "2nd"
+    branch feat-com
+    branch develop
+    checkout develop
+    commit id: "3rd"
+    checkout main
+    commit id: "4th"
+    merge develop
+    checkout develop
+    branch feature
+    commit id: "5th"
+    checkout feat-com
+    commit id: "6th"
+```
+
+## Reverting a commit
+
+- Identify the id of the most recent commit using `git log`
+- Type `git revert def79c1` (replace `def79c1` by your commit id)
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 4
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "1st"
+    commit id: "2nd"
+    branch feat-com
+    branch develop
+    checkout develop
+    commit id: "3rd"
+    checkout main
+    commit id: "4th"
+    merge develop
+    checkout develop
+    branch feature
+    commit id: "5th"
+    checkout feat-com
+    commit id: "6th"
+    commit id: "Rev. 6th" type: REVERSE
+```
+
+## Differences between commits/branches
+
+For the difference between the `develop` and the `main` branch:
+
+`git diff develop master`
+
+You will see the text that has been added to the `LICENCE` file (4th commit)
+
+**Order matters: it shows what has been added to `master` branch compared to the `develop` branch**
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 1
+flowchart LR  
+  id1(Develop)-->|git diff| id2(Master)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class id1,id2 local;
+```
+
+To compare with a given commit, find the index of the first commit. Then type:
+
+`git diff eb8fed1 master`
+
+You will see the creation and filling of the `LICENCE` text and the filling of the `README.md` file.
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 1
+flowchart LR  
+  id1(eb8fed1)-->|git diff| id2(Master)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class id1,id2 local;
+```
 
 ## Sources
 
