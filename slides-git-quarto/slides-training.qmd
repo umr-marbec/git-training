@@ -367,7 +367,7 @@ Back to `Terminal` or `Git Bash`.
 - Eventually, rename your **local** branch using `git branch -M master`
 - Type `git push -u origin master`
 
-Check your GitHub repository
+Have a look at your GitHub repository
 
 - Type `git push --tags`
 
