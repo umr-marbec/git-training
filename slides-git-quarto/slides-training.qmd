@@ -2,10 +2,12 @@
 title: "Introduction to Version Control and Git"
 author: 
     - name: "Nicolas Barrier"
+    - name: Witold Podlejski
     - name: Criscely Lujan-Paredes
 format:
     revealjs:
         theme: [custom.scss]
+        multiplex: true
 ---
 
 ## What are version control softwares (VCS)?
@@ -101,30 +103,23 @@ flowchart LR
     idw(Workspace)
     idi(Index)
     idl(Local)
-    idr(Remote)
     
     idw -->|git add| idi
     idi -->|git commit| idl
-    idl -->|git push| idr
-    idr --->|git pull| idw
-    idr --->|git fetch| idl
     
     classDef workspace fill:lightgray,stroke:black,color:black
     classDef index fill:lightblue,stroke:black,color:black
     classDef local fill:lightgreen,stroke:black,color:black
-    classDef remote fill:yellow,stroke:black,color:black
 
     class idw workspace;
     class idi index;
     class idl local;
-    class idr remote;
     
 ```
 
 - `Workspace`: current state of your working directory (your computer)
 - `Local`: contains the **local** history of your project
 - `Index`: a buffer between the `Workspace` and the `Local` repository
-- `Remote`: contains the **remote** history of your project
 
 <!-- Git commands allow to exchange information between these 3 components. -->
 
@@ -146,7 +141,7 @@ A `.git` folder has appeared. It contains the `local` repository.
 
 The `README.md` file is in the `Workspace` but not yet in the `Local repo.`
 
-- Type `git add README.md` and `git status`. 
+- Type `git add README.md` and `git status`
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -186,10 +181,7 @@ class idl local;
 gitGraph
    commit id: "0f0e96a"
 ```
-<!-- 
-:::{.callout-note}
-`HEAD` is a special pointer that shows your "location" on the project.
-::: -->
+
 
 
 ## Second commit
@@ -202,7 +194,7 @@ gitGraph
 %%| fig-width: 10.5
 %%| fig-height: 1
 flowchart LR  
-  idw(Workspace) <-->|git diff| idl(Local)
+  idw(Local) -->|git diff| idl(Workspace)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
 classDef local fill:lightgreen,stroke:black,color:black
@@ -226,11 +218,187 @@ gitGraph
     commit id: "c6dc2bc"
 ```
 
+## Creating tags
+
+- Open the `README.md` file and add `## Version v1.0.0`.
+- Open the `data.csv` file and add `2022,26.8,SkipJack`
+- Type `git add data.csv README.md`
+- Type `git commit -m "Fourth commit"`
+- Type `git tag v1.0.0` and `git status`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1.5
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0"
+```
+
+- Type `git tag` to list all existing tags
+
+- Type `git checkout v1.0.0` and `git status`
+
+- Type `git checkout main`
+
+## Ignoring files
+
+It is possible to tell Git to ignore some files (`.Rhistory`, `.log`, etc.)
+
+- Create an empty `output.log` file.
+- Type `git status`
+- Create a `.gitignore` file and add `output.log`
+- Type again `git status`
+
+The `output.log` file does not appear as an `Untracked file` anymore
+
+- Type `git add .gitignore` and `git status`
+- Type `git commit -m "Fifth commit"`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1.5
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0"
+    commit id: "9670a59"
+```
+
+## Display differences
+
+- Type `git diff 0f0e96a v1.0.0` $\rightarrow$ compares a commit and a tag.
+
+:::{.callout-warning}
+Order matters when using `git diff`. Differences are shown with the reference state considered to be the first argument.
+:::
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 0.75
+flowchart LR  
+  id1(0f0e96a)-->|git diff| id2(v1.0.0)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class id1,id2 local;
+```
+
+- Type `git diff 0f0e96a c6dc2bc` $\rightarrow$ compares two commits.
+
+- Type `git diff 0f0e96a HEAD` $\rightarrow$ compares where you are in the history (`HEAD`) with a given commit.
+ 
+:::{.callout-tip}
+`HEAD` is a symbolic reference pointing to wherever you are in your commit history, as shown in `git log`
+:::
+
+
+## Other advantages of Git
+
+- Save a project remotely (GitHub, Gitlab, etc.)
+    - Synchronization with different computers (laptop, HPCs)
+- Share a project (codes, packages) with the community
+    - Reproducible science
+    
+To do that, we need to take into account a $4^{th}$ component in the Git architecture: the `Remote` repository.
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 2
+flowchart LR
+    idw(Workspace)
+    idi(Index)
+    idl(Local)
+    idr(Remote)
+    
+    idw -->|git add| idi
+    idi -->|git commit| idl
+    idl -->|git push| idr
+    idr --->|git pull| idw
+    idr --->|git fetch| idl
+    
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+    
+```
+
+- `Remote`: contains a **remote** version of the history of your project
+
+## Remote hosts
+
+There are several remote hosting possibilities:
+
+**Commercial hosts**:
+
+- GitHub: [https://github.com/](https://github.com/)
+- GitLab: [https://gitlab.com/](https://gitlab.com/)
+
+**Institutional hosts**:
+
+- GitLab IRD: [https://forge.ird.fr/](https://forge.ird.fr/)
+- GitLab Ifremer [https://gitlab.ifremer.fr/](https://gitlab.ifremer.fr/)
+
+In the following, we will use GitHub
+
+## Creation of a remote repository
+
+- On your GitHub page, click on `Repositories`
+- Click on the the green `New` button
+- Set `training-git` as the name of your remote repository. Leave the other fields empty
+
+ ![](../presentation_gitTraining/img/github_makeRepo.png){height=450 fig-align="center" layout-valign="center"}
+
+## Update of the remote
+
+Back to `Terminal` or `Git Bash`.
+
+- Type `git remote add origin https://github.com/barriern/training-git.git` (replacing by your GitHub login)
+- Eventually, rename your **local** branch using `git branch -M master`
+- Type `git push -u origin master`
+
+Check your GitHub repository
+
+- Type `git push --tags`
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 1
+flowchart LR
+
+    idl(Local)
+    idr(Remote)
+    
+    idl -->|git push| idr
+    
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+    
+```
+
+
 ## Large file storage
 
-To version (reasonably) large files ($\approx ~100$ Mo), you can use Git with [LFS](https://git-lfs.github.com/) extension.
+To version (reasonably) large files ($\approx ~100$ Mo, like images or data samples) $\rightarrow$ Git with [LFS](https://git-lfs.github.com/) extension.
 
-- Type `git lfs install` to activate the extension (to do after the installation)
+- Type `git lfs install` to activate the extension 
 - Create a `data.csv` file and add `Year,Size,Species`
 - Type `git lfs track "*.csv"`
 
@@ -246,87 +414,11 @@ A `.gitattributes` file has appeared, which list all the files managed by Git LF
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
-    commit id: "bd9db51"
 ```
 
-## Update files and creating `tags`
 
-- Open the `README.md` file and add `## Version v1.0.0`.
-- Open the `data.csv` file and add `2022,26.8,SkipJack`
-- Type `git add data.csv README.md`
-- Type `git commit -m "Fourth commit"`
-- Type `git tags v1.0.0`
-
-```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 1.5
-%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
-gitGraph
-    commit id: "0f0e96a"
-    commit id: "c6dc2bc"
-    commit id: "bd9db51"
-    commit id: "07e8835" tag: "v1.0.0"
-```
-
-## Other advantages of Git
-
-- Save a project remotely (GitHub, Gitlab, etc.)
-    - Synchronization with different computers (laptop, HPCs)
-- Share a project (codes, packages) with the community
-    - Reproducible science
+## Going further...
     
-<!-- - Facilitate working organization
-    - One project (paper, package) = one repository
-    - Folder organization (sources, doc, data, etc.)
-- Continuous integration
-    - Testing of your code when updates -->
-
-
-## Differences between commits/branches
-
-- Type `git diff develop main`
-
-:::{.notes}
-You will see the text that has been added to the `LICENCE` file (4th commit)
-:::
-
-:::{.callout-warning}
-Order matters: it shows what has been added to `main` branch compared to the `develop` branch
-:::
-
-
-```{mermaid}
-%%| fig-width: 10.5
-%%| fig-height: 0.75
-flowchart LR  
-  id1(Develop)-->|git diff| id2(Main)
-classDef workspace fill:lightgray,stroke:black,color:black
-classDef index fill:lightblue,stroke:black,color:black
-classDef local fill:lightgreen,stroke:black,color:black
-classDef remote fill:yellow,stroke:black,color:black
-
-class id1,id2 local;
-```
-
-- Type `git diff eb8fed1 main`, replacing `eb8fed1` by the id of the 0f0e96a commit.
-
-:::{.notes}
-You will see the creation and filling of the `LICENCE` text and the filling of the `README.md` file.
-:::
-
-```{mermaid}
-%%| fig-width: 10.5
-%%| fig-height: 0.75
-flowchart LR  
-  id1(eb8fed1)-->|git diff| id2(Main)
-classDef workspace fill:lightgray,stroke:black,color:black
-classDef index fill:lightblue,stroke:black,color:black
-classDef local fill:lightgreen,stroke:black,color:black
-classDef remote fill:yellow,stroke:black,color:black
-
-class id1,id2 local;
-```
-
 ## Creating branches
 
 - Type `git checkout -b develop`
@@ -353,7 +445,7 @@ gitGraph
 - Type `git br`
 - Open the `LICENCE` file and add some text in it
 - Type `git add LICENCE`
-- Type `git commit -m "Fourth commit"`
+- Type `git commit -m "Third commit"`
 - Type `git tree`
 
 ```{mermaid}
@@ -401,7 +493,7 @@ During the merging process, another commit is created
 - Type `git checkout -b feature develop`
 - Create a `script.R` file
 - Type `git add script.R`
-- Type `git commit -m "Fifth commit"`
+- Type `git commit -m "Fourth commit"`
 
 ```{mermaid}
 %%| fig-width: 10
@@ -448,6 +540,38 @@ gitGraph
     checkout feat-com
     commit id: "6th"
 ```
+
+## Differences between branches
+
+- Type `git diff develop main`
+
+:::{.notes}
+You will see the text that has been added to the LICENCE file (4th commit)
+:::
+
+:::{.callout-warning}
+Order matters: it shows what has been added to `main` branch compared to the `develop` branch
+:::
+
+<!-- - Facilitate working organization
+    - One project (paper, package) = one repository
+    - Folder organization (sources, doc, data, etc.)
+- Continuous integration
+    - Testing of your code when updates -->
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 0.75
+flowchart LR  
+  id1(Develop)-->|git diff| id2(Main)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class id1,id2 local;
+```
+
 
 ## Deleting a branch
 

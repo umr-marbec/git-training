@@ -6,7 +6,7 @@ git init
 
 touch README.md
 git add README.md
-git commit -m "First Commit"
+git commit -m "First commit"
 
 # Second commit
 echo "# Readme of git training" >> README.md
@@ -34,6 +34,30 @@ echo "## Version v1.0.0" >> README.md
 git add data.csv README.md
 git commit -m "Fourth commit"
 git tag "v1.0.0"
+git checkout v1.0.0
+git status
+git checkout master
+
+# ignoring files
+
+touch output.log
+git status
+echo "output.log" >> .gitignore
+git status
+git add .
+git commit -m "Fifth commit"
+
+# Checking diff
+
+commit=`git tree | grep "First commit" | sed "s/First commit//" | sed "s/(HEAD -> master)"// | sed "s/\*//"`
+echo " +++++++++++++++++++++++++++++++++++++ $commit"
+echo git diff $commit HEAD
+echo git diff $commit v1.0.0
+
+commit2=`git tree | grep "Second commit" | sed "s/Second commit//" | sed "s/(HEAD -> master)"// | sed "s/\*//"`
+echo git diff $commit $commit2
+
+#################################################################################################################
 
 exit
 
