@@ -6,7 +6,6 @@ author:
 format:
     revealjs:
         theme: [custom.scss]
-        multiplex: true
 ---
 
 ## What are version control softwares (VCS)?
@@ -33,20 +32,8 @@ format:
 
 
 :::
-
-## Other advantages of VCS
-
-- Save a project remotely (GitHub, Gitlab, etc.)
-    - Synchronization with different computers (laptop, HPCs)
-- Share a project (codes, packages) with the community
-    - Reproducible science
-- Facilitate working organization
-    - One project (paper, package) = one repository
-    - Folder organization (sources, doc, data, etc.)
-- Continuous integration
-    - Testing of your code when updates
     
-## Why use Git?
+<!-- ## Why use Git?
 
 Several version control software exist (cf. [Wikipedia](https://en.wikipedia.org/wiki/List_of_version-control_software)). So why use ![](../presentation_gitTraining/img/git_logo.png){height=35 fig-align="center" layout-valign="center" .inline-image} ?
 
@@ -60,7 +47,7 @@ Several version control software exist (cf. [Wikipedia](https://en.wikipedia.org
     - Large binary files with [Git-LFS](https://git-lfs.github.com/) (`.Rdata`, `.csv`, `.nc`) extension
 - Possibility to use different remotes
     - Private/Public
-    - Commercial/Institutionnal
+    - Commercial/Institutionnal -->
 
 ## Installing Git
 
@@ -81,22 +68,26 @@ sudo apt install git git-lfs git-flow
 
 ## Git configuration
 
-On `Git Bash` or in the `Terminal`, type:
+On `Git Bash` or in the `Terminal`:
 
-`git config --global user.name "Nicolas Barrier"`
+- Type `git config --global user.name "Firstname Lastname"`
+- Type `git config --global user.email "myadresse@ird.fr"`
 
-`git config --global user.email "nicolas.barrier@ird.fr"`
-
+:::{.callout-note}
 These two lines identify you when you update the project.
+:::
 
-`git config --global alias.re "remote -vv"`
+- Type `git config --global --list` to see the global git configuration.
+
+
+<!-- `git config --global alias.re "remote -vv"`
 
 `git config --global alias.br "branch -vv"`
 
 `git config --global alias.tree "log --all --decorate --oneline 
 --graph"`
 
-These three lines are shortcuts for usefull commands (like a project graph)
+These three lines are shortcuts for usefull commands (like a project graph) -->
 
 ## Git architecture
 
@@ -132,8 +123,8 @@ flowchart LR
 
 - `Workspace`: current state of your working directory (your computer)
 - `Local`: contains the **local** history of your project
+- `Index`: a buffer between the `Workspace` and the `Local` repository
 - `Remote`: contains the **remote** history of your project
-- `Index`: a buffer between the `Workspace` and the `Local Repository`
 
 <!-- Git commands allow to exchange information between these 3 components. -->
 
@@ -151,8 +142,7 @@ A `.git` folder has appeared. It contains the `local` repository.
 
 ## First commit
 
-- Now create a `README.md` file.
-- Type `git status`. 
+- Now create a `README.md` file and type `git status`
 
 The `README.md` file is in the `Workspace` but not yet in the `Local repo.`
 
@@ -172,7 +162,7 @@ class idw workspace;
 class idi index;
 ```
 
-- Type `git commit -m "First commit"`
+- Type `git commit -m "First commit"` and type `git log`
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -188,17 +178,19 @@ class idw index;
 class idl local;
 ```
 
-- Type `git status` and `git log`
-
+<br>
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 1   
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-   commit id: "1st"
+   commit id: "0f0e96a"
 ```
-
+<!-- 
+:::{.callout-note}
 `HEAD` is a special pointer that shows your "location" on the project.
+::: -->
+
 
 ## Second commit
 
@@ -223,23 +215,145 @@ class idl local;
 - Create a `LICENCE` file.
 - Type `git add LICENCE README.md`
 - Type `git commit -m "Second commit"`
-- Type `git log` and `git tree`
+- Type `git log`
 
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 1
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-    commit id: "1st"
-    commit id: "2nd"
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+```
+
+## Reverting a commit
+
+- Identify the id of the most recent commit using `git log`
+- Type `git revert c6dc2bc` (replace `c6dc2bc` by your commit id)
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "-c6dc2bc" type: REVERSE
+```
+
+:::{.callout-note}
+Here, the workspace is the same as after the first commit, but we keep track of the second commit and its cancellation. The `LICENCE` file is gone and the `README.md` file is empty.
+:::
+
+## Large file storage
+
+To version (reasonably) large files ($\approx ~100$ Mo), you can use Git with [LFS](https://git-lfs.github.com/) extension.
+
+- Type `git lfs install` to activate the extension (to do after the installation)
+- Create a `data.csv` file and add `Year,Size,Species`
+- Type `git lfs track "*.csv"`
+
+A `.gitattributes` file has appeared, which list all the files managed by Git LFS.
+
+- Type `git add .gitattributes data.csv`
+- Type `git commit -m "Third commit"`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "-c6dc2bc" type: REVERSE
+    commit id: "bd9db51"
+```
+
+## Update files and creating `tags`
+
+- Open the `README.md` file and add `# Version v1.0.0`.
+- Open the `data.csv` file and add `2022,26.8,SkipJack`
+- Type `git add data.csv README.md`
+- Type `git commit -m "Fourth commit"`
+- Type `git tags v1.0.0`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "-c6dc2bc" type: REVERSE
+    commit id: "bd9db51"
+    commit id: "07e8835" tag: "v1.0.0"
+```
+
+## Other advantages of Git
+
+- Save a project remotely (GitHub, Gitlab, etc.)
+    - Synchronization with different computers (laptop, HPCs)
+- Share a project (codes, packages) with the community
+    - Reproducible science
+    
+<!-- - Facilitate working organization
+    - One project (paper, package) = one repository
+    - Folder organization (sources, doc, data, etc.)
+- Continuous integration
+    - Testing of your code when updates -->
+
+
+## Differences between commits/branches
+
+- Type `git diff develop main`
+
+:::{.notes}
+You will see the text that has been added to the `LICENCE` file (4th commit)
+:::
+
+:::{.callout-warning}
+Order matters: it shows what has been added to `main` branch compared to the `develop` branch
+:::
+
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 0.75
+flowchart LR  
+  id1(Develop)-->|git diff| id2(Main)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class id1,id2 local;
+```
+
+- Type `git diff eb8fed1 main`, replacing `eb8fed1` by the id of the 0f0e96a commit.
+
+:::{.notes}
+You will see the creation and filling of the `LICENCE` text and the filling of the `README.md` file.
+:::
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 0.75
+flowchart LR  
+  id1(eb8fed1)-->|git diff| id2(Main)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class id1,id2 local;
 ```
 
 ## Creating branches
 
 - Type `git checkout -b develop`
 - Type `git status`, `git br` and `git tree`
-- Open the `README.md` file, some text and save.
-- Then `git add README.md`
+- Open the `README.md` file, add some text and save.
+- Type `git add README.md`
 - Type `git commit -m "3rd commit"`
 - Type `git br` and `git tree`
 
@@ -248,8 +362,8 @@ gitGraph
 %%| fig-height: 2
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-    commit id: "1st"
-    commit id: "2nd"
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
     branch develop
     commit id: "3rd"
 ```
@@ -268,8 +382,8 @@ gitGraph
 %%| fig-height: 2
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-    commit id: "1st"
-    commit id: "2nd"
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
     branch develop
     checkout develop
     commit id: "3rd"
@@ -287,8 +401,8 @@ gitGraph
 %%| fig-height: 2
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-    commit id: "1st"
-    commit id: "2nd"
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
     branch develop
     checkout develop
     commit id: "3rd"
@@ -299,7 +413,9 @@ gitGraph
 
 The `merge` command puts the commits from the argument branch (here `develop`) and puts them into the current branch (here `main`).
 
-**Note that the merging creates another commit**
+:::{.callout-note}
+During the merging process, another commit is created
+:::
 
 ## Creating branch from another branch
 
@@ -313,8 +429,8 @@ The `merge` command puts the commits from the argument branch (here `develop`) a
 %%| fig-height: 3
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-    commit id: "1st"
-    commit id: "2nd"
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
     branch develop
     checkout develop
     commit id: "3rd"
@@ -328,19 +444,18 @@ gitGraph
 
 ## Creating branch from a commit
 
-- Identify the number of your 2nd commit using `git log`
+- Identify the number of your c6dc2bc commit using `git log`
 - Type `git checkout -b feat-com 1831e4e` replacing `1831e4e` by the commit ID.
 - Create a `script.py` file
-- Type `git add script.py`
-- Type `git commit -m "Sixth commit"`
+- Type `git add script.py` and `git commit -m "Sixth commit"`
 
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 4
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-    commit id: "1st"
-    commit id: "2nd"
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
     branch feat-com
     branch develop
     checkout develop
@@ -353,75 +468,6 @@ gitGraph
     commit id: "5th"
     checkout feat-com
     commit id: "6th"
-```
-
-## Reverting a commit
-
-- Identify the id of the most recent commit using `git log`
-- Type `git revert def79c1` (replace `def79c1` by your commit id)
-
-```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 4
-%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
-gitGraph
-    commit id: "1st"
-    commit id: "2nd"
-    branch feat-com
-    branch develop
-    checkout develop
-    commit id: "3rd"
-    checkout main
-    commit id: "4th"
-    merge develop
-    checkout develop
-    branch feature
-    commit id: "5th"
-    checkout feat-com
-    commit id: "6th"
-    commit id: "Rev. 6th" type: REVERSE
-```
-
-## Differences between commits/branches
-
-For the difference between the `develop` and the `main` branch:
-
-`git diff develop main`
-
-You will see the text that has been added to the `LICENCE` file (4th commit)
-
-**Order matters: it shows what has been added to `main` branch compared to the `develop` branch**
-
-```{mermaid}
-%%| fig-width: 10.5
-%%| fig-height: 1
-flowchart LR  
-  id1(Develop)-->|git diff| id2(Main)
-classDef workspace fill:lightgray,stroke:black,color:black
-classDef index fill:lightblue,stroke:black,color:black
-classDef local fill:lightgreen,stroke:black,color:black
-classDef remote fill:yellow,stroke:black,color:black
-
-class id1,id2 local;
-```
-
-To compare with a given commit, find the index of the first commit. Then type:
-
-`git diff eb8fed1 main`
-
-You will see the creation and filling of the `LICENCE` text and the filling of the `README.md` file.
-
-```{mermaid}
-%%| fig-width: 10.5
-%%| fig-height: 1
-flowchart LR  
-  id1(eb8fed1)-->|git diff| id2(Main)
-classDef workspace fill:lightgray,stroke:black,color:black
-classDef index fill:lightblue,stroke:black,color:black
-classDef local fill:lightgreen,stroke:black,color:black
-classDef remote fill:yellow,stroke:black,color:black
-
-class id1,id2 local;
 ```
 
 ## Deleting a branch
@@ -435,7 +481,10 @@ An error occurs! The suppression of `feat-com` implies the loss of the `6th` and
 
 - Type `git branch -D feat-com`
 
-Note: suppression of `develop` was ok because the content of commit `3rd` is included in the merge.
+:::{.callout-note}
+The suppression of `develop` was ok because the content of commit `3rd` is included in the merge.
+:::
+
 
 ## Sources
 
