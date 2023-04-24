@@ -1,6 +1,6 @@
 # First commit
 
-rm -rfv .git
+rm -rfv .git .git*
 rm -rfv LICENCE README.md
 
 git init
@@ -14,6 +14,28 @@ echo "# Readme of git training" >> README.md
 touch LICENCE
 git add LICENCE README.md
 git commit -m "Second commit"
+
+# Revert a commit
+
+commit=`git tree | grep "Second commit" | sed "s/Second commit//" | sed "s/(HEAD -> master)"// | sed "s/\*//"`
+git revert $commit
+
+# Git LFS
+
+touch data.csv
+echo "Year,Size,Species" >> data.csv
+git lfs track "*.csv"
+git add .gitattributes data.csv
+git commit -m "Third commit"
+
+# Tags + update
+
+echo "2022,26.8,SkipJack" >> data.csv
+echo "# Version v1.0.0" >> README.csv
+git add data.csv README.md
+git commit -m "Fourth commit"
+
+exit
 
 # 3rd commmit
 
