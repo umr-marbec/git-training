@@ -1,7 +1,6 @@
-# First commit
+. ./clean.sh
 
-rm -rfv .git .git*
-rm -rfv LICENCE README.md
+# First commit
 
 git init
 
@@ -17,8 +16,8 @@ git commit -m "Second commit"
 
 # Revert a commit
 
-commit=`git tree | grep "Second commit" | sed "s/Second commit//" | sed "s/(HEAD -> master)"// | sed "s/\*//"`
-git revert $commit
+#commit=`git tree | grep "Second commit" | sed "s/Second commit//" | sed "s/(HEAD -> master)"// | sed "s/\*//"`
+#git revert $commit
 
 # Git LFS
 
@@ -31,9 +30,10 @@ git commit -m "Third commit"
 # Tags + update
 
 echo "2022,26.8,SkipJack" >> data.csv
-echo "# Version v1.0.0" >> README.csv
+echo "## Version v1.0.0" >> README.md
 git add data.csv README.md
 git commit -m "Fourth commit"
+git tag "v1.0.0"
 
 exit
 

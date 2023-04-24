@@ -226,25 +226,6 @@ gitGraph
     commit id: "c6dc2bc"
 ```
 
-## Reverting a commit
-
-- Identify the id of the most recent commit using `git log`
-- Type `git revert c6dc2bc` (replace `c6dc2bc` by your commit id)
-
-```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 1
-%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
-gitGraph
-    commit id: "0f0e96a"
-    commit id: "c6dc2bc"
-    commit id: "-c6dc2bc" type: REVERSE
-```
-
-:::{.callout-note}
-Here, the workspace is the same as after the first commit, but we keep track of the second commit and its cancellation. The `LICENCE` file is gone and the `README.md` file is empty.
-:::
-
 ## Large file storage
 
 To version (reasonably) large files ($\approx ~100$ Mo), you can use Git with [LFS](https://git-lfs.github.com/) extension.
@@ -265,13 +246,12 @@ A `.gitattributes` file has appeared, which list all the files managed by Git LF
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
-    commit id: "-c6dc2bc" type: REVERSE
     commit id: "bd9db51"
 ```
 
 ## Update files and creating `tags`
 
-- Open the `README.md` file and add `# Version v1.0.0`.
+- Open the `README.md` file and add `## Version v1.0.0`.
 - Open the `data.csv` file and add `2022,26.8,SkipJack`
 - Type `git add data.csv README.md`
 - Type `git commit -m "Fourth commit"`
@@ -284,7 +264,6 @@ gitGraph
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
-    commit id: "-c6dc2bc" type: REVERSE
     commit id: "bd9db51"
     commit id: "07e8835" tag: "v1.0.0"
 ```
@@ -485,6 +464,25 @@ An error occurs! The suppression of `feat-com` implies the loss of the `6th` and
 The suppression of `develop` was ok because the content of commit `3rd` is included in the merge.
 :::
 
+
+## Reverting a commit
+
+- Identify the id of the most recent commit using `git log`
+- Type `git revert c6dc2bc` (replace `c6dc2bc` by your commit id)
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "-c6dc2bc" type: REVERSE
+```
+
+:::{.callout-note}
+Here, the workspace is the same as after the first commit, but we keep track of the second commit and its cancellation. The `LICENCE` file is gone and the `README.md` file is empty.
+:::
 
 ## Sources
 
