@@ -259,7 +259,7 @@ gitGraph
 
 ```{mermaid}
 %%| fig-width: 10
-%%| fig-height: 1
+%%| fig-height: 1.5
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
