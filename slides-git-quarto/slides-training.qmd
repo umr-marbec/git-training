@@ -507,21 +507,40 @@ x = 1
 >>>>>>> 70a4c105e377db282c0769606960f0afcccdd071
 ```
 
-:::{.callout-note}
-These are conflicts markers. They show unresolved differences between `Local` (`HEAD`) and `Remote` (commit `70a4c10`). `Git` does't know whether to chose `x = 1` or `x = 2`. This is your job
+:::{.callout-warning}
+These are conflicts markers. `Git` does't know whether to chose `x = 1` or `x = 2`. This is your job
 :::
 
-- Open the file, remove conflict markers and save.
-- Commit the changes
-- Type `git push`
+- Open the file, replace the above by `x = 3`. Commit and push the changes
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1.5
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch origin/main
+    commit id: "x = 1"
+    checkout main
+    commit id: "x = 2"
+    merge origin/main tag: "x = 3"
+```
+
 
 ## Conclusion: good practice
 
 - Before starting editing a project, do a `git pull`
-- Commit very often!
-- Push often as well!
+- Commit very often using `git commit` extensively
+- Push often as well using `git push`
 
-![](img/funny.jpg){fig-align="center"}
+![](img/funny.jpg){fig-align="center" height=300}
+
+## Git clients
+
+Here, we learned the command lines to work with Git. But you can also use Git Clients.
+
+
+
 
 ## Going further...
 
