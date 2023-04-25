@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Version Control and Git"
-author: 
+author:
     - name: "Nicolas Barrier"
     - name: Witold Podlejski
     - name: Criscely Lujan-Paredes
@@ -12,44 +12,23 @@ format:
 
 ## What are version control softwares (VCS)?
 
-<!-- ::: {.incremental} -->
-
 - Track changes (*commits*) of a project from the very beginning
-    - Who? When? What changes?    
+    - Who? When? What changes?
 - Highlight specific moments in the project (*tags*)
     - New version of a code
     - Submitted, revised versions of a paper
 - Create derivates of a project (*branches*)
 - Eventually go back in time
 
-<!-- ::: -->
-
 ## In short...
 
 ::: {layout-ncol=2 layout-valign="bottom"}
 
-![Without VCS](img/phd_comics.png){#fig-version-1 width=350} 
+![Without VCS](img/phd_comics.png){#fig-version-1 width=350}
 
 ![With VCS](img/git-flow.jpg){#fig-version-2 width=600}
 
-
 :::
-    
-<!-- ## Why use Git?
-
-Several version control software exist (cf. [Wikipedia](https://en.wikipedia.org/wiki/List_of_version-control_software)). So why use ![](../presentation_gitTraining/img/git_logo.png){height=35 fig-align="center" layout-valign="center" .inline-image} ?
-
-- Popular and successful
-- Works offline (contrary to SVN)
-- Branching capabilities
-    - Cheap and easy to merge
-    - Even more so with the [Git-Flow](https://git-flow.readthedocs.io/fr/latest/index.html) extension
-- Tracks any type of files
-    - Works best with ASCII files (`.R`, `.py`, `.tex`)
-    - Large binary files with [Git-LFS](https://git-lfs.github.com/) (`.Rdata`, `.csv`, `.nc`) extension
-- Possibility to use different remotes
-    - Private/Public
-    - Commercial/Institutionnal -->
 
 ## Installing Git
 
@@ -81,20 +60,7 @@ These two lines identify you in the history of a project.
 
 - Type `git config --global --list` to see the global git configuration.
 
-
-<!-- `git config --global alias.re "remote -vv"`
-
-`git config --global alias.br "branch -vv"`
-
-`git config --global alias.tree "log --all --decorate --oneline 
---graph"`
-
-These three lines are shortcuts for usefull commands (like a project graph) -->
-
 ## Git architecture
-
-<!-- ![Git Architecture](../presentation_gitTraining/img/MgaV9.png){#fig-version-2 height=300} -->
-
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -103,10 +69,10 @@ flowchart LR
     idw(Workspace)
     idi(Index)
     idl(Local)
-    
+
     idw -->|git add| idi
     idi -->|git commit| idl
-    
+
     classDef workspace fill:lightgray,stroke:black,color:black
     classDef index fill:lightblue,stroke:black,color:black
     classDef local fill:lightgreen,stroke:black,color:black
@@ -114,14 +80,12 @@ flowchart LR
     class idw workspace;
     class idi index;
     class idl local;
-    
+
 ```
 
 - `Workspace`: your working directory $\rightarrow$  your computer
 - `Local`: the local repository $\rightarrow$ contains the history of your project
 - `Index`: a buffer between `Workspace` and `Local` $\rightarrow$ list of the files that will be sent from `Workspace` to `Local`
-
-<!-- Git commands allow to exchange information between these 3 components. -->
 
 ## Getting started
 
@@ -129,7 +93,7 @@ flowchart LR
 - Move to the folder by typing `cd training-git`
 - Type `ls -alrt`
 - Type `git init`
-- Type again `ls -alrt`. 
+- Type again `ls -alrt`.
 
 :::{.callout-note}
 A `.git` folder has appeared. It contains the full history of your project (`Local` repository)
@@ -146,7 +110,7 @@ A `.git` folder has appeared. It contains the full history of your project (`Loc
 ```{mermaid}
 %%| fig-width: 10.5
 %%| fig-height: 0.8
-flowchart LR  
+flowchart LR
   idw(Workspace) -->|git add| idi(Index)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
@@ -162,7 +126,7 @@ class idi index;
 ```{mermaid}
 %%| fig-width: 10.5
 %%| fig-height: 0.8
-flowchart LR  
+flowchart LR
   idw(Index) -->|git commit| idl(Local)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
@@ -175,7 +139,7 @@ class idl local;
 
 ```{mermaid}
 %%| fig-width: 10
-%%| fig-height: 1   
+%%| fig-height: 1
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
    commit id: "0f0e96a"
@@ -196,7 +160,7 @@ gitGraph
 ```{mermaid}
 %%| fig-width: 10.5
 %%| fig-height: 1
-flowchart LR  
+flowchart LR
   idw(Local) -->|git diff| idl(Workspace)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
@@ -265,7 +229,7 @@ gitGraph
 
 ## Moving in the history
 
-- Type `git checkout v1.0.0` $\rightarrow$ move to the previously created tag and type `git log`
+- Type `git checkout v1.0.0` $\rightarrow$ move to the previously created tag
 
 ```{mermaid}
 %%| fig-width: 10
@@ -278,7 +242,7 @@ gitGraph
     commit id: "9670a59"
 ```
 
-- Type `git checkout 0f0e96a` to move to the first commit (find the id using `git log`)
+- Type `git checkout 0f0e96a` to move to the first commit
 
 ```{mermaid}
 %%| fig-width: 10
@@ -291,18 +255,17 @@ gitGraph
     commit id: "9670a59"
 ```
 
-- Type `git checkout main` or `git checkout master` to move at the latest commit
-
+- Type `git checkout main` to move at the latest commit
 
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 1.5
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-    commit id: "0f0e96a" 
+    commit id: "0f0e96a"
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0" 
-    commit id: "9670a59" type: HIGHLIGHT
+    commit id: "07e8835" tag: "v1.0.0"
+    commit id: "9670a59" type:HIGHLIGHT
 ```
 
 ## Display differences
@@ -316,7 +279,7 @@ Order matters when using `git diff`. Differences are shown with the reference st
 ```{mermaid}
 %%| fig-width: 10.5
 %%| fig-height: 0.75
-flowchart LR  
+flowchart LR
   id1(0f0e96a)-->|git diff| id2(v1.0.0)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
@@ -329,7 +292,7 @@ class id1,id2 local;
 - Type `git diff 0f0e96a c6dc2bc` $\rightarrow$ compares two commits.
 
 - Type `git diff 0f0e96a HEAD` $\rightarrow$ compares where you are in the history (`HEAD`) with a given commit.
- 
+
 :::{.callout-tip}
 `HEAD` is a symbolic reference pointing to wherever you are in your commit history, as shown in `git log`
 :::
@@ -343,7 +306,7 @@ In addition of saving the history, Git has other advantages. It allows to:
     - Synchronization with different computers (laptop, HPCs)
 - Share a project (codes, packages) with the community
     - Reproducible science
-    
+
 To do so, a $4^{th}$ component in the Git architecture must be considered: the `Remote` repository.
 
 ```{mermaid}
@@ -354,12 +317,12 @@ flowchart LR
     idi(Index)
     idl(Local)
     idr(Remote)
-    
+
     idw -->|git add| idi
     idi -->|git commit| idl
     idl -->|git push| idr
     idr --->|git pull| idw
-    
+
     classDef workspace fill:lightgray,stroke:black,color:black
     classDef index fill:lightblue,stroke:black,color:black
     classDef local fill:lightgreen,stroke:black,color:black
@@ -369,7 +332,7 @@ flowchart LR
     class idi index;
     class idl local;
     class idr remote;
-    
+
 ```
 
 `Remote` contains a **remote** version of the history of your project
@@ -426,7 +389,7 @@ To do so,  click on your profile photo and then on `Settings`:
 
 ## Creation of a personal access token
 
-- Add some notes and **click on the `repo` box**, as shown below: 
+- Add some notes and **click on the `repo` box**, as shown below:
 
 ![](img/access-token-2.png){height=250 fig-align="center"}
 
@@ -459,9 +422,9 @@ flowchart LR
 
     idl(Local)
     idr(Remote)
-    
+
     idl -->|git push| idr
-    
+
     classDef workspace fill:lightgray,stroke:black,color:black
     classDef index fill:lightblue,stroke:black,color:black
     classDef local fill:lightgreen,stroke:black,color:black
@@ -471,7 +434,7 @@ flowchart LR
     class idi index;
     class idl local;
     class idr remote;
-    
+
 ```
 
 Have a look at your repository on GitHub. **Tags are missing!**
@@ -488,7 +451,7 @@ Have a look at your repository on GitHub. **Tags are missing!**
 
 To version (reasonably) large files (images, data samples) $\rightarrow$ Git with [LFS](https://git-lfs.github.com/) extension.
 
-- Type `git lfs install` to activate the extension 
+- Type `git lfs install` to activate the extension
 - Create a `data.csv` file and add `Year,Size,Species`
 - Type `git lfs track "*.csv"`
 
@@ -510,7 +473,7 @@ gitGraph
 
 
 ## Going further...
-    
+
 ## Creating branches
 
 - Type `git checkout -b develop`
@@ -645,16 +608,10 @@ You will see the text that has been added to the LICENCE file (4th commit)
 Order matters: it shows what has been added to `main` branch compared to the `develop` branch
 :::
 
-<!-- - Facilitate working organization
-    - One project (paper, package) = one repository
-    - Folder organization (sources, doc, data, etc.)
-- Continuous integration
-    - Testing of your code when updates -->
-
 ```{mermaid}
 %%| fig-width: 10.5
 %%| fig-height: 0.75
-flowchart LR  
+flowchart LR
   id1(Develop)-->|git diff| id2(Main)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
