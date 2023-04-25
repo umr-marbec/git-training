@@ -537,7 +537,32 @@ gitGraph
 
 ## Git clients
 
-Here, we learned the command lines to work with Git. But you can also use Git Clients.
+Git Clients are softwares that facilitate the use of Git (see [Git Guis](https://git-scm.com/downloads/guis) for a list).
+
+Beside, most code editors include Git functionalities
+
+![VSCode](img/vscode.png){#fig-vscode}
+
+
+
+## Git clients
+
+Git Clients are softwares that facilitate the use of Git (see [Git Guis](https://git-scm.com/downloads/guis) for a list).
+
+Beside, most code editors include Git functionalities
+
+![RStudio](img/rstudio.png){#fig-rstudio width=350}
+
+
+
+## Git clients
+
+Git Clients are softwares that facilitate the use of Git (see [Git Guis](https://git-scm.com/downloads/guis) for a list).
+
+Beside, most code editors include Git functionalities
+
+![Netbeans](img/netbeans.png){#fig-rstudio width=350}
+
 
 
 
@@ -583,11 +608,14 @@ Make sure that the remote host is compatible with LFS (GitHub is compatible)
 - Create a `data.csv` file and add `Year,Size,Species`
 - Type `git lfs track "*.csv"`
 
-A `.gitattributes` file has appeared, which list all the files managed by Git LFS.
+A `.gitattributes` file has appeared, which list all the file extensions managed by Git LFS.
+
+## Large file storage
 
 - Type `git add .gitattributes data.csv`
-- Type `git commit -m "Using LFS`
-- Type `git push` and look at your file `data.csv` file on GitHub.
+- Type `git commit -m "Using LFS"`
+- Type `git push`
+- On GitHub, click on your file `data.csv` file.
 
 
 ## Creating branches
