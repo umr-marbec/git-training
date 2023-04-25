@@ -31,7 +31,7 @@ touch output.log
 git status
 echo "output.log" >> .gitignore
 git status
-git add .
+git add .gitignore
 git commit -m "Fourth commit"
 
 # Checking diff
@@ -43,6 +43,12 @@ echo git diff $commit v1.0.0
 
 commit2=`git tree | grep "Second commit" | sed "s/Second commit//" | sed "s/(HEAD -> master)"// | sed "s/\*//"`
 echo git diff $commit $commit2
+
+# adding remote
+echo git remote add origin https://github.com/barriern/git-train.git
+echo git branch -M master
+echo git push -u origin master
+echo git push --tags
 
 #################################################################################################################
 

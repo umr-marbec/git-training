@@ -155,7 +155,7 @@ gitGraph
 
 - Open the `README.md` file, add `# Git training` and save
 - Type `git status`
-- Type `git diff README.md`
+- Type `git diff`
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -206,10 +206,8 @@ gitGraph
 
 It is possible to tell Git to ignore some files (`.Rhistory`, `.log`, etc.) by using a [.gitignore](https://git-scm.com/docs/gitignore) file.
 
-- Create an empty `output.log` file.
-- Type `git status`
-- Create a `.gitignore` file and write `*.log`
-- Type again `git status`
+- Create an empty `output.log` file and type `git status`
+- Create a `.gitignore` file and write `*.log`. Type again `git status`
 
 The `output.log` file does not appear as an `Untracked file` anymore
 
@@ -233,7 +231,7 @@ gitGraph
 
 ```{mermaid}
 %%| fig-width: 10
-%%| fig-height: 1.5
+%%| fig-height: 1.
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -242,11 +240,11 @@ gitGraph
     commit id: "9670a59"
 ```
 
-- Type `git checkout 0f0e96a` to move to the first commit
+- Type `git checkout 0f0e96a` $\rightarrow$ move to the first commit
 
 ```{mermaid}
 %%| fig-width: 10
-%%| fig-height: 1.5
+%%| fig-height: 1.
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a" type:HIGHLIGHT
@@ -255,11 +253,11 @@ gitGraph
     commit id: "9670a59"
 ```
 
-- Type `git checkout main` to move at the latest commit
+- Type `git checkout main` $\rightarrow$ move at the latest commit
 
 ```{mermaid}
 %%| fig-width: 10
-%%| fig-height: 1.5
+%%| fig-height: 1.
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -267,6 +265,10 @@ gitGraph
     commit id: "07e8835" tag: "v1.0.0"
     commit id: "9670a59" type:HIGHLIGHT
 ```
+
+:::{.callout-tip}
+`HEAD` is a symbolic reference pointing to wherever you are in your commit history, as shown in `git log`
+:::
 
 ## Display differences
 
@@ -293,11 +295,6 @@ class id1,id2 local;
 
 - Type `git diff 0f0e96a HEAD` $\rightarrow$ compares where you are in the history (`HEAD`) with a given commit.
 
-:::{.callout-tip}
-`HEAD` is a symbolic reference pointing to wherever you are in your commit history, as shown in `git log`
-:::
-
-
 ## Using remotes
 
 In addition of saving the history, Git has other advantages. It allows to:
@@ -322,6 +319,7 @@ flowchart LR
     idi -->|git commit| idl
     idl -->|git push| idr
     idr --->|git pull| idw
+    idr --->|git fetch| idl
 
     classDef workspace fill:lightgray,stroke:black,color:black
     classDef index fill:lightblue,stroke:black,color:black
@@ -351,7 +349,11 @@ There are several remote hosting possibilities:
 - GitLab IRD: [https://forge.ird.fr/](https://forge.ird.fr/)
 - GitLab Ifremer [https://gitlab.ifremer.fr/](https://gitlab.ifremer.fr/)
 
-In the following, we will use GitHub
+In the following, we will use GitHub.
+
+:::{.callout-tip}
+GitHub proposes extra-features for students, teachers and researchers. Visit [https://education.github.com/benefits](https://education.github.com/benefits) for more informations
+:::
 
 ## Creation of a GitHub repository
 
@@ -407,7 +409,7 @@ ghp_***************************************
 ...or push an existing repository from the command line```:
 
 ```
-git remote add origin https://github.com/barriern/test-training-git.git
+git remote add origin https://github.com/barriern/git-train.git
 git branch -M master
 git push -u origin master
 ```
@@ -443,8 +445,90 @@ Have a look at your repository on GitHub. **Tags are missing!**
 
 ## Synchronization from the remote
 
-- In GitHub, click on the `README.md` file.
--
+- In GitHub, click on the `README.md` file and then on the edit button
+
+- Add a `Update from Github` line and click on `Commit changes`
+
+::: {layout-ncol=2 layout-valign="bottom"}
+
+![](img/readme-edit.png){height=80 fig-align="center"}
+
+![](img/readme-edit-2.png){height=80 fig-align="center"}
+
+:::
+
+The `Remote` change of `README.md` is not yet visible in `Workspace`
+
+- In `Git Bash` or `Terminal`, type `git pull`
+
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 1
+flowchart RL
+
+    idr(Remote)
+    idw(Workspace)
+
+    idr -->|git pull| idw
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+
+```
+
+## Synchronization: conflicts
+
+- On GitHub, add `x = 1` at the end of the `README.md` file. **Do not type `git pull` !**
+- On your computer, edit the `README.md` and add `x = 2`.
+- Type `git add README.md`
+- Type `git commit -m "Fifth commit"`
+- Type `git push`. An error occurs because changes in `Remote` are not in `Local`.
+- Type `git pull` and `git status`.
+
+It says that a conflict has occurred on the `README.md` file. This is due to diverging history.
+
+## Synchronization: conflicts
+
+- Open the `README.md` file. You should see:
+
+```
+<<<<<<< HEAD
+x = 2
+=======
+x = 1
+>>>>>>> 70a4c105e377db282c0769606960f0afcccdd071
+```
+
+:::{.callout-note}
+These are conflicts markers. They show unresolved differences between `Local` (`HEAD`) and `Remote` (commit `70a4c10`). `Git` does't know whether to chose `x = 1` or `x = 2`. This is your job
+:::
+
+- Open the file, remove conflict markers and save.
+- Commit the changes
+- Type `git push`
+
+## Conclusion: good practice
+
+- Before starting editing a project, do a `git pull`
+- Commit very often!
+- Push often as well
+
+![](img/funny.jpg){fig-align="center"}
+
+## Going further...
+
+For those who want, after there are some extra slides on:
+
+- Branch creation/management
+
 
 
 ## Large file storage
@@ -472,7 +556,7 @@ gitGraph
 ```
 
 
-## Going further...
+
 
 ## Creating branches
 
@@ -491,7 +575,7 @@ gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
     branch develop
-    commit id: "3rd"
+    commit id: "214e348"
 ```
 
 ## Switching branch
@@ -512,9 +596,9 @@ gitGraph
     commit id: "c6dc2bc"
     branch develop
     checkout develop
-    commit id: "3rd"
+    commit id: "214e348"
     checkout main
-    commit id: "4th"
+    commit id: "69bbd79"
 ```
 
 ## Merging branches
@@ -531,9 +615,9 @@ gitGraph
     commit id: "c6dc2bc"
     branch develop
     checkout develop
-    commit id: "3rd"
+    commit id: "214e348"
     checkout main
-    commit id: "4th"
+    commit id: "69bbd79"
     merge develop
 ```
 
@@ -559,13 +643,13 @@ gitGraph
     commit id: "c6dc2bc"
     branch develop
     checkout develop
-    commit id: "3rd"
+    commit id: "214e348"
     checkout main
-    commit id: "4th"
+    commit id: "69bbd79"
     merge develop
     checkout develop
     branch feature
-    commit id: "5th"
+    commit id: "0a9ba0c"
 ```
 
 ## Creating branch from a commit
@@ -585,13 +669,13 @@ gitGraph
     branch feat-com
     branch develop
     checkout develop
-    commit id: "3rd"
+    commit id: "214e348"
     checkout main
-    commit id: "4th"
+    commit id: "69bbd79"
     merge develop
     checkout develop
     branch feature
-    commit id: "5th"
+    commit id: "0a9ba0c"
     checkout feat-com
     commit id: "6th"
 ```
@@ -601,7 +685,7 @@ gitGraph
 - Type `git diff develop main`
 
 :::{.notes}
-You will see the text that has been added to the LICENCE file (4th commit)
+You will see the text that has been added to the LICENCE file (69bbd79 commit)
 :::
 
 :::{.callout-warning}
