@@ -18,7 +18,7 @@ format:
     - Who? When? What changes?    
 - Highlight specific moments in the project (*tags*)
     - New version of a code
-    - Submitted, revised version of a paper
+    - Submitted, revised versions of a paper
 - Create derivates of a project (*branches*)
 - Eventually go back in time
 
@@ -28,9 +28,9 @@ format:
 
 ::: {layout-ncol=2 layout-valign="bottom"}
 
-![Without VCS](../presentation_gitTraining/img/phd_comics.png){#fig-version-1 width=350} 
+![Without VCS](img/phd_comics.png){#fig-version-1 width=350} 
 
-![With VCS](../presentation_gitTraining/img/git-flow.jpg){#fig-version-2 width=600}
+![With VCS](img/git-flow.jpg){#fig-version-2 width=600}
 
 
 :::
@@ -76,7 +76,7 @@ On `Git Bash` or in the `Terminal`:
 - Type `git config --global user.email "myadresse@ird.fr"`
 
 :::{.callout-note}
-These two lines identify you when you update the project.
+These two lines identify you in the history of a project.
 :::
 
 - Type `git config --global --list` to see the global git configuration.
@@ -117,29 +117,29 @@ flowchart LR
     
 ```
 
-- `Workspace`: current state of your working directory (your computer)
-- `Local`: contains the **local** history of your project
-- `Index`: a buffer between the `Workspace` and the `Local` repository
+- `Workspace`: your working directory $\rightarrow$  your computer
+- `Local`: the local repository $\rightarrow$ contains the history of your project
+- `Index`: a buffer between `Workspace` and `Local` $\rightarrow$ list of the files that will be sent from `Workspace` to `Local`
 
 <!-- Git commands allow to exchange information between these 3 components. -->
 
 ## Getting started
 
-- Create a folder called `training-git`. 
-- Right click on the folder and choose `Open in Git Bash` (Windows) or `Open in Terminal` (Linux/Mac). 
+- Create a folder called `training-git` by typing `mkdir training-git`
+- Move to the folder by typing `cd training-git`
 - Type `ls -alrt`
 - Type `git init`
 - Type again `ls -alrt`. 
 
-A `.git` folder has appeared. It contains the `local` repository.
+:::{.callout-note}
+A `.git` folder has appeared. It contains the full history of your project (`Local` repository)
+:::
 
 - Type `git status` and `git log`
 
 ## First commit
 
-- Now create a `README.md` file and type `git status`
-
-The `README.md` file is in the `Workspace` but not yet in the `Local repo.`
+- Create a `README.md` file. Type `git status` $\rightarrow$ `README.md` is now in `Workspace` but not in `Local`
 
 - Type `git add README.md` and `git status`
 
@@ -173,7 +173,6 @@ class idw index;
 class idl local;
 ```
 
-<br>
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 1   
@@ -182,12 +181,16 @@ gitGraph
    commit id: "0f0e96a"
 ```
 
+:::{.callout-note}
+`0f0e96a` is a short version of the identifier of the commit
+:::
+
 
 
 ## Second commit
 
-- Open the `README.md` file, add some lines and save the file
-- Type `git status`.
+- Open the `README.md` file, add `# Git training` and save
+- Type `git status`
 - Type `git diff README.md`
 
 ```{mermaid}
@@ -204,8 +207,6 @@ class idw workspace;
 class idl local;
 ```
 
-- Create a `LICENCE` file.
-- Type `git add LICENCE README.md`
 - Type `git commit -m "Second commit"`
 - Type `git log`
 
@@ -221,9 +222,8 @@ gitGraph
 ## Creating tags
 
 - Open the `README.md` file and add `## Version v1.0.0`.
-- Open the `data.csv` file and add `2022,26.8,SkipJack`
-- Type `git add data.csv README.md`
-- Type `git commit -m "Fourth commit"`
+- Type `git add README.md`
+- Type `git commit -m "Third commit"`
 - Type `git tag v1.0.0` and `git status`
 
 ```{mermaid}
@@ -238,23 +238,19 @@ gitGraph
 
 - Type `git tag` to list all existing tags
 
-- Type `git checkout v1.0.0` and `git status`
-
-- Type `git checkout main`
-
 ## Ignoring files
 
-It is possible to tell Git to ignore some files (`.Rhistory`, `.log`, etc.)
+It is possible to tell Git to ignore some files (`.Rhistory`, `.log`, etc.) by using a [.gitignore](https://git-scm.com/docs/gitignore) file.
 
 - Create an empty `output.log` file.
 - Type `git status`
-- Create a `.gitignore` file and add `output.log`
+- Create a `.gitignore` file and write `*.log`
 - Type again `git status`
 
 The `output.log` file does not appear as an `Untracked file` anymore
 
 - Type `git add .gitignore` and `git status`
-- Type `git commit -m "Fifth commit"`
+- Type `git commit -m "Fourth commit"`
 
 ```{mermaid}
 %%| fig-width: 10
@@ -265,6 +261,48 @@ gitGraph
     commit id: "c6dc2bc"
     commit id: "07e8835" tag: "v1.0.0"
     commit id: "9670a59"
+```
+
+## Moving in the history
+
+- Type `git checkout v1.0.0` $\rightarrow$ move to the previously created tag and type `git log`
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1.5
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0" type:HIGHLIGHT
+    commit id: "9670a59"
+```
+
+- Type `git checkout 0f0e96a` to move to the first commit (find the id using `git log`)
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1.5
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a" type:HIGHLIGHT
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0"
+    commit id: "9670a59"
+```
+
+- Type `git checkout main` or `git checkout master` to move at the latest commit
+
+
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1.5
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a" 
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0" 
+    commit id: "9670a59" type: HIGHLIGHT
 ```
 
 ## Display differences
@@ -297,14 +335,16 @@ class id1,id2 local;
 :::
 
 
-## Other advantages of Git
+## Using remotes
 
-- Save a project remotely (GitHub, Gitlab, etc.)
+In addition of saving the history, Git has other advantages. It allows to:
+
+- Save a project remotely
     - Synchronization with different computers (laptop, HPCs)
 - Share a project (codes, packages) with the community
     - Reproducible science
     
-To do that, we need to take into account a $4^{th}$ component in the Git architecture: the `Remote` repository.
+To do so, a $4^{th}$ component in the Git architecture must be considered: the `Remote` repository.
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -319,7 +359,6 @@ flowchart LR
     idi -->|git commit| idl
     idl -->|git push| idr
     idr --->|git pull| idw
-    idr --->|git fetch| idl
     
     classDef workspace fill:lightgray,stroke:black,color:black
     classDef index fill:lightblue,stroke:black,color:black
@@ -333,7 +372,7 @@ flowchart LR
     
 ```
 
-- `Remote`: contains a **remote** version of the history of your project
+`Remote` contains a **remote** version of the history of your project
 
 ## Remote hosts
 
@@ -351,25 +390,67 @@ There are several remote hosting possibilities:
 
 In the following, we will use GitHub
 
-## Creation of a remote repository
+## Creation of a GitHub repository
 
 - On your GitHub page, click on `Repositories`
 - Click on the the green `New` button
-- Set `training-git` as the name of your remote repository. Leave the other fields empty
+- Set the name of your remote repository. Leave the other fields empty
+- Click on `Create repository`
 
- ![](../presentation_gitTraining/img/github_makeRepo.png){height=450 fig-align="center" layout-valign="center"}
+ ![](img/github_makeRepo.png){height=400 fig-align="center" layout-valign="center"}
 
-## Update of the remote
+## Creation of a personal access token
 
-Back to `Terminal` or `Git Bash`.
+To authentificate, you need to create an authentification token (see [GitHub authentification of details](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for details).
 
-- Type `git remote add origin https://github.com/barriern/training-git.git` (replacing by your GitHub login)
-- Eventually, rename your **local** branch using `git branch -M master`
-- Type `git push -u origin master`
+To do so,  click on your profile photo and then on `Settings`:
 
-Have a look at your GitHub repository
+![](https://docs.github.com/assets/cb-139735/mw-1000/images/help/settings/userbar-account-settings.webp){height=600 fig-align="center"}
 
-- Type `git push --tags`
+## Creation of a personal access token
+
+- In the left sidebar, click on `Developer settings`.
+- Under `Personal access tokens`, click `Tokens (classic)`.
+- Select `Generate new token` and `Generate new token (classic)`.
+
+
+::: {layout-ncol=3 layout-valign="bottom"}
+
+![](img/access-token-4.png){height=90 fig-align="center"}
+
+![](img/access-token-1.png){height=80 fig-align="center"}
+
+![](img/access-token-3.png){height=80 fig-align="center"}
+
+:::
+
+## Creation of a personal access token
+
+- Add some notes and **click on the `repo` box**, as shown below: 
+
+![](img/access-token-2.png){height=250 fig-align="center"}
+
+- Click on the `Generate token` box button.
+
+- **Copy and save in a `.txt` file the token: this is your password!** It should look like something like this:
+
+```
+ghp_***************************************
+```
+
+## Synchronization to the remote
+
+- In `Terminal` or `Git Bash`, copy and paste what is shown on the GitHub page below the ```
+...or push an existing repository from the command line```:
+
+```
+git remote add origin https://github.com/barriern/test-training-git.git
+git branch -M master
+git push -u origin master
+```
+
+- `Username` is your GitHub login, `Password` is your token
+
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -393,10 +474,19 @@ flowchart LR
     
 ```
 
+Have a look at your repository on GitHub. **Tags are missing!**
+
+- Type `git push --tags` and refresh the GitHub page.
+
+## Synchronization from the remote
+
+- In GitHub, click on the `README.md` file.
+-
+
 
 ## Large file storage
 
-To version (reasonably) large files ($\approx ~100$ Mo, like images or data samples) $\rightarrow$ Git with [LFS](https://git-lfs.github.com/) extension.
+To version (reasonably) large files (images, data samples) $\rightarrow$ Git with [LFS](https://git-lfs.github.com/) extension.
 
 - Type `git lfs install` to activate the extension 
 - Create a `data.csv` file and add `Year,Size,Species`
@@ -409,11 +499,13 @@ A `.gitattributes` file has appeared, which list all the files managed by Git LF
 
 ```{mermaid}
 %%| fig-width: 10
-%%| fig-height: 1
+%%| fig-height: 1.5
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0"
+    commit id: "9670a59"
 ```
 
 

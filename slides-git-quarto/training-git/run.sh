@@ -9,9 +9,8 @@ git add README.md
 git commit -m "First commit"
 
 # Second commit
-echo "# Readme of git training" >> README.md
-touch LICENCE
-git add LICENCE README.md
+echo "# Git training" >> README.md
+git add README.md
 git commit -m "Second commit"
 
 # Revert a commit
@@ -19,24 +18,12 @@ git commit -m "Second commit"
 #commit=`git tree | grep "Second commit" | sed "s/Second commit//" | sed "s/(HEAD -> master)"// | sed "s/\*//"`
 #git revert $commit
 
-# Git LFS
-
-touch data.csv
-echo "Year,Size,Species" >> data.csv
-git lfs track "*.csv"
-git add .gitattributes data.csv
-git commit -m "Third commit"
 
 # Tags + update
-
-echo "2022,26.8,SkipJack" >> data.csv
 echo "## Version v1.0.0" >> README.md
-git add data.csv README.md
-git commit -m "Fourth commit"
+git add README.md
+git commit -m "Third commit"
 git tag "v1.0.0"
-git checkout v1.0.0
-git status
-git checkout master
 
 # ignoring files
 
@@ -45,7 +32,7 @@ git status
 echo "output.log" >> .gitignore
 git status
 git add .
-git commit -m "Fifth commit"
+git commit -m "Fourth commit"
 
 # Checking diff
 
@@ -58,6 +45,14 @@ commit2=`git tree | grep "Second commit" | sed "s/Second commit//" | sed "s/(HEA
 echo git diff $commit $commit2
 
 #################################################################################################################
+
+# #Git LFS
+
+# touch data.csv
+# echo "Year,Size,Species" >> data.csv
+# git lfs track "*.csv"
+# git add .gitattributes data.csv
+# git commit -m "Third commit"
 
 exit
 
@@ -104,3 +99,8 @@ git revert $commit
 git checkout master
 git branch -d develop
 git branch -D feat-com
+
+# Remote
+
+#git remote add origin https://github.com/barriern/training-git.git
+#git push -u origin master
