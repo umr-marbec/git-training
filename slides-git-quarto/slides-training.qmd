@@ -519,21 +519,46 @@ These are conflicts markers. They show unresolved differences between `Local` (`
 
 - Before starting editing a project, do a `git pull`
 - Commit very often!
-- Push often as well
+- Push often as well!
 
 ![](img/funny.jpg){fig-align="center"}
 
 ## Going further...
 
-For those who want, after there are some extra slides on:
+For those who want, extra slides are available on:
 
-- Branch creation/management
+- Git with [Large File Storage](https://git-lfs.github.com/) extension.
+- Working with branches, i.e. derivates of a project
 
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 3
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch bugfix
+    branch develop
+    checkout develop
+    commit id: "214e348"
+    checkout main
+    commit id: "69bbd79"
+    merge develop
+    checkout develop
+    branch feature
+    commit id: "0a9ba0c"
+    checkout bugfix
+    commit id: "d9d02608"
+```
 
 
 ## Large file storage
 
 To version (reasonably) large files (images, data samples) $\rightarrow$ Git with [LFS](https://git-lfs.github.com/) extension.
+
+:::{.callout-warning}
+Make sure that the remote host is compatible with LFS (GitHub is compatible)
+:::
 
 - Type `git lfs install` to activate the extension
 - Create a `data.csv` file and add `Year,Size,Species`
@@ -542,24 +567,13 @@ To version (reasonably) large files (images, data samples) $\rightarrow$ Git wit
 A `.gitattributes` file has appeared, which list all the files managed by Git LFS.
 
 - Type `git add .gitattributes data.csv`
-- Type `git commit -m "Third commit"`
-
-```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 1.5
-%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
-gitGraph
-    commit id: "0f0e96a"
-    commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
-    commit id: "9670a59"
-```
-
-
+- Type `git commit -m "Using LFS`
+- Type `git push` and look at your file `data.csv` file on GitHub.
 
 
 ## Creating branches
 
+- Type ```git config --global alias.tree log --all --decorate --oneline --graph```
 - Type `git checkout -b develop`
 - Type `git status`, `git br` and `git tree`
 - Open the `README.md` file, add some text and save.
@@ -654,8 +668,7 @@ gitGraph
 
 ## Creating branch from a commit
 
-- Identify the number of your c6dc2bc commit using `git log`
-- Type `git checkout -b feat-com 1831e4e` replacing `1831e4e` by the commit ID.
+- Type `git checkout -b feat-com 1831e4e` replacing `1831e4e` by an actual commit ID.
 - Create a `script.py` file
 - Type `git add script.py` and `git commit -m "Sixth commit"`
 
@@ -677,7 +690,7 @@ gitGraph
     branch feature
     commit id: "0a9ba0c"
     checkout feat-com
-    commit id: "6th"
+    commit id: "d9d02608"
 ```
 
 ## Differences between branches
@@ -713,7 +726,7 @@ class id1,id2 local;
 - Type `git br`
 - Type `git branch -d feat-com`
 
-An error occurs! The suppression of `feat-com` implies the loss of the `6th` and `Rev. 6th` commits! To force the suppression, use `-D` instead of `-d`.
+An error occurs! The suppression of `feat-com` implies the loss of the `d9d02608` commit. To force the suppression, use `-D` instead of `-d`.
 
 - Type `git branch -D feat-com`
 
@@ -724,7 +737,6 @@ The suppression of `develop` was ok because the content of commit `3rd` is inclu
 
 ## Reverting a commit
 
-- Identify the id of the most recent commit using `git log`
 - Type `git revert c6dc2bc` (replace `c6dc2bc` by your commit id)
 
 ```{mermaid}
@@ -736,10 +748,6 @@ gitGraph
     commit id: "c6dc2bc"
     commit id: "-c6dc2bc" type: REVERSE
 ```
-
-:::{.callout-note}
-Here, the workspace is the same as after the first commit, but we keep track of the second commit and its cancellation. The `LICENCE` file is gone and the `README.md` file is empty.
-:::
 
 ## Sources
 
