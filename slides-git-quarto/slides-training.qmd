@@ -225,6 +225,11 @@ gitGraph
     commit id: "9670a59"
 ```
 
+:::{.callout-tip}
+To list the ignored files, type `git ls-files --others --ignored --exclude-from=.gitignore`
+:::
+
+
 ## Moving in the history
 
 - Type `git checkout v1.0.0` $\rightarrow$ move to the previously created tag
@@ -590,23 +595,15 @@ Git Clients are softwares that facilitate the use of Git (see [Git Guis](https:/
 
 Beside, most code editors include Git functionalities
 
-![VSCode](img/vscode.png){#fig-vscode}
-
-
-
 ## Git clients
 
-Git Clients are softwares that facilitate the use of Git (see [Git Guis](https://git-scm.com/downloads/guis) for a list).
+![VSCode](img/vscode.png){#fig-vscode}
 
-Beside, most code editors include Git functionalities
+## Git clients
 
 ![RStudio](img/rstudio.png){#fig-rstudio width=350}
 
 ## Git clients
-
-Git Clients are softwares that facilitate the use of Git (see [Git Guis](https://git-scm.com/downloads/guis) for a list).
-
-Beside, most code editors include Git functionalities
 
 ![Netbeans](img/netbeans.png){#fig-rstudio width=350}
 
@@ -660,10 +657,16 @@ A `.gitattributes` file has appeared, which list all the file extensions managed
 - Type `git push`
 - On GitHub, click on your file `data.csv` file.
 
+## Creating aliases
+
+To create Git aliases (i.e. shortcuts):
+
+- Type ```git config --global alias.tree log --all --decorate --oneline --graph```
+- Type ```git config --global alias.br branch -vv```
+- Type ```git config --global alias.re remove -vv```
 
 ## Creating branches
 
-- Type ```git config --global alias.tree log --all --decorate --oneline --graph```
 - Type `git checkout -b develop`
 - Type `git status`, `git br` and `git tree`
 - Open the `README.md` file, add some text and save.
