@@ -486,7 +486,7 @@ flowchart RL
 
 ## Synchronization: conflicts
 
-- On GitHub, add `x = 1` at the end of the `README.md` file. **Do not type `git pull` !**
+- On GitHub, add `x = 1` at the end of the `README.md` file. **Do not type pull!**
 - On your computer, edit the `README.md` and add `x = 2`.
 - Type `git add README.md`
 - Type `git commit -m "Fifth commit"`
