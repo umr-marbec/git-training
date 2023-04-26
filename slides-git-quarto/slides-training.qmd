@@ -512,9 +512,12 @@ gitGraph
 
 - Open the `README.md` file. You should see:
 
-```{R}
+```
+<<<<<<< HEAD
 x = 2
+=======
 x = 1
+>>>>>>> 70a4c105e377db282c0769606960f0afcccdd071
 ```
 
 :::{.callout-warning}
