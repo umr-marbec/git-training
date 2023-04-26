@@ -370,7 +370,7 @@ To authentificate, you need to create an authentification token (see [GitHub aut
 
 To do so,  click on your profile photo and then on `Settings`:
 
-![](https://docs.github.com/assets/cb-139735/mw-1000/images/help/settings/userbar-account-settings.webp){height=600 fig-align="center"}
+![](img/github-account.png){height=600 fig-align="center"}
 
 ## Creation of a personal access token
 
