@@ -6,7 +6,7 @@ author:
     - name: Criscely Lujan-Paredes
 format:
     revealjs:
-        theme: [custom.scss]
+        theme: [default, custom.scss]
         multiplex: true
 ---
 
@@ -495,16 +495,26 @@ flowchart RL
 
 It says that a conflict has occurred on the `README.md` file. This is due to diverging history.
 
+```{mermaid}
+%%| fig-width: 10
+%%| fig-height: 1.5
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch origin/main
+    commit id: "x = 1"
+    checkout main
+    commit id: "x = 2"
+```
+
 ## Synchronization: conflicts
 
 - Open the `README.md` file. You should see:
 
-```
-<<<<<<< HEAD
+```{R}
 x = 2
-=======
 x = 1
->>>>>>> 70a4c105e377db282c0769606960f0afcccdd071
 ```
 
 :::{.callout-warning}
@@ -525,6 +535,42 @@ gitGraph
     commit id: "x = 2"
     merge origin/main tag: "x = 3"
 ```
+
+## Cloning an existing repository
+
+The `git clone` command allows to follow a given project
+
+- In `Terminal` or `Git Bash`, type `cd ..`
+- Now type `git clone https://github.com/umr-marbec/git-training`
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 1
+flowchart RL
+
+    idr(Remote)
+    idw(Workspace)
+
+    idr -->|git clone| idw
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+
+```
+
+- Type `git log` to see the full history.
+- To update the project, type `git pull`
+
+:::{.callout-warning}
+**Do not clone or initialize a Git repository in another Git repository!**
+:::
 
 
 ## Conclusion: good practice
@@ -553,8 +599,6 @@ Beside, most code editors include Git functionalities
 
 ![RStudio](img/rstudio.png){#fig-rstudio width=350}
 
-
-
 ## Git clients
 
 Git Clients are softwares that facilitate the use of Git (see [Git Guis](https://git-scm.com/downloads/guis) for a list).
@@ -562,10 +606,6 @@ Git Clients are softwares that facilitate the use of Git (see [Git Guis](https:/
 Beside, most code editors include Git functionalities
 
 ![Netbeans](img/netbeans.png){#fig-rstudio width=350}
-
-
-
-
 
 ## Going further...
 
