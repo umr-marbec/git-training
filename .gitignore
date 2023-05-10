@@ -8,6 +8,9 @@
 **/*.gz
 **/*.vrb
 **/*.sh
+**/*.bcf
+**/*xml
+
 .Rproj.user
 *.Rproj
 .Rhistory
@@ -18,6 +21,7 @@
 **/.quarto
 **/slides-training*html
 **/slides-training*pdf
+**/slides-remainder*pdf
 **/slides-training_files
 presentation_gitTraining/presentation_gitGithub-practice.pdf
 traning-git/*md
