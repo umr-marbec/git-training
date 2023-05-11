@@ -10,6 +10,7 @@
 **/*.sh
 **/*.bcf
 **/*xml
+**/*.xcf
 
 .Rproj.user
 *.Rproj
