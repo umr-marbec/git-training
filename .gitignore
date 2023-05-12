@@ -30,3 +30,8 @@ traning-git/*csv
 slides-git-quarto/training-git/data.csv
 slides-git-quarto/img/readme-edit.xcf
 slides-git-quarto/slides-training.tar
+slides-tex-presentation/slides-training.fdb_latexmk
+slides-tex-presentation/slides-training.fls
+slides-tex-presentation/slides-remainder.fdb_latexmk
+slides-tex-presentation/slides-remainder.fls
+slides-tex-presentation/slides-remainder.bbl

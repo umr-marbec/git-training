@@ -5,7 +5,6 @@
 
 \usepackage{booktabs}
 \usepackage{ulem}
-
 \usepackage[scale=2]{ccicons}
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
@@ -13,7 +12,8 @@
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 \usepackage[justification=centering]{caption}
 \captionsetup{labelformat=empty,labelsep=none}
-\usepackage{enumerate}   
+\usepackage{enumerate}
+%\usepackage[T1]{fontenc}
 \setbeamertemplate{section in toc}[sections numbered]
 
 \title{Formation Git}
@@ -101,7 +101,7 @@ Lujan-Paredes}
     \item
       Submitted, revised versions of a paper
     \end{itemize}
-    \item 
+    \item
         Create \textbf{derivates} of a project (\emph{branches})
         \begin{itemize}
             \item Production
@@ -120,7 +120,7 @@ Lujan-Paredes}
 
 \begin{minipage}[b]{0.4\linewidth}
 
-{\centering 
+{\centering
 
 \raisebox{-\height}{
 
@@ -136,7 +136,7 @@ Lujan-Paredes}
 %
 \begin{minipage}[b]{0.5\linewidth}
 
-{\centering 
+{\centering
 
 \raisebox{-\height}{
 
@@ -207,7 +207,7 @@ configuration.
 % \item
 %   \texttt{Repository}: a project Git
 %   \item
-%   \texttt{Stage} or \texttt{index}: the list of unvalidated changes 
+%   \texttt{Stage} or \texttt{index}: the list of unvalidated changes
 %   \item
 %   \texttt{add}: the command to add the file(s) to the list of tracked files
 %   \item
@@ -238,8 +238,8 @@ configuration.
     \texttt{Local}: the local repository \(\rightarrow\) contains the
   history of your project
 \item
-  \texttt{Index} or \texttt{Stage}:  a buffer between \texttt{Workspace} and \texttt{Local}
-  \(\rightarrow\) the list of files to be committed 
+  \texttt{Index} or \texttt{Stage}: a buffer between \texttt{Workspace} and \texttt{Local}
+  \(\rightarrow\) the list of files to be committed
  \item
   \texttt{add}: the command to add the file(s) to the list of tracked files
   \item
@@ -324,6 +324,8 @@ Type \code{git\ diff}
 
 \end{figure}
 
+Type \code{git\ add\ README.md}
+
 Type \code{git\ commit\ -m\ "Second\ commit"}
 
 Type \code{git\ log}
@@ -343,9 +345,11 @@ Type \code{git\ log}
 Open the \texttt{README.md} file and add
 \texttt{\#\#\ Version\ v1.0.0}.
 
+Type \code{git\ add\ README.md}
+
 Type \code{git\ commit\ -m\ "Third\ commit"}
 
-Type \code{git\ tag\ v1.0.0} and \code{git\ status}
+Type \code{git\ tag\ v1.0.0} and \code{git\ log}
 
 \begin{figure}[H]
 
@@ -411,7 +415,7 @@ commit
 
 \end{figure}
 
-Type \code{git\ checkout\ main} \(\rightarrow\) move at the latest
+Type \code{git\ checkout\ main\ (master)} \(\rightarrow\) move at the latest
 commit
 
 \begin{figure}[H]
@@ -480,8 +484,8 @@ to:
 \end{itemize}
 
 To do so, a \(4^{th}\) component in the Git architecture must be
-considered: the \texttt{Remote} repository.
-
+considered: the \texttt{Remote} repository. It contains a \textbf{remote} version of the history of
+your project
 
 \begin{figure}[H]
 
@@ -491,8 +495,6 @@ considered: the \texttt{Remote} repository.
 
 \end{figure}
 
-It contains a \textbf{remote} version of the history of
-your project
 \end{frame}
 
 \begin{frame}{Remote hosts}
@@ -516,7 +518,8 @@ There are several remote hosting possibilities:
 \item
   GitLab IRD: \url{https://forge.ird.fr/}
 \item
-  GitLab Ifremer \url{https://gitlab.ifremer.fr/}
+  GitLab Ifremer: \url{https://gitlab.ifremer.fr/}
+\item{Renater: \url{https://sourcesup.renater.fr/} (pas sexy...)}
 \end{itemize}
 
 In the following, we will use GitHub.
@@ -554,15 +557,15 @@ Click on \texttt{Create\ repository}
 
 \begin{columns}
 \begin{column}{0.6\textwidth}
-   
-To authenticate, you need to create an authentication token 
+
+To authenticate, you need to create an authentication token
 \href{https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token}{(see GitHub authentication for details)}
 
 \vspace{0.5cm}
 To do so, click on your profile photo and then on \texttt{Settings}:
 
 \end{column}
-\begin{column}{0.33\textwidth}  
+\begin{column}{0.33\textwidth}
     \begin{center}
      %%%%% this is a minipage, so \textwidth is already adjusted to the size of the column
      \includegraphics[width=\textwidth]{img/github-settings.png}
@@ -584,19 +587,19 @@ Select \texttt{Generate\ new\ token} and
 \texttt{Generate\ new\ token\ (classic)}.
 
 \begin{columns}
-\begin{column}{0.3\textwidth}  
+\begin{column}{0.3\textwidth}
     \begin{center}
      %%%%% this is a minipage, so \textwidth is already adjusted to the size of the column
      \includegraphics[width=\textwidth]{img/access-token-4.png}
      \end{center}
 \end{column}
-\begin{column}{0.3\textwidth}  
+\begin{column}{0.3\textwidth}
     \begin{center}
      %%%%% this is a minipage, so \textwidth is already adjusted to the size of the column
      \includegraphics[width=\textwidth]{img/access-token-1.png}
      \end{center}
 \end{column}
-\begin{column}{0.3\textwidth}  
+\begin{column}{0.3\textwidth}
     \begin{center}
 
      \includegraphics[width=\textwidth]{img/access-token-3.png}
@@ -623,7 +626,7 @@ below:
 Click on the \texttt{Generate\ token} box button.
 
 \textbf{Copy and save in a \texttt{.txt} file the token: this is your
-password!} 
+password!}
 \end{frame}
 
 \begin{frame}[fragile]{Linking Git local and remote}
@@ -658,7 +661,7 @@ It renames the \verb+main+ or \verb+master+ branch to fit the remote branch name
 
 Type \code{git\ push\ -u\ origin\ main}
 
-It connects the \emph{local} and \emph{remote} \verb+main+ branches (\verb+-u+ option) and sends the commits to the remote branch 
+It connects the \emph{local} and \emph{remote} \verb+main+ branches (\verb+-u+ option) and sends the commits to the remote branch
 
 \begin{center}
  \includegraphics[width=0.4\textwidth]{mermaid/diagram-2-1.pdf}
@@ -674,8 +677,8 @@ Type \code{git\ branch\ -vv}
 
 Have a look at your repository on GitHub. \textbf{Tags are missing!}
 
-Type \code{git\ push\ --tags} and refresh the GitHub page.
- 
+Type \code{git\ push\ -\/-tags} and refresh the GitHub page.
+
 \begin{center}
     \includegraphics[width=0.4\textwidth]{mermaid/mermaid-figure-14.png}
 \end{center}
@@ -698,7 +701,7 @@ Add a \texttt{Update\ from\ Github} line and click on
 
 \begin{minipage}[b]{0.45\linewidth}
 
-{\centering 
+{\centering
 
 \includegraphics[width=\textwidth]{img/readme-edit.png}
 
@@ -708,7 +711,7 @@ Add a \texttt{Update\ from\ Github} line and click on
 %
 \begin{minipage}[b]{0.45\linewidth}
 
-{\centering 
+{\centering
 
 \includegraphics[width=\textwidth]{img/readme-edit-2.png}
 
@@ -743,19 +746,20 @@ file. \textbf{Do not pull!}
 On your computer, edit the \texttt{README.md} and add
 \texttt{x\ =\ 2}.
 
+Type \code{git add README.md}
+
 Type \code{git\ commit\ -m\ "Fifth\ commit"}
 
-Type \code{git\ push}. An error occurs because changes in
-\texttt{Remote} are not in \texttt{Local}.
+Type \code{git\ push}. \textbf{An error occurs because changes in
+\texttt{Remote} have not been pulled in \texttt{Local}!}
 
-Type \code{git\ pull} and \code{git\ status}.
+Type \code{git\ pull} and \code{git\ status}. `'\textbf{An error occurs! It says that a conflict has occurred on the \texttt{README.md} file}.
 
-It says that a conflict has occurred on the \texttt{README.md} file.
-This is due to diverging history.
+This is due to a diverging history that cannot be solved automatically by Git.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.6\textwidth]{mermaid/mermaid-figure-12.png}
+{\centering \includegraphics[width=0.5\textwidth]{mermaid/mermaid-figure-12.png}
 
 }
 
@@ -777,7 +781,7 @@ x = 1
 \textbf{N.B.} These are conflicts markers. \texttt{Git} doesn't know whether to chose
 \texttt{x\ =\ 1} or \texttt{x\ =\ 2}. \textbf{This is your job!!}
 
-Open the file, replace the 3 lines above by \texttt{x\ =\ 3}. Commit and push
+Open the file, replace the 5 lines above by \texttt{x\ =\ 3}. Commit and push
 the changes
 
 \begin{figure}[H]
@@ -810,6 +814,13 @@ To update the project, type \code{git\ pull}
 
 \textbf{N.B. Do not clone or initialize a Git repository in another Git
 repository!}
+
+\textbf{N.B.}: To create a new repo more simply than done here:
+\begin{itemize}
+  \item Create a repo. on GitHub with a \texttt{README.md} file.
+  \item Clone the repo.
+  \item You are all set!
+\end{itemize}
 
 \end{frame}
 
@@ -916,7 +927,7 @@ Before working with branches, we will create some Git aliases (i.e.~shortcuts):
 Type
 \code{git\ config\ -\/-global\ alias.tree\ log\ -\/-all\ -\/-decorate\ -\/-oneline\ -\/-graph}
 
-Type \code{git\ config\ --global\ alias.br\ branch\ -vv}
+Type \code{git\ config\ -\/-global\ alias.br\ branch\ -vv}
 
 Type \code{git\ config\ -\/-global\ alias.re\ remove\ -vv}
 
@@ -1183,4 +1194,3 @@ On GitHub, click on your file \texttt{data.csv} file.
 \end{frame}
 
 \end{document}
-
