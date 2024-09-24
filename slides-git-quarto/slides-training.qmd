@@ -12,6 +12,8 @@ format:
         toc: true
         toc-depth: 1
         slide-number: true
+        template-partials:
+           - title-slide.html
 ---
 
 # Presentation of the Git Software
