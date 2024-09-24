@@ -1,5 +1,6 @@
 /*-- scss:defaults --*/
 
 $font-family-sans-serif: 'Lato', sans-serif;
-$presentation-font-size-root: 40px;
-$body-color: #eee;
+$presentation-font-size-root: 30px !default;
+$presentation-font-smaller: 0.7 !default;
+$body-color: #000000;

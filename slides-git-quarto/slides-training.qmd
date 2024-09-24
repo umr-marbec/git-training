@@ -11,6 +11,7 @@ format:
         mermaid-format: svg
         toc: true
         toc-depth: 1
+        slide-number: true
 ---
 
 # Presentation of the Git Software

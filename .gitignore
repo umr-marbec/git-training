@@ -35,3 +35,7 @@ slides-tex-presentation/slides-training.fls
 slides-tex-presentation/slides-remainder.fdb_latexmk
 slides-tex-presentation/slides-remainder.fls
 slides-tex-presentation/slides-remainder.bbl
+**/slides-remainder_files
+**/slides-remainder.html
+**/slides-remainder.pdf
+
