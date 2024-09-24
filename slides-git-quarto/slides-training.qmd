@@ -452,18 +452,17 @@ To do so,  click on your profile photo and then on `Settings`:
 ghp_***************************************
 ```
 
-## Linking Git local and remote {.smaller}
+## Linking Git local and remote
 
-- In `Terminal` or `Git Bash`, copy and paste what is shown on the GitHub page below the ```
-...or push an existing repository from the command line```:
+- In `Terminal` or `Git Bash`, type the following line:
 
-```bash
-git remote add origin https://github.com/barriern/git-train.git
-```
+`git remote add origin https://github.com/barriern/git-train.git`
 
-by replacing `barriern` by your GitHub login and `git-train` by the name of your GitHub repository.
+:::{.callout-warning}
+Replac `barriern` by your GitHub login and `git-train` by the name of your GitHub repository.
+:::
 
-It connects your Local repository with a remote one, called *origin*
+- It connects your Local repository with a remote one, called *origin*
 
 ```{mermaid}
 %%| fig-width: 10.5
