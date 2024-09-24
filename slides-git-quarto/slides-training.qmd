@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Version Control and Git"
+title: "Git Training"
 author:
     - name: "Nicolas Barrier"
     - name: Witold Podlejski
@@ -8,27 +8,57 @@ format:
     revealjs:
         theme: [default, custom.scss]
         multiplex: true
+        mermaid-format: svg
+        toc: true
+        toc-depth: 1
 ---
 
-## What are version control softwares (VCS)?
+# Presentation of the Git Software
 
-- Track changes (*commits*) of a project from the very beginning
-    - Who? When? What changes?
-- Highlight specific moments in the project (*tags*)
-    - New version of a code
-    - Submitted, revised versions of a paper
-- Create derivates of a project (*branches*)
-- Eventually go back in time
+## What is Git?
+
+- Free and open source software
+- Light and local use (without internet)
+- The most popular Version Control Software (VCS)
+- Manages and tracks versions of a project (code, manuscript, data)
+- Can be linked with remote server (GitHub, Gitlab)
+
+## What is Git for?
+
+- For a single user:
+    - **Track changes** (*commits*) over time with information about **when**
+    and **what** are the changes
+    - Eventually go **back in time**
+    - **Synchronize** the project in the **cloud** with git servers (GitHub,
+    Gitlab)
+
+## What is Git for ?
+
+- For a collaborative project:
+    -  **Track changes** (*commits*) with information about **who**, **when** and
+    **what** are the changes
+    -  **Resolve version conflict** when simultaneous changes
+    -  **Highlight a specific version** of the project (*tags*)
+    -  New version of a software
+    -  Submitted, revised versions of a paper
+    -  Create **derivates** of a project (*branches*)
+        -  Production
+        -  Development
+        -  Feature
+    -  **Publish** the project (open science)
+
 
 ## In short...
 
 ::: {layout-ncol=2 layout-valign="bottom"}
 
-![Without VCS](img/phd_comics.png){#fig-version-1 width=350}
+![Without Git](img/phd_comics.png){#fig-version-1 width=350}
 
-![With VCS](img/git-flow.jpg){#fig-version-2 width=600}
+![With Git](img/git-flow.jpg){#fig-version-2 width=600}
 
 :::
+
+# Installation and configurations
 
 ## Installing Git
 
@@ -60,11 +90,13 @@ These two lines identify you in the history of a project.
 
 - Type `git config --global --list` to see the global git configuration.
 
+# Getting started with Git in local
+
 ## Git architecture
 
 ```{mermaid}
-%%| fig-width: 10.5
 %%| fig-height: 2
+%%| fig-align: center
 flowchart LR
     idw(Workspace)
     idi(Index)
@@ -86,6 +118,8 @@ flowchart LR
 - `Workspace`: your working directory $\rightarrow$  your computer
 - `Local`: the local repository $\rightarrow$ contains the history of your project
 - `Index`: a buffer between `Workspace` and `Local` $\rightarrow$ list of the files that will be sent from `Workspace` to `Local`
+- `git add` : the command to add the file(s) in the `Index`
+- `git commit`: the command to validate the changes (moves the files from `Index` to `Local`)
 
 ## Getting started
 
@@ -101,15 +135,15 @@ A `.git` folder has appeared. It contains the full history of your project (`Loc
 
 - Type `git status` and `git log`
 
-## First commit
+## First commit {.smaller}
 
-- Create a `README.md` file. Type `git status` $\rightarrow$ `README.md` is now in `Workspace` but not in `Local`
+- Create a `README.md` file. Type `git status` $\rightarrow$ `README.md` is now in `Workspace` but not in `Index` nor in `Local`
 
 - Type `git add README.md` and `git status`
 
 ```{mermaid}
-%%| fig-width: 10.5
 %%| fig-height: 0.8
+%%| fig-align: center
 flowchart LR
   idw(Workspace) -->|git add| idi(Index)
 classDef workspace fill:lightgray,stroke:black,color:black
@@ -124,8 +158,8 @@ class idi index;
 - Type `git commit -m "First commit"` and type `git log`
 
 ```{mermaid}
-%%| fig-width: 10.5
 %%| fig-height: 0.8
+%%| fig-align: center
 flowchart LR
   idw(Index) -->|git commit| idl(Local)
 classDef workspace fill:lightgray,stroke:black,color:black
@@ -138,8 +172,8 @@ class idl local;
 ```
 
 ```{mermaid}
-%%| fig-width: 10
 %%| fig-height: 1
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
    commit id: "0f0e96a"
@@ -149,8 +183,6 @@ gitGraph
 `0f0e96a` is a short version of the identifier of the commit
 :::
 
-
-
 ## Second commit
 
 - Open the `README.md` file, add `# Git training` and save
@@ -158,8 +190,8 @@ gitGraph
 - Type `git diff`
 
 ```{mermaid}
-%%| fig-width: 10.5
 %%| fig-height: 1
+%%| fig-align: center
 flowchart LR
   idw(Local) -->|git diff| idl(Workspace)
 classDef workspace fill:lightgray,stroke:black,color:black
@@ -177,6 +209,7 @@ class idl local;
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 1
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -188,11 +221,12 @@ gitGraph
 - Open the `README.md` file and add `## Version v1.0.0`.
 - Type `git add README.md`
 - Type `git commit -m "Third commit"`
-- Type `git tag v1.0.0` and `git status`
+- Type `git tag v1.0.0` and `git log`
 
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 1.5
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -202,9 +236,9 @@ gitGraph
 
 - Type `git tag` to list all existing tags
 
-## Ignoring files
+## Ignoring files {.smaller}
 
-It is possible to tell Git to ignore some files (`.Rhistory`, `.log`, etc.) by using a [.gitignore](https://git-scm.com/docs/gitignore) file.
+It is possible to tell Git to ignore some files by using a [.gitignore](https://git-scm.com/docs/gitignore) file.
 
 - Create an empty `output.log` file and type `git status`
 - Create a `.gitignore` file and write `*.log`. Type again `git status`
@@ -215,8 +249,8 @@ The `output.log` file does not appear as an `Untracked file` anymore
 - Type `git commit -m "Fourth commit"`
 
 ```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 1.5
+%%| fig-height: 2
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -230,13 +264,14 @@ To list the ignored files, type `git ls-files --others --ignored --exclude-from=
 :::
 
 
-## Moving in the history
+## Moving in the history {.smaller}
 
-- Type `git checkout v1.0.0` $\rightarrow$ move to the previously created tag
+- Type `git checkout v1.0.0` $\rightarrow$ move to a tag
 
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 1.
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -245,11 +280,12 @@ gitGraph
     commit id: "9670a59"
 ```
 
-- Type `git checkout 0f0e96a` $\rightarrow$ move to the first commit
+- Type `git checkout 0f0e96a` $\rightarrow$ move to a specific commit
 
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 1.
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a" type:HIGHLIGHT
@@ -258,11 +294,12 @@ gitGraph
     commit id: "9670a59"
 ```
 
-- Type `git checkout main` $\rightarrow$ move at the latest commit
+- Type `git checkout main` $\rightarrow$ move at the latest commit (replace `main` by `master` if the latter is the name of the main branch)
 
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 1.
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -286,6 +323,7 @@ Order matters when using `git diff`. Differences are shown with the reference st
 ```{mermaid}
 %%| fig-width: 10.5
 %%| fig-height: 0.75
+%%| fig-align: center
 flowchart LR
   id1(0f0e96a)-->|git diff| id2(v1.0.0)
 classDef workspace fill:lightgray,stroke:black,color:black
@@ -300,7 +338,9 @@ class id1,id2 local;
 
 - Type `git diff 0f0e96a HEAD` $\rightarrow$ compares where you are in the history (`HEAD`) with a given commit.
 
-## Using remotes
+# Using Git with online server (GitHub)
+
+## Using remotes {.smaller}
 
 In addition of saving the history, Git has other advantages. It allows to:
 
@@ -309,11 +349,12 @@ In addition of saving the history, Git has other advantages. It allows to:
 - Share a project (codes, packages) with the community
     - Reproducible science
 
-To do so, a $4^{th}$ component in the Git architecture must be considered: the `Remote` repository.
+To do so, a $4^{th}$ component in the Git architecture must be considered: the `Remote` repository. It contains a **remote** version of the history of your project
 
 ```{mermaid}
 %%| fig-width: 10.5
 %%| fig-height: 2
+%%| fig-align: center
 flowchart LR
     idw(Workspace)
     idi(Index)
@@ -338,7 +379,7 @@ flowchart LR
 
 ```
 
-`Remote` contains a **remote** version of the history of your project
+
 
 ## Remote hosts
 
@@ -396,41 +437,42 @@ To do so,  click on your profile photo and then on `Settings`:
 
 ## Creation of a personal access token
 
-- Add some notes and **click on the `repo` box**, as shown below:
+- Add a description note and **click on the "repo" box**, as shown below:
 
 ![](img/access-token-2.png){height=250 fig-align="center"}
 
 - Click on the `Generate token` box button.
 
-- **Copy and save in a `.txt` file the token: this is your password!** It should look like something like this:
+- **Copy and save in a `.txt` file or in a Password manager tool (KeePassXC) the token: this is your password!** It should look like something like this:
 
 ```
 ghp_***************************************
 ```
 
-## Synchronization to the remote
+## Linking Git local and remote {.smaller}
 
 - In `Terminal` or `Git Bash`, copy and paste what is shown on the GitHub page below the ```
 ...or push an existing repository from the command line```:
 
-```
+```bash
 git remote add origin https://github.com/barriern/git-train.git
-git branch -M master
-git push -u origin master
 ```
 
-- `Username` is your GitHub login, `Password` is your token
+by replacing `barriern` by your GitHub login and `git-train` by the name of your GitHub repository.
 
+It connects your Local repository with a remote one, called *origin*
 
 ```{mermaid}
 %%| fig-width: 10.5
 %%| fig-height: 1
+%%| fig-align: center
 flowchart LR
 
     idl(Local)
-    idr(Remote)
+    idr("Remote\n(origin)")
 
-    idl -->|git push| idr
+    idl-->idr
+    idr-->idl
 
     classDef workspace fill:lightgray,stroke:black,color:black
     classDef index fill:lightblue,stroke:black,color:black
@@ -444,11 +486,81 @@ flowchart LR
 
 ```
 
+- Type `git remote -vv`
+
+## Linking Git local and remote
+
+Now that the local and remote repositories are linked, the same thing must be done with the branches.
+
+- Type `git branch -M main` by replacing `main` by the name of the remote branch on GitHub. It will rename the local branch with the same name.
+- Type `git push -u origin main`
+
+It connects the *local* and *remote* main branches (`-u` option) and sends the commits to the remote branch
+
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 1
+%%| fig-align: center
+flowchart LR
+
+    idl("Main\n(Local)")
+    idr("Main\n(Remote)")
+
+    idl-->idr
+    idr-->idl
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+
+```
+
+- Type `git branch -vv`
+
+## Linking Git local and remote
+
 Have a look at your repository on GitHub. **Tags are missing!**
 
-- Type `git push --tags` and refresh the GitHub page.
+Type `git push --tags` and refresh the GitHub page.
 
-## Synchronization from the remote
+```{mermaid}
+%%| fig-width: 10.5
+%%| fig-height: 1
+%%| fig-align: center
+flowchart LR
+
+    idl(Local)
+    idr("Remote")
+
+    idl-->|git push|idr
+
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+
+```
+
+:::{.callout-note}
+No need to specify the `-u origin main` arguments since the two
+branches are already connected.
+:::
+
+Navigate on the GitHub page to see what has been done.
+
+## Synchronization from the remote {.smaller}
 
 - In GitHub, click on the `README.md` file and then on the edit button
 
@@ -462,13 +574,14 @@ Have a look at your repository on GitHub. **Tags are missing!**
 
 :::
 
-The `Remote` change of `README.md` is not yet visible in `Workspace`
+The `Remote` change of `README.md` is not yet visible in `Workspace`!
 
 - In `Git Bash` or `Terminal`, type `git pull`
 
 
 ```{mermaid}
 %%| fig-width: 10.5
+%%| fig-align: center
 %%| fig-height: 1
 flowchart RL
 
@@ -489,19 +602,19 @@ flowchart RL
 
 ```
 
-## Synchronization: conflicts
+- Look again at the `README.md` file on your computer. You should see the update.
+
+## Synchronization: conflicts {.smaller}
 
 - On GitHub, add `x = 1` at the end of the `README.md` file. **Do not type pull!**
 - On your computer, edit the `README.md` and add `x = 2`.
 - Type `git add README.md`
 - Type `git commit -m "Fifth commit"`
-- Type `git push`. An error occurs because changes in `Remote` are not in `Local`.
-- Type `git pull` and `git status`.
-
-It says that a conflict has occurred on the `README.md` file. This is due to diverging history.
-
+- Type `git push`. An error occurs because changes in `Remote` have not been pulled in `Local`.
+- Type `git pull` and `git status`. An error occurs because there is a conflict in the `README.md` file which cannot be solved by Git.
 ```{mermaid}
 %%| fig-width: 10
+%%| fig-align: center
 %%| fig-height: 1.5
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -531,8 +644,8 @@ These are conflicts markers. `Git` does't know whether to chose `x = 1` or `x = 
 
 - Open the file, replace the above by `x = 3`. Commit and push the changes
 ```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 1.5
+%%| fig-width: 12
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -544,16 +657,15 @@ gitGraph
     merge origin/main tag: "x = 3"
 ```
 
-## Cloning an existing repository
-
-The `git clone` command allows to follow a given project
+## Cloning an existing repository {.smaller}
 
 - In `Terminal` or `Git Bash`, type `cd ..`
 - Now type `git clone https://github.com/umr-marbec/git-training`
 
 ```{mermaid}
 %%| fig-width: 10.5
-%%| fig-height: 1
+%%| fig-height: 0.8
+%%| fig-align: center
 flowchart RL
 
     idr(Remote)
@@ -580,16 +692,28 @@ flowchart RL
 **Do not clone or initialize a Git repository in another Git repository!**
 :::
 
+## Create a repository the simple way
+
+To create a new repo more simply than done here:
+
+- Create a repo. on GitHub with a `README.md` file and eventually a `LICENCE` file.
+- Clone the repo.
+- You are all set!
+    - The `remote` and `local` repositories are synchonized
+    - The `remote` and `local` main branches are synchonized
 
 ## Conclusion: good practice
 
 - Before starting editing a project, do a `git pull`
 - Commit very often using `git commit` extensively
 - Push often as well using `git push`
+- Use `git status` extensively to know what you have done
 
 ![](img/funny.jpg){fig-align="center" height=300}
 
-## Git clients
+# Git clients
+
+# Git clients: what is it?
 
 Git Clients are softwares that facilitate the use of Git (see [Git Guis](https://git-scm.com/downloads/guis) for a list).
 
@@ -616,6 +740,7 @@ For those who want, extra slides are available on:
 
 ```{mermaid}
 %%| fig-width: 10
+%%| fig-align: center
 %%| fig-height: 3
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -676,6 +801,7 @@ To create Git aliases (i.e. shortcuts):
 
 ```{mermaid}
 %%| fig-width: 10
+%%| fig-align: center
 %%| fig-height: 2
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -696,6 +822,7 @@ gitGraph
 
 ```{mermaid}
 %%| fig-width: 10
+%%| fig-align: center
 %%| fig-height: 2
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -716,6 +843,7 @@ gitGraph
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 2
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -744,6 +872,7 @@ During the merging process, another commit is created
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 3
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -768,6 +897,7 @@ gitGraph
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 4
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -800,6 +930,7 @@ Order matters: it shows what has been added to `main` branch compared to the `de
 
 ```{mermaid}
 %%| fig-width: 10.5
+%%| fig-align: center
 %%| fig-height: 0.75
 flowchart LR
   id1(Develop)-->|git diff| id2(Main)
@@ -835,6 +966,7 @@ The suppression of `develop` was ok because the content of commit `3rd` is inclu
 ```{mermaid}
 %%| fig-width: 10
 %%| fig-height: 1
+%%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
