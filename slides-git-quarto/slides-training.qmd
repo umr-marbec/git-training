@@ -791,6 +791,8 @@ To create Git aliases (i.e. shortcuts):
 - Type ```git config --global alias.br branch -vv```
 - Type ```git config --global alias.re remove -vv```
 
+You can now call the `git tree`, `git br` and `git re` commands.
+
 ## Creating branches
 
 - Type `git checkout -b develop`
