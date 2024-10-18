@@ -1,20 +1,3 @@
----
-title: "Git Training"
-author:
-    - name: "Nicolas Barrier"
-    - name: Witold Podlejski
-    - name: Criscely Lujan-Paredes
-format:
-    revealjs:
-        theme: [default, custom.scss]
-        multiplex: true
-        mermaid-format: svg
-        toc: true
-        toc-depth: 1
-        slide-number: true
-        template-partials:
-           - title-slide.html
----
 
 # Presentation of the Git Software
 
@@ -733,6 +716,8 @@ Beside, most code editors include Git functionalities
 
 ![Netbeans](img/netbeans.png){#fig-rstudio width=350}
 
+# Going further
+
 ## Going further...
 
 For those who want, extra slides are available on:
@@ -761,7 +746,6 @@ gitGraph
     checkout bugfix
     commit id: "d9d02608"
 ```
-
 
 ## Large file storage
 
@@ -977,6 +961,68 @@ gitGraph
     commit id: "c6dc2bc"
     commit id: "-c6dc2bc" type: REVERSE
 ```
+
+# Remainder
+
+## Basic commands
+
+- `git init`: initialise a git project (create .git folder)
+- `git add [files]`: add files to list of tracked files
+- `git commit -m ”message”`: validate locally a version of the project
+- `git status`: see the unvalidated and untracked changes
+- `git checkout [commit]`: load the project version corresponding to
+the index
+- `git pull`: import the changes from remote project to local
+- `git push`: export the changes from local project to the remote server
+
+## Git configuration (mandatory)
+
+- Configure your identity: `git config --global user.name
+"Firstname Lastname"`
+- Configure your e-mail: `git config --global user.email
+"myadresse@ird.fr"`
+
+## Branch handling
+
+- `git branch [branch_name]`: create a new branch (but you remain
+on the previous branch)
+- `git branch -b [branch_name]`: create a new branch and move to
+this newly created branch
+- `git checkout [branch_name]`: move to the corresponding branch
+- `git merge [branch_name1] [branch_name2]`: merge two
+different branch, you may need to resolve version conflict.
+- `git branch -d [branch_name1]`: delete a branch (safe mode)
+- `git branch -D [branch_name1]`: delete a branch (unsafe mode)
+
+## Linking with remote
+
+- `git clone [URL]`: Import an existing project from remote server.
+- `git remote add origin [URL]`: link directly the local repository with
+a remote
+
+## Authentication of your computer and the remote server
+
+- SSH key: easy way on Linux distributions
+    - Tuto here: [https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html](https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html)
+- Authentication Token
+    - Tuto here: [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
+## Good practices
+
+- Pull before any work on the project
+- Commit as frequently as possible
+- Write explicit commit message
+- Push regularly
+
+## IDE (graphical user interface) with Git
+
+- R
+    - RStudio
+    - Visual Studio Code
+- Python
+    - Spyder
+    - Visual Studio Code
+    - Pycharm (all JetBrain softwares)
 
 ## Sources
 

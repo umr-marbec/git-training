@@ -39,3 +39,7 @@ slides-tex-presentation/slides-remainder.bbl
 **/slides-remainder.html
 **/slides-remainder.pdf
 
+
+/.quarto/
+git-training.pdf
+git-training_files/

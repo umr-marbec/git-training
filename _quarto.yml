@@ -17,6 +17,7 @@ format:
     smaller: true
     theme: [default, custom.scss]
     output-file: slides_git-training.html
+    scrollable: true
     template-partials:
       - title-slide.html
   pdf:
@@ -25,4 +26,4 @@ format:
     colorlinks: true
     linestretch: 1.5
     fontsize: 13pt
-    output-file: datarmor-documentation.pdf
+    output-file: git-training.pdf
