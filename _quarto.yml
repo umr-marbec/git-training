@@ -1,4 +1,28 @@
-project:
-  title: "Introduction to Quarto"
-
-editor: visual
+title: Git training
+logo: figs/marbec-git.png 
+author:
+  - name: Nicolas Barrier
+    orcid: 0000-0002-1693-4719
+    email:  nicolas.barrier@ird.fr
+    affiliations:
+      - name: IRD
+  - name: Witold Podlejski
+  - name: Criscely Lujan-Paredes
+execute:
+  freeze: auto
+format:
+  html:
+    theme: cosmo
+  revealjs:
+    smaller: true
+    theme: [default, custom.scss]
+    output-file: slides_git-training.html
+    template-partials:
+      - title-slide.html
+  pdf:
+    toc: false
+    number-sections: false
+    colorlinks: true
+    linestretch: 1.5
+    fontsize: 13pt
+    output-file: datarmor-documentation.pdf
