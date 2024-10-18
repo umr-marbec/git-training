@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nicolas Barrier">
+<meta name="author" content="Witold Podlejski">
+<meta name="author" content="Criscely Lujan-Paredes">
+
+<title>Git training</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="git-training_files/libs/clipboard/clipboard.min.js"></script>
+<script src="git-training_files/libs/quarto-html/quarto.js"></script>
+<script src="git-training_files/libs/quarto-html/popper.min.js"></script>
+<script src="git-training_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="git-training_files/libs/quarto-html/anchor.min.js"></script>
+<link href="git-training_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="git-training_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="git-training_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="git-training_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="git-training_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="git-training_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="git-training_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="git-training_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides_git-training.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="git-training.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Git training</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Nicolas Barrier <a href="mailto:nicolas.barrier@ird.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-1693-4719" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            IRD
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Witold Podlejski </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Criscely Lujan-Paredes </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="presentation-of-the-git-software" class="level1">
+<h1>Presentation of the Git Software</h1>
+<section id="what-is-git" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-git">What is Git?</h2>
+<ul>
+<li>Free and open source software</li>
+<li>Light and local use (without internet)</li>
+<li>The most popular Version Control Software (VCS)</li>
+<li>Manages and tracks versions of a project (code, manuscript, data)</li>
+<li>Can be linked with remote server (GitHub, Gitlab)</li>
+</ul>
+</section>
+<section id="what-is-git-for" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-git-for">What is Git for?</h2>
+<ul>
+<li>For a single user:
+<ul>
+<li><strong>Track changes</strong> (<em>commits</em>) over time with information about <strong>when</strong> and <strong>what</strong> are the changes</li>
+<li>Eventually go <strong>back in time</strong></li>
+<li><strong>Synchronize</strong> the project in the <strong>cloud</strong> with git servers (GitHub, Gitlab)</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-is-git-for-1" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-git-for-1">What is Git for ?</h2>
+<ul>
+<li>For a collaborative project:
+<ul>
+<li><strong>Track changes</strong> (<em>commits</em>) with information about <strong>who</strong>, <strong>when</strong> and <strong>what</strong> are the changes</li>
+<li><strong>Resolve version conflict</strong> when simultaneous changes</li>
+<li><strong>Highlight a specific version</strong> of the project (<em>tags</em>)</li>
+<li>New version of a software</li>
+<li>Submitted, revised versions of a paper</li>
+<li>Create <strong>derivates</strong> of a project (<em>branches</em>)
+<ul>
+<li>Production</li>
+<li>Development</li>
+<li>Feature</li>
+</ul></li>
+<li><strong>Publish</strong> the project (open science)</li>
+</ul></li>
+</ul>
+</section>
+<section id="in-short" class="level2">
+<h2 class="anchored" data-anchor-id="in-short">In short…</h2>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-version-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-version-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/phd_comics.png" class="img-fluid figure-img" width="350">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-version-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Without Git
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-version-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-version-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/git-flow.jpg" class="img-fluid figure-img" width="600">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-version-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: With Git
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="installation-and-configurations" class="level1">
+<h1>Installation and configurations</h1>
+<section id="installing-git" class="level2">
+<h2 class="anchored" data-anchor-id="installing-git">Installing Git</h2>
+<p><strong>Windows and Mac</strong></p>
+<p>Download and install Git from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</p>
+<p>When done, open <code>Git Bash</code></p>
+<p><strong>Linux</strong></p>
+<p>Open a <code>Terminal</code> window and type:</p>
+<p><code>sudo apt install git git-lfs git-flow</code></p>
+</section>
+<section id="git-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="git-configuration">Git configuration</h2>
+<p>On <code>Git Bash</code> or in the <code>Terminal</code>:</p>
+<ul>
+<li>Type <code>git config --global user.name "Firstname Lastname"</code></li>
+<li>Type <code>git config --global user.email "myadresse@ird.fr"</code></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These two lines identify you in the history of a project.</p>
+</div>
+</div>
+<ul>
+<li>Type <code>git config --global --list</code> to see the global git configuration.</li>
+</ul>
+</section>
+</section>
+<section id="getting-started-with-git-in-local" class="level1">
+<h1>Getting started with Git in local</h1>
+<section id="git-architecture" class="level2">
+<h2 class="anchored" data-anchor-id="git-architecture">Git architecture</h2>
+<div class="cell" data-fig-height="2" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    idw(Workspace)
+    idi(Index)
+    idl(Local)
+
+    idw --&gt;|git add| idi
+    idi --&gt;|git commit| idl
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li><code>Workspace</code>: your working directory <span class="math inline">\(\rightarrow\)</span> your computer</li>
+<li><code>Local</code>: the local repository <span class="math inline">\(\rightarrow\)</span> contains the history of your project</li>
+<li><code>Index</code>: a buffer between <code>Workspace</code> and <code>Local</code> <span class="math inline">\(\rightarrow\)</span> list of the files that will be sent from <code>Workspace</code> to <code>Local</code></li>
+<li><code>git add</code> : the command to add the file(s) in the <code>Index</code></li>
+<li><code>git commit</code>: the command to validate the changes (moves the files from <code>Index</code> to <code>Local</code>)</li>
+</ul>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<ul>
+<li>Create a folder called <code>training-git</code> by typing <code>mkdir training-git</code></li>
+<li>Move to the folder by typing <code>cd training-git</code></li>
+<li>Type <code>ls -alrt</code></li>
+<li>Type <code>git init</code></li>
+<li>Type again <code>ls -alrt</code>.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <code>.git</code> folder has appeared. It contains the full history of your project (<code>Local</code> repository)</p>
+</div>
+</div>
+<ul>
+<li>Type <code>git status</code> and <code>git log</code></li>
+</ul>
+</section>
+<section id="first-commit" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="first-commit">First commit</h2>
+<ul>
+<li><p>Create a <code>README.md</code> file. Type <code>git status</code> <span class="math inline">\(\rightarrow\)</span> <code>README.md</code> is now in <code>Workspace</code> but not in <code>Index</code> nor in <code>Local</code></p></li>
+<li><p>Type <code>git add README.md</code> and <code>git status</code></p></li>
+</ul>
+<div class="cell" data-fig-height="0.8" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  idw(Workspace) --&gt;|git add| idi(Index)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class idw workspace;
+class idi index;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Type <code>git commit -m "First commit"</code> and type <code>git log</code></li>
+</ul>
+<div class="cell" data-fig-height="0.8" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  idw(Index) --&gt;|git commit| idl(Local)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class idw index;
+class idl local;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+   commit id: "0f0e96a"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>0f0e96a</code> is a short version of the identifier of the commit</p>
+</div>
+</div>
+</section>
+<section id="second-commit" class="level2">
+<h2 class="anchored" data-anchor-id="second-commit">Second commit</h2>
+<ul>
+<li>Open the <code>README.md</code> file, add <code># Git training</code> and save</li>
+<li>Type <code>git status</code></li>
+<li>Type <code>git diff</code></li>
+</ul>
+<div class="cell" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  idw(Local) --&gt;|git diff| idl(Workspace)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class idw workspace;
+class idl local;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Type <code>git commit -m "Second commit"</code></li>
+<li>Type <code>git log</code></li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-tags" class="level2">
+<h2 class="anchored" data-anchor-id="creating-tags">Creating tags</h2>
+<ul>
+<li>Open the <code>README.md</code> file and add <code>## Version v1.0.0</code>.</li>
+<li>Type <code>git add README.md</code></li>
+<li>Type <code>git commit -m "Third commit"</code></li>
+<li>Type <code>git tag v1.0.0</code> and <code>git log</code></li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="1.5" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Type <code>git tag</code> to list all existing tags</li>
+</ul>
+</section>
+<section id="ignoring-files" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="ignoring-files">Ignoring files</h2>
+<p>It is possible to tell Git to ignore some files by using a <a href="https://git-scm.com/docs/gitignore">.gitignore</a> file.</p>
+<ul>
+<li>Create an empty <code>output.log</code> file and type <code>git status</code></li>
+<li>Create a <code>.gitignore</code> file and write <code>*.log</code>. Type again <code>git status</code></li>
+</ul>
+<p>The <code>output.log</code> file does not appear as an <code>Untracked file</code> anymore</p>
+<ul>
+<li>Type <code>git add .gitignore</code> and <code>git status</code></li>
+<li>Type <code>git commit -m "Fourth commit"</code></li>
+</ul>
+<div class="cell" data-fig-height="2" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0"
+    commit id: "9670a59"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To list the ignored files, type <code>git ls-files --others --ignored --exclude-from=.gitignore</code></p>
+</div>
+</div>
+</section>
+<section id="moving-in-the-history" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="moving-in-the-history">Moving in the history</h2>
+<ul>
+<li>Type <code>git checkout v1.0.0</code> <span class="math inline">\(\rightarrow\)</span> move to a tag</li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0" type:HIGHLIGHT
+    commit id: "9670a59"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Type <code>git checkout 0f0e96a</code> <span class="math inline">\(\rightarrow\)</span> move to a specific commit</li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a" type:HIGHLIGHT
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0"
+    commit id: "9670a59"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Type <code>git checkout main</code> <span class="math inline">\(\rightarrow\)</span> move at the latest commit (replace <code>main</code> by <code>master</code> if the latter is the name of the main branch)</li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0"
+    commit id: "9670a59" type:HIGHLIGHT
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>HEAD</code> is a symbolic reference pointing to wherever you are in your commit history, as shown in <code>git log</code></p>
+</div>
+</div>
+</section>
+<section id="display-differences" class="level2">
+<h2 class="anchored" data-anchor-id="display-differences">Display differences</h2>
+<ul>
+<li>Type <code>git diff 0f0e96a v1.0.0</code> <span class="math inline">\(\rightarrow\)</span> compares a commit and a tag.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Order matters when using <code>git diff</code>. Differences are shown with the reference state considered to be the first argument.</p>
+</div>
+</div>
+<div class="cell" data-fig-width="10.5" data-fig-height="0.75" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  id1(0f0e96a)--&gt;|git diff| id2(v1.0.0)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class id1,id2 local;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Type <code>git diff 0f0e96a c6dc2bc</code> <span class="math inline">\(\rightarrow\)</span> compares two commits.</p></li>
+<li><p>Type <code>git diff 0f0e96a HEAD</code> <span class="math inline">\(\rightarrow\)</span> compares where you are in the history (<code>HEAD</code>) with a given commit.</p></li>
+</ul>
+</section>
+</section>
+<section id="using-git-with-online-server-github" class="level1">
+<h1>Using Git with online server (GitHub)</h1>
+<section id="using-remotes" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="using-remotes">Using remotes</h2>
+<p>In addition of saving the history, Git has other advantages. It allows to:</p>
+<ul>
+<li>Save a project remotely
+<ul>
+<li>Synchronization with different computers (laptop, HPCs)</li>
+</ul></li>
+<li>Share a project (codes, packages) with the community
+<ul>
+<li>Reproducible science</li>
+</ul></li>
+</ul>
+<p>To do so, a <span class="math inline">\(4^{th}\)</span> component in the Git architecture must be considered: the <code>Remote</code> repository. It contains a <strong>remote</strong> version of the history of your project</p>
+<div class="cell" data-fig-width="10.5" data-fig-height="2" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    idw(Workspace)
+    idi(Index)
+    idl(Local)
+    idr(Remote)
+
+    idw --&gt;|git add| idi
+    idi --&gt;|git commit| idl
+    idl --&gt;|git push| idr
+    idr ---&gt;|git pull| idw
+    idr ---&gt;|git fetch| idl
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="remote-hosts" class="level2">
+<h2 class="anchored" data-anchor-id="remote-hosts">Remote hosts</h2>
+<p>There are several remote hosting possibilities:</p>
+<p><strong>Commercial hosts</strong>:</p>
+<ul>
+<li>GitHub: <a href="https://github.com/">https://github.com/</a></li>
+<li>GitLab: <a href="https://gitlab.com/">https://gitlab.com/</a></li>
+</ul>
+<p><strong>Institutional hosts</strong>:</p>
+<ul>
+<li>GitLab IRD: <a href="https://forge.ird.fr/">https://forge.ird.fr/</a></li>
+<li>GitLab Ifremer <a href="https://gitlab.ifremer.fr/">https://gitlab.ifremer.fr/</a></li>
+</ul>
+<p>In the following, we will use GitHub.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>GitHub proposes extra-features for students, teachers and researchers. Visit <a href="https://education.github.com/benefits">https://education.github.com/benefits</a> for more informations</p>
+</div>
+</div>
+</section>
+<section id="creation-of-a-github-repository" class="level2">
+<h2 class="anchored" data-anchor-id="creation-of-a-github-repository">Creation of a GitHub repository</h2>
+<ul>
+<li>On your GitHub page, click on <code>Repositories</code></li>
+<li>Click on the the green <code>New</code> button</li>
+<li>Set the name of your remote repository. Leave the other fields empty</li>
+<li>Click on <code>Create repository</code></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/github_makeRepo.png" class="quarto-figure quarto-figure-center figure-img" data-layout-valign="center" height="400"></p>
+</figure>
+</div>
+</section>
+<section id="creation-of-a-personal-access-token" class="level2">
+<h2 class="anchored" data-anchor-id="creation-of-a-personal-access-token">Creation of a personal access token</h2>
+<p>To authentificate, you need to create an authentification token (see <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">GitHub authentification of details</a> for details).</p>
+<p>To do so, click on your profile photo and then on <code>Settings</code>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/github-settings.png" class="quarto-figure quarto-figure-center figure-img" height="600"></p>
+</figure>
+</div>
+</section>
+<section id="creation-of-a-personal-access-token-1" class="level2">
+<h2 class="anchored" data-anchor-id="creation-of-a-personal-access-token-1">Creation of a personal access token</h2>
+<ul>
+<li>In the left sidebar, click on <code>Developer settings</code>.</li>
+<li>Under <code>Personal access tokens</code>, click <code>Tokens (classic)</code>.</li>
+<li>Select <code>Generate new token</code> and <code>Generate new token (classic)</code>.</li>
+</ul>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/access-token-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/access-token-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/access-token-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="creation-of-a-personal-access-token-2" class="level2">
+<h2 class="anchored" data-anchor-id="creation-of-a-personal-access-token-2">Creation of a personal access token</h2>
+<ul>
+<li>Add a description note and <strong>click on the “repo” box</strong>, as shown below:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/access-token-2.png" class="quarto-figure quarto-figure-center figure-img" height="250"></p>
+</figure>
+</div>
+<ul>
+<li><p>Click on the <code>Generate token</code> box button.</p></li>
+<li><p><strong>Copy and save in a <code>.txt</code> file or in a Password manager tool (KeePassXC) the token: this is your password!</strong> It should look like something like this:</p></li>
+</ul>
+<pre><code>ghp_***************************************</code></pre>
+</section>
+<section id="linking-git-local-and-remote" class="level2">
+<h2 class="anchored" data-anchor-id="linking-git-local-and-remote">Linking Git local and remote</h2>
+<ul>
+<li>In <code>Terminal</code> or <code>Git Bash</code>, type the following line:</li>
+</ul>
+<p><code>git remote add origin https://github.com/barriern/git-train.git</code></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Replac <code>barriern</code> by your GitHub login and <code>git-train</code> by the name of your GitHub repository.</p>
+</div>
+</div>
+<ul>
+<li>It connects your Local repository with a remote one, called <em>origin</em></li>
+</ul>
+<div class="cell" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+    idl(Local)
+    idr("Remote\n(origin)")
+
+    idl--&gt;idr
+    idr--&gt;idl
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Type <code>git remote -vv</code></li>
+</ul>
+</section>
+<section id="linking-git-local-and-remote-1" class="level2">
+<h2 class="anchored" data-anchor-id="linking-git-local-and-remote-1">Linking Git local and remote</h2>
+<p>Now that the local and remote repositories are linked, the same thing must be done with the branches.</p>
+<ul>
+<li>Type <code>git branch -M main</code> by replacing <code>main</code> by the name of the remote branch on GitHub. It will rename the local branch with the same name.</li>
+<li>Type <code>git push -u origin main</code></li>
+</ul>
+<p>It connects the <em>local</em> and <em>remote</em> main branches (<code>-u</code> option) and sends the commits to the remote branch</p>
+<div class="cell" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+    idl("Main\n(Local)")
+    idr("Main\n(Remote)")
+
+    idl--&gt;idr
+    idr--&gt;idl
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Type <code>git branch -vv</code></li>
+</ul>
+</section>
+<section id="linking-git-local-and-remote-2" class="level2">
+<h2 class="anchored" data-anchor-id="linking-git-local-and-remote-2">Linking Git local and remote</h2>
+<p>Have a look at your repository on GitHub. <strong>Tags are missing!</strong></p>
+<p>Type <code>git push --tags</code> and refresh the GitHub page.</p>
+<div class="cell" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+
+    idl(Local)
+    idr("Remote")
+
+    idl--&gt;|git push|idr
+
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No need to specify the <code>-u origin main</code> arguments since the two branches are already connected.</p>
+</div>
+</div>
+<p>Navigate on the GitHub page to see what has been done.</p>
+</section>
+<section id="synchronization-from-the-remote" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="synchronization-from-the-remote">Synchronization from the remote</h2>
+<ul>
+<li><p>In GitHub, click on the <code>README.md</code> file and then on the edit button</p></li>
+<li><p>Add a <code>Update from Github</code> line and click on <code>Commit changes</code></p></li>
+</ul>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/readme-edit.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/readme-edit-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The <code>Remote</code> change of <code>README.md</code> is not yet visible in <code>Workspace</code>!</p>
+<ul>
+<li>In <code>Git Bash</code> or <code>Terminal</code>, type <code>git pull</code></li>
+</ul>
+<div class="cell" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart RL
+
+    idr(Remote)
+    idw(Workspace)
+
+    idr --&gt;|git pull| idw
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Look again at the <code>README.md</code> file on your computer. You should see the update.</li>
+</ul>
+</section>
+<section id="synchronization-conflicts" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="synchronization-conflicts">Synchronization: conflicts</h2>
+<ul>
+<li>On GitHub, add <code>x = 1</code> at the end of the <code>README.md</code> file. <strong>Do not type pull!</strong></li>
+<li>On your computer, edit the <code>README.md</code> and add <code>x = 2</code>.</li>
+<li>Type <code>git add README.md</code></li>
+<li>Type <code>git commit -m "Fifth commit"</code></li>
+<li>Type <code>git push</code>. An error occurs because changes in <code>Remote</code> have not been pulled in <code>Local</code>.</li>
+<li>Type <code>git pull</code> and <code>git status</code>. An error occurs because there is a conflict in the <code>README.md</code> file which cannot be solved by Git.</li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="1.5" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch origin/main
+    commit id: "x = 1"
+    checkout main
+    commit id: "x = 2"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="synchronization-conflicts-1" class="level2">
+<h2 class="anchored" data-anchor-id="synchronization-conflicts-1">Synchronization: conflicts</h2>
+<ul>
+<li>Open the <code>README.md</code> file. You should see:</li>
+</ul>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+x = 2
+=======
+x = 1
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 70a4c105e377db282c0769606960f0afcccdd071</code></pre>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These are conflicts markers. <code>Git</code> does’t know whether to chose <code>x = 1</code> or <code>x = 2</code>. This is your job</p>
+</div>
+</div>
+<ul>
+<li>Open the file, replace the above by <code>x = 3</code>. Commit and push the changes</li>
+</ul>
+<div class="cell" data-fig-width="12" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch origin/main
+    commit id: "x = 1"
+    checkout main
+    commit id: "x = 2"
+    merge origin/main tag: "x = 3"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="cloning-an-existing-repository" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="cloning-an-existing-repository">Cloning an existing repository</h2>
+<ul>
+<li>In <code>Terminal</code> or <code>Git Bash</code>, type <code>cd ..</code></li>
+<li>Now type <code>git clone https://github.com/umr-marbec/git-training</code></li>
+</ul>
+<div class="cell" data-fig-width="10.5" data-fig-height="0.8" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart RL
+
+    idr(Remote)
+    idw(Workspace)
+
+    idr --&gt;|git clone| idw
+
+    classDef workspace fill:lightgray,stroke:black,color:black
+    classDef index fill:lightblue,stroke:black,color:black
+    classDef local fill:lightgreen,stroke:black,color:black
+    classDef remote fill:yellow,stroke:black,color:black
+
+    class idw workspace;
+    class idi index;
+    class idl local;
+    class idr remote;
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li>Type <code>git log</code> to see the full history.</li>
+<li>To update the project, type <code>git pull</code></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Do not clone or initialize a Git repository in another Git repository!</strong></p>
+</div>
+</div>
+</section>
+<section id="create-a-repository-the-simple-way" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-repository-the-simple-way">Create a repository the simple way</h2>
+<p>To create a new repo more simply than done here:</p>
+<ul>
+<li>Create a repo. on GitHub with a <code>README.md</code> file and eventually a <code>LICENCE</code> file.</li>
+<li>Clone the repo.</li>
+<li>You are all set!
+<ul>
+<li>The <code>remote</code> and <code>local</code> repositories are synchonized</li>
+<li>The <code>remote</code> and <code>local</code> main branches are synchonized</li>
+</ul></li>
+</ul>
+</section>
+<section id="conclusion-good-practice" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-good-practice">Conclusion: good practice</h2>
+<ul>
+<li>Before starting editing a project, do a <code>git pull</code></li>
+<li>Commit very often using <code>git commit</code> extensively</li>
+<li>Push often as well using <code>git push</code></li>
+<li>Use <code>git status</code> extensively to know what you have done</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/funny.jpg" class="quarto-figure quarto-figure-center figure-img" height="300"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="git-clients" class="level1">
+<h1>Git clients</h1>
+</section>
+<section id="git-clients-what-is-it" class="level1">
+<h1>Git clients: what is it?</h1>
+<p>Git Clients are softwares that facilitate the use of Git (see <a href="https://git-scm.com/downloads/guis">Git Guis</a> for a list).</p>
+<p>Beside, most code editors include Git functionalities</p>
+<section id="git-clients-1" class="level2">
+<h2 class="anchored" data-anchor-id="git-clients-1">Git clients</h2>
+<div id="fig-vscode" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vscode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/vscode.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vscode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: VSCode
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="git-clients-2" class="level2">
+<h2 class="anchored" data-anchor-id="git-clients-2">Git clients</h2>
+<div id="fig-rstudio" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rstudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/rstudio.png" class="img-fluid figure-img" width="350">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rstudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: RStudio
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="git-clients-3" class="level2">
+<h2 class="anchored" data-anchor-id="git-clients-3">Git clients</h2>
+<div id="fig-rstudio" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rstudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/netbeans.png" class="img-fluid figure-img" width="350">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rstudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Netbeans
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="going-further" class="level1">
+<h1>Going further</h1>
+<section id="going-further-1" class="level2">
+<h2 class="anchored" data-anchor-id="going-further-1">Going further…</h2>
+<p>For those who want, extra slides are available on:</p>
+<ul>
+<li>Git with <a href="https://git-lfs.github.com/">Large File Storage</a> extension.</li>
+<li>Working with branches, i.e.&nbsp;derivates of a project</li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="3" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch bugfix
+    branch develop
+    checkout develop
+    commit id: "214e348"
+    checkout main
+    commit id: "69bbd79"
+    merge develop
+    checkout develop
+    branch feature
+    commit id: "0a9ba0c"
+    checkout bugfix
+    commit id: "d9d02608"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="large-file-storage" class="level2">
+<h2 class="anchored" data-anchor-id="large-file-storage">Large file storage</h2>
+<p>To version (reasonably) large files (images, data samples) <span class="math inline">\(\rightarrow\)</span> Git with <a href="https://git-lfs.github.com/">LFS</a> extension.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure that the remote host is compatible with LFS (GitHub is compatible)</p>
+</div>
+</div>
+<ul>
+<li>Type <code>git lfs install</code> to activate the extension</li>
+<li>Create a <code>data.csv</code> file and add <code>Year,Size,Species</code></li>
+<li>Type <code>git lfs track "*.csv"</code></li>
+</ul>
+<p>A <code>.gitattributes</code> file has appeared, which list all the file extensions managed by Git LFS.</p>
+</section>
+<section id="large-file-storage-1" class="level2">
+<h2 class="anchored" data-anchor-id="large-file-storage-1">Large file storage</h2>
+<ul>
+<li>Type <code>git add .gitattributes data.csv</code></li>
+<li>Type <code>git commit -m "Using LFS"</code></li>
+<li>Type <code>git push</code></li>
+<li>On GitHub, click on your file <code>data.csv</code> file.</li>
+</ul>
+</section>
+<section id="creating-aliases" class="level2">
+<h2 class="anchored" data-anchor-id="creating-aliases">Creating aliases</h2>
+<p>To create Git aliases (i.e.&nbsp;shortcuts):</p>
+<ul>
+<li>Type <code>git config --global alias.tree log --all --decorate --oneline --graph</code></li>
+<li>Type <code>git config --global alias.br branch -vv</code></li>
+<li>Type <code>git config --global alias.re remove -vv</code></li>
+</ul>
+<p>You can now call the <code>git tree</code>, <code>git br</code> and <code>git re</code> commands.</p>
+</section>
+<section id="creating-branches" class="level2">
+<h2 class="anchored" data-anchor-id="creating-branches">Creating branches</h2>
+<ul>
+<li>Type <code>git checkout -b develop</code></li>
+<li>Type <code>git status</code>, <code>git br</code> and <code>git tree</code></li>
+<li>Open the <code>README.md</code> file, add some text and save.</li>
+<li>Type <code>git add README.md</code></li>
+<li>Type <code>git commit -m "3rd commit"</code></li>
+<li>Type <code>git br</code> and <code>git tree</code></li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="2" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch develop
+    commit id: "214e348"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="switching-branch" class="level2">
+<h2 class="anchored" data-anchor-id="switching-branch">Switching branch</h2>
+<ul>
+<li>Type <code>git checkout main</code> (or <code>git checkout master</code>)</li>
+<li>Type <code>git br</code></li>
+<li>Open the <code>LICENCE</code> file and add some text in it</li>
+<li>Type <code>git add LICENCE</code></li>
+<li>Type <code>git commit -m "Third commit"</code></li>
+<li>Type <code>git tree</code></li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="2" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch develop
+    checkout develop
+    commit id: "214e348"
+    checkout main
+    commit id: "69bbd79"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="merging-branches" class="level2">
+<h2 class="anchored" data-anchor-id="merging-branches">Merging branches</h2>
+<ul>
+<li>On the <code>main</code> branch, type <code>git merge develop -m "merge-develop"</code></li>
+<li>Type <code>git log</code> and <code>git tree</code></li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="2" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch develop
+    checkout develop
+    commit id: "214e348"
+    checkout main
+    commit id: "69bbd79"
+    merge develop
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>The <code>merge</code> command puts the commits from the argument branch (here <code>develop</code>) and puts them into the current branch (here <code>main</code>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>During the merging process, another commit is created</p>
+</div>
+</div>
+</section>
+<section id="creating-branch-from-another-branch" class="level2">
+<h2 class="anchored" data-anchor-id="creating-branch-from-another-branch">Creating branch from another branch</h2>
+<ul>
+<li>Type <code>git checkout -b feature develop</code></li>
+<li>Create a <code>script.R</code> file</li>
+<li>Type <code>git add script.R</code></li>
+<li>Type <code>git commit -m "Fourth commit"</code></li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="3" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch develop
+    checkout develop
+    commit id: "214e348"
+    checkout main
+    commit id: "69bbd79"
+    merge develop
+    checkout develop
+    branch feature
+    commit id: "0a9ba0c"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-branch-from-a-commit" class="level2">
+<h2 class="anchored" data-anchor-id="creating-branch-from-a-commit">Creating branch from a commit</h2>
+<ul>
+<li>Type <code>git checkout -b feat-com 1831e4e</code> replacing <code>1831e4e</code> by an actual commit ID.</li>
+<li>Create a <code>script.py</code> file</li>
+<li>Type <code>git add script.py</code> and <code>git commit -m "Sixth commit"</code></li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="4" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    branch feat-com
+    branch develop
+    checkout develop
+    commit id: "214e348"
+    checkout main
+    commit id: "69bbd79"
+    merge develop
+    checkout develop
+    branch feature
+    commit id: "0a9ba0c"
+    checkout feat-com
+    commit id: "d9d02608"
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="differences-between-branches" class="level2">
+<h2 class="anchored" data-anchor-id="differences-between-branches">Differences between branches</h2>
+<ul>
+<li>Type <code>git diff develop main</code></li>
+</ul>
+<div class="notes">
+<p>You will see the text that has been added to the LICENCE file (69bbd79 commit)</p>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Order matters: it shows what has been added to <code>main</code> branch compared to the <code>develop</code> branch</p>
+</div>
+</div>
+<div class="cell" data-fig-width="10.5" data-fig-height="0.75" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  id1(Develop)--&gt;|git diff| id2(Main)
+classDef workspace fill:lightgray,stroke:black,color:black
+classDef index fill:lightblue,stroke:black,color:black
+classDef local fill:lightgreen,stroke:black,color:black
+classDef remote fill:yellow,stroke:black,color:black
+
+class id1,id2 local;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="deleting-a-branch" class="level2">
+<h2 class="anchored" data-anchor-id="deleting-a-branch">Deleting a branch</h2>
+<ul>
+<li>Type <code>git checkout main</code></li>
+<li>Type <code>git branch -d develop</code></li>
+<li>Type <code>git br</code></li>
+<li>Type <code>git branch -d feat-com</code></li>
+</ul>
+<p>An error occurs! The suppression of <code>feat-com</code> implies the loss of the <code>d9d02608</code> commit. To force the suppression, use <code>-D</code> instead of <code>-d</code>.</p>
+<ul>
+<li>Type <code>git branch -D feat-com</code></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The suppression of <code>develop</code> was ok because the content of commit <code>3rd</code> is included in the merge.</p>
+</div>
+</div>
+</section>
+<section id="reverting-a-commit" class="level2">
+<h2 class="anchored" data-anchor-id="reverting-a-commit">Reverting a commit</h2>
+<ul>
+<li>Type <code>git revert c6dc2bc</code> (replace <code>c6dc2bc</code> by your commit id)</li>
+</ul>
+<div class="cell" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "-c6dc2bc" type: REVERSE
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="remainder" class="level1">
+<h1>Remainder</h1>
+<section id="basic-commands" class="level2">
+<h2 class="anchored" data-anchor-id="basic-commands">Basic commands</h2>
+<ul>
+<li><code>git init</code>: initialise a git project (create .git folder)</li>
+<li><code>git add [files]</code>: add files to list of tracked files</li>
+<li><code>git commit -m ”message”</code>: validate locally a version of the project</li>
+<li><code>git status</code>: see the unvalidated and untracked changes</li>
+<li><code>git checkout [commit]</code>: load the project version corresponding to the index</li>
+<li><code>git pull</code>: import the changes from remote project to local</li>
+<li><code>git push</code>: export the changes from local project to the remote server</li>
+</ul>
+</section>
+<section id="git-configuration-mandatory" class="level2">
+<h2 class="anchored" data-anchor-id="git-configuration-mandatory">Git configuration (mandatory)</h2>
+<ul>
+<li>Configure your identity: <code>git config --global user.name "Firstname Lastname"</code></li>
+<li>Configure your e-mail: <code>git config --global user.email "myadresse@ird.fr"</code></li>
+</ul>
+</section>
+<section id="branch-handling" class="level2">
+<h2 class="anchored" data-anchor-id="branch-handling">Branch handling</h2>
+<ul>
+<li><code>git branch [branch_name]</code>: create a new branch (but you remain on the previous branch)</li>
+<li><code>git branch -b [branch_name]</code>: create a new branch and move to this newly created branch</li>
+<li><code>git checkout [branch_name]</code>: move to the corresponding branch</li>
+<li><code>git merge [branch_name1] [branch_name2]</code>: merge two different branch, you may need to resolve version conflict.</li>
+<li><code>git branch -d [branch_name1]</code>: delete a branch (safe mode)</li>
+<li><code>git branch -D [branch_name1]</code>: delete a branch (unsafe mode)</li>
+</ul>
+</section>
+<section id="linking-with-remote" class="level2">
+<h2 class="anchored" data-anchor-id="linking-with-remote">Linking with remote</h2>
+<ul>
+<li><code>git clone [URL]</code>: Import an existing project from remote server.</li>
+<li><code>git remote add origin [URL]</code>: link directly the local repository with a remote</li>
+</ul>
+</section>
+<section id="authentication-of-your-computer-and-the-remote-server" class="level2">
+<h2 class="anchored" data-anchor-id="authentication-of-your-computer-and-the-remote-server">Authentication of your computer and the remote server</h2>
+<ul>
+<li>SSH key: easy way on Linux distributions
+<ul>
+<li>Tuto here: <a href="https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html">https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html</a></li>
+</ul></li>
+<li>Authentication Token
+<ul>
+<li>Tuto here: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="good-practices" class="level2">
+<h2 class="anchored" data-anchor-id="good-practices">Good practices</h2>
+<ul>
+<li>Pull before any work on the project</li>
+<li>Commit as frequently as possible</li>
+<li>Write explicit commit message</li>
+<li>Push regularly</li>
+</ul>
+</section>
+<section id="ide-graphical-user-interface-with-git" class="level2">
+<h2 class="anchored" data-anchor-id="ide-graphical-user-interface-with-git">IDE (graphical user interface) with Git</h2>
+<ul>
+<li>R
+<ul>
+<li>RStudio</li>
+<li>Visual Studio Code</li>
+</ul></li>
+<li>Python
+<ul>
+<li>Spyder</li>
+<li>Visual Studio Code</li>
+<li>Pycharm (all JetBrain softwares)</li>
+</ul></li>
+</ul>
+</section>
+<section id="sources" class="level2">
+<h2 class="anchored" data-anchor-id="sources">Sources</h2>
+<ul>
+<li>Plateau bioinformatique, Montpellier: Formation Git(Lab) (05/04/2018)</li>
+<li>UMR AMAP (Atelier MAIA P3M), Montpellier: Introduction à GIT (04/04/2019)</li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
