@@ -107,22 +107,26 @@ flowchart LR
 -   `git add` : the command to add the file(s) in the `Index`
 -   `git commit`: the command to validate the changes (moves the files from `Index` to `Local`)
 
+::: callout-tip
+To help understand, think of moving house. Workspace=old house; Local repository=new house; Changes=boxes; Index=moving truck
+:::
+
 ## Getting started
 
 -   Move to the folder where you want to work by using the `cd` command
 -   Create a folder called `training-git` by typing `mkdir training-git`
 -   Move to the folder by typing `cd training-git`
--   Type `ls -alrt`
--   Type `git init`
--   Type again `ls -alrt`.
+-   Type `ls -alrt`. What do you see?
+-   Type `git init`. Read the console output
+-   Type again `ls -alrt`. What is new?
 
 ::: callout-note
 A `.git` folder has appeared. It contains the full history of your project (`Local` repository)
 :::
 
--   Type `git status` and `git log`
+-   Type `git status` and `git log`. What does it tell you?
 
-## First commit {.smaller}
+## First commit
 
 -   Create a `README.md` file by typing `touch README.md`
 
@@ -144,7 +148,7 @@ class idw workspace;
 class idi index;
 ```
 
--   Type `git commit -m "First commit"` and type `git log`
+-   Type `git commit -m "First commit"` and type `git status` and `git log`
 
 ```{mermaid}
 %%| fig-height: 0.8
@@ -229,7 +233,8 @@ gitGraph
 
 To revert a commit, i.e. to cancel changes done in a previous one:
 
--  Type `git revert 07e8835` (replace `07e8835` by your commit id)
+- Type `git revert 07e8835` (replace `07e8835` by your commit id)
+- What happens?
 
 ```{mermaid}
 %%| fig-width: 10
@@ -243,7 +248,7 @@ gitGraph
     commit id: "-07e8835" type: REVERSE
 ```
 
-## Ignoring files {.smaller}
+## Ignoring files
 
 It is possible to tell Git to ignore some files by using a [.gitignore](https://git-scm.com/docs/gitignore) file.
 
@@ -270,7 +275,7 @@ gitGraph
 To list the ignored files, type `git ls-files --others --ignored --exclude-from=.gitignore`
 :::
 
-## Moving in the history {.smaller}
+## Moving in the history
 
 -   Type `git checkout v1.0.0` $\rightarrow$ move to a tag
 
@@ -343,7 +348,7 @@ class id1,id2 local;
 
 # Using Git with remote server
 
-## Using remotes {.smaller}
+## Using remotes
 
 In addition of saving the history, Git has other advantages. It allows to:
 
@@ -466,7 +471,7 @@ Replace `barriern` by your GitHub login and `git-train` by the name of your GitH
 flowchart LR
 
     idl(Local)
-    idr("Remote\n(origin)")
+    idr("Remote<br>(origin)")
 
     idl-->idr
     idr-->idl
@@ -489,10 +494,12 @@ flowchart LR
 
 Now that the local and remote repositories are linked, the same thing must be done with the branches.
 
--  First, rename your local branch with the same name as the remote branch. This is done by typing `git branch -M main`
--  Type `git push -u origin main`
+-  First, rename your local branch with the same name as the remote branch:
+    -    Type `git branch -M main`
+- Push your branch on the remote server:
+    - Type `git push -u origin main`
 
-It connects the *local* and *remote* main branches (`-u` option) and sends the local commits to the remote branch
+It connects the *local* and *remote* main branches (`-u` option stands for `--set-upstream`) and sends the local commits to the remote branch
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -500,8 +507,8 @@ It connects the *local* and *remote* main branches (`-u` option) and sends the l
 %%| fig-align: center
 flowchart LR
 
-    idl("Main\n(Local)")
-    idr("Main\n(Remote)")
+    idl("Main<br>(Local)")
+    idr("Main<br>(Remote)")
 
     idl-->idr
     idr-->idl
@@ -519,9 +526,9 @@ flowchart LR
 ```
 
 -  Type `git branch -vv`
--  Refresh your repository webpage: what do you see? What is missing?
+-  Refresh your repository webpage: what do you see? what is missing?
 
-## Linking Git local and remote
+## Linking Git local and remote: tags
 
 - To push tags to the remote, type `git push --tags`
 - Refresh your repository webpage. Check whether the tags are properly pushed
@@ -555,7 +562,7 @@ No need to specify the `-u origin main` arguments here
 :::
 
 
-## Synchronization from the remote {.smaller}
+## Synchronization from the remote
 
 -   In GitHub, click on the `README.md` file and then on the edit button
 
@@ -596,7 +603,7 @@ flowchart RL
 
 -   Look again at the `README.md` file on your computer. You should see the update.
 
-## Synchronization: conflicts {.smaller}
+## Synchronization: conflicts
 
 -   On GitHub, add `x = 1` at the end of the `README.md` file. **Do not pull the changes!**
 -   On your computer, edit the `README.md` and add `x = 2`.
@@ -614,9 +621,9 @@ gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
     branch origin/main
-    commit id: "x = 1"
+    commit id: "x is 1"
     checkout main
-    commit id: "x = 2"
+    commit id: "x is 2"
 ```
 
 ## Synchronization: conflicts
@@ -647,10 +654,10 @@ gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
     branch origin/main
-    commit id: "x = 1"
+    commit id: "x is 1"
     checkout main
-    commit id: "x = 2"
-    merge origin/main tag: "x = 3"
+    commit id: "x is 2"
+    merge origin/main tag: "x is 3"
 ```
 
 ::: callout-important
@@ -658,7 +665,7 @@ To avoid conflicts, use `git pull` and `git push` extensively
 :::
 
 
-## Cloning an existing repository {.smaller}
+## Cloning an existing repository
 
 -   In `Terminal` or `Git Bash`, type `cd ..`
 -   Now type `git clone https://github.com/umr-marbec/git-training.git`
@@ -975,11 +982,15 @@ To version (reasonably) large files (images, data samples) $\rightarrow$ Git wit
 Make sure that the remote host is compatible with LFS (GitHub is compatible)
 :::
 
+::: callout-important
+Do not use for data that change extensively. It can be used for example to store toy datasets to show how a package work (vignettes, documentation)
+:::
+
 
 ## LFS install
 
 - LFS is automatically installed with Git on Windows.
-- On Linux, it can be installed using `sudo apt install git`
+- On Linux, it can be installed using `sudo apt install git-lfs`
 - When it is installed, you need to activate it. To do so, type `git lfs install`
 
 ## Tracking files with LFS
