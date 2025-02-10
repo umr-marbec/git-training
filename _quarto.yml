@@ -1,5 +1,5 @@
 title: Git training
-logo: figs/marbec-git.png 
+logo: figs/marbec-git.png
 author:
   - name: Nicolas Barrier
     orcid: 0000-0002-1693-4719
@@ -14,6 +14,8 @@ format:
   html:
     theme: cosmo
   revealjs:
+    toc: true
+    toc-depth: 1
     smaller: true
     theme: [default, custom.scss]
     output-file: slides_git-training.html
