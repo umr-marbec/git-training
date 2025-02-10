@@ -51,7 +51,7 @@ When done, open `Git Bash`
 
 Open a `Terminal` window and type:
 
-`sudo apt install git git-lfs git-flow`
+`sudo apt install git`
 
 ## Git configuration
 
@@ -227,7 +227,9 @@ gitGraph
 
 ## Reverting a commit
 
--   Type `git revert 07e8835` (replace `07e8835` by your commit id)
+To revert a commit, i.e. to cancel changes done in a previous one:
+
+-  Type `git revert 07e8835` (replace `07e8835` by your commit id)
 
 ```{mermaid}
 %%| fig-width: 10
@@ -896,7 +898,7 @@ gitGraph
 
 -   Type `git diff develop main`
 
-::: notes
+::: callout-notes
 You will see the text that has been added to the LICENCE file (69bbd79 commit)
 :::
 
@@ -918,7 +920,23 @@ classDef remote fill:yellow,stroke:black,color:black
 class id1,id2 local;
 ```
 
-## Deleting a branch
+## Using branches on remote servers
+
+To push a branch on a remote server
+
+- Switch to the branch you want to push: `git checkout develop`
+- Push the branch as follows: `git push -u origin develop`.
+
+::: callout-important
+On the `push` command, the last argument is the name branch on the remote server. Make it consistent with the local
+branch
+:::
+
+::: callout-notes
+Use `git branch -vv` extensively to check the links between local/remote branches.
+:::
+
+## Deleting a branch (locally)
 
 -   Type `git checkout main`
 -   Type `git branch -d develop`
@@ -933,11 +951,23 @@ An error occurs! The suppression of `feat-com` implies the loss of the `d9d02608
 The suppression of `develop` was ok because the content of commit `3rd` is included in the merge.
 :::
 
+## Deleting a branch (remotely)
 
+Deletion from the remote branch is not automatic. To delete branch remotely:
+
+- `git push origin --delete develop`
+
+::: callout-important
+Make sure that the branch should be removed or has been merged. Delete locally first and then remotely
+:::
+
+::: callout-tip
+For the lazy people, the [Git Flow](https://github.com/nvie/gitflow) extension, managing branches is very easy! Everything is almost done automatically!
+:::
 
 # Large file storage (LFS)
 
-## LFS
+## What for?
 
 To version (reasonably) large files (images, data samples) $\rightarrow$ Git with [LFS](https://git-lfs.github.com/) extension.
 
@@ -945,13 +975,19 @@ To version (reasonably) large files (images, data samples) $\rightarrow$ Git wit
 Make sure that the remote host is compatible with LFS (GitHub is compatible)
 :::
 
--   Type `git lfs install` to activate the extension
+
+## LFS install
+
+- LFS is automatically installed with Git on Windows.
+- On Linux, it can be installed using `sudo apt install git`
+- When it is installed, you need to activate it. To do so, type `git lfs install`
+
+## Tracking files with LFS
+
 -   Create a `data.csv` file and add `Year,Size,Species`
 -   Type `git lfs track "*.csv"`
 
 A `.gitattributes` file has appeared, which list all the file extensions managed by Git LFS.
-
-## Large file storage
 
 -   Type `git add .gitattributes data.csv`
 -   Type `git commit -m "Using LFS"`
