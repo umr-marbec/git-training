@@ -12,17 +12,20 @@
 
 ## What is Git for?
 
--   **Track changes** (*commits*) over time with information about **who**, **when** and **what** are the changes
+-   **Track changes** (*commits*) over time with information
+    - **who**, **when** and **what** are the changes
 
 -   Eventually go **back in time**
 
--   **Highlight a specific version** of the project (*tags*). For example, new software versions.
+-   **Highlight a specific version** of the project (*tags*).
+    - For example, new software versions.
 
 -   **Synchronize** the project in the **cloud** with remote servers (GitHub, Gitlab)
 
 -   **Resolve version conflict** when simultaneous changes
 
--   Create **derivates** of a project (*branches*): production, development, feature
+-   Create **derivates** of a project (*branches*):
+    -   production, development, feature
 
 -   **Publish** the project (open science)
 
@@ -244,8 +247,7 @@ To list the ignored files, type `git ls-files --others --ignored --exclude-from=
 -   Type `git checkout v1.0.0` $\rightarrow$ move to a tag
 
 ```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 1.
+%%| fig-width: 0.5
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -258,8 +260,7 @@ gitGraph
 -   Type `git checkout 0f0e96a` $\rightarrow$ move to a specific commit
 
 ```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 1.
+%%| fig-width: 0.5
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -272,8 +273,7 @@ gitGraph
 -   Type `git checkout main` $\rightarrow$ move at the latest commit
 
 ```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 1.
+%%| fig-width: 0.5
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -385,11 +385,11 @@ GitHub proposes extra-features for students, teachers and researchers. Visit <ht
 
 ## Creation of a personal access token
 
-To authentificate, you need to create an authentification token (see [GitHub authentification of details](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for details).
+To authentificate, you need to create an authentification token (see [GitHub authentification of details](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)).
 
 To do so, click on your profile photo and then on `Settings`:
 
-![](img/github-settings.png){height="600" fig-align="center"}
+![](img/github-settings.png){height="500" fig-align="center"}
 
 ## Creation of a personal access token
 
@@ -409,11 +409,11 @@ To do so, click on your profile photo and then on `Settings`:
 
 -   Add a description note and **click on the "repo" box**, as shown below:
 
-![](img/access-token-2.png){height="250" fig-align="center"}
+![](img/access-token-2.png){height="300" fig-align="center"}
 
 -   Click on the `Generate token` box button.
 
--   **Copy and save in a `.txt` file or in a Password manager tool (KeePassXC) the token: this is your password!** It should look like something like this:
+-   Copy and save in a `.txt` file or in a Password manager tool (for example KeePassXC) your token: **this is your password to publish codes!** It should look like something like this:
 
 ```
 ghp_***************************************
@@ -426,10 +426,10 @@ ghp_***************************************
 `git remote add origin https://github.com/barriern/git-train.git`
 
 ::: callout-warning
-Replac `barriern` by your GitHub login and `git-train` by the name of your GitHub repository.
+Replace `barriern` by your GitHub login and `git-train` by the name of your GitHub repository.
 :::
 
--   It connects your Local repository with a remote one, called *origin*
+-   It connects your Local repository with the Remote repository, called *origin*
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -461,10 +461,10 @@ flowchart LR
 
 Now that the local and remote repositories are linked, the same thing must be done with the branches.
 
--   Type `git branch -M main` by replacing `main` by the name of the remote branch on GitHub. It will rename the local branch with the same name.
--   Type `git push -u origin main`
+-  First, rename your local branch with the same name as the remote branch. This is done by typing `git branch -M main`
+-  Type `git push -u origin main`
 
-It connects the *local* and *remote* main branches (`-u` option) and sends the commits to the remote branch
+It connects the *local* and *remote* main branches (`-u` option) and sends the local commits to the remote branch
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -490,13 +490,13 @@ flowchart LR
 
 ```
 
--   Type `git branch -vv`
+-  Type `git branch -vv`
+-  Refresh your repository webpage: what do you see? What is missing?
 
 ## Linking Git local and remote
 
-Have a look at your repository on GitHub. **Tags are missing!**
-
-Type `git push --tags` and refresh the GitHub page.
+- To push tags to the remote, type `git push --tags`
+- Refresh your repository webpage. Check whether the tags are properly pushed
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -523,10 +523,9 @@ flowchart LR
 ```
 
 ::: callout-note
-No need to specify the `-u origin main` arguments since the two branches are already connected.
+No need to specify the `-u origin main` arguments here
 :::
 
-Navigate on the GitHub page to see what has been done.
 
 ## Synchronization from the remote {.smaller}
 
@@ -540,9 +539,9 @@ Navigate on the GitHub page to see what has been done.
 ![](img/readme-edit-2.png){height="80" fig-align="center"}
 :::
 
-The `Remote` change of `README.md` is not yet visible in `Workspace`!
+- The `Remote` change of `README.md` is not yet visible in `Workspace`!
 
--   In `Git Bash` or `Terminal`, type `git pull`
+- In `Git Bash` or `Terminal`, type `git pull`
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -571,11 +570,11 @@ flowchart RL
 
 ## Synchronization: conflicts {.smaller}
 
--   On GitHub, add `x = 1` at the end of the `README.md` file. **Do not type pull!**
+-   On GitHub, add `x = 1` at the end of the `README.md` file. **Do not pull the changes!**
 -   On your computer, edit the `README.md` and add `x = 2`.
 -   Type `git add README.md`
 -   Type `git commit -m "Fifth commit"`
--   Type `git push`. An error occurs because changes in `Remote` have not been pulled in `Local`.
+-   Type `git push`. What do you see?
 -   Type `git pull` and `git status`. An error occurs because there is a conflict in the `README.md` file which cannot be solved by Git.
 
 ```{mermaid}
@@ -608,10 +607,12 @@ x = 1
 These are conflicts markers. `Git` does't know whether to chose `x = 1` or `x = 2`. This is your job
 :::
 
--   Open the file, replace the above by `x = 3`. Commit and push the changes
+-  Open the file, replace the above by `x = 3` and remove the conflict markers.
+-  Add, commit and push the changes
 
 ```{mermaid}
-%%| fig-width: 12
+%%| fig-width: 8
+%%| fig-height: 4
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -624,10 +625,15 @@ gitGraph
     merge origin/main tag: "x = 3"
 ```
 
+::: callout-important
+To avoid conflicts, use `git pull` and `git push` extensively
+:::
+
+
 ## Cloning an existing repository {.smaller}
 
 -   In `Terminal` or `Git Bash`, type `cd ..`
--   Now type `git clone https://github.com/umr-marbec/git-training`
+-   Now type `git clone https://github.com/umr-marbec/git-training.git`
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -652,26 +658,30 @@ flowchart RL
 
 ```
 
+- Move to the cloned folder by typing `cd git-training`
 -   Type `git log` to see the full history.
 -   To update the project, type `git pull`
 
-::: callout-warning
+::: callout-important
 **Do not clone or initialize a Git repository in another Git repository!**
 :::
 
-## Create a repository the simple way
+## Creating a repository: the easy way!
 
-To create a new repo more simply than done here:
+To create a new repo in a much easier way than previously discussed:
 
--   Create a repo. on GitHub with a `README.md` file and eventually a `LICENCE` file.
--   Clone the repo.
--   You are all set!
-    -   The `remote` and `local` repositories are synchonized
-    -   The `remote` and `local` main branches are synchonized
+- Create a repository on GitHub with a `README.md` file and eventually a `LICENCE` file.
+- Clone the repo.
+    -   The `remote` and `local` repositories are automatically synchonized
+    -   The `remote` and `local` main branches are automatically synchonized
+- Add the files in the cloned folder
+- Commit the files
+- Push the files
+- You are all set!
 
 ## Conclusion: good practice
 
--   Before starting editing a project, do a `git pull`
+-   Before starting working on a project, do a `git pull`
 -   Commit very often using `git commit` extensively
 -   Push often as well using `git push`
 -   Use `git status` extensively to know what you have done
