@@ -2,7 +2,13 @@
 
 ## What is Git?
 
+::: {.content-hidden when-format="pdf"}
 ![](https://git-scm.com/images/logos/downloads/Git-Logo-2Color.svg){height=75 fig-align="center"}
+:::
+
+::: {.content-visible when-format="pdf"}
+![](https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png){height=75 fig-align="center"}
+:::
 
 -   The most popular **Version Control Software** (VCS)
 -   **Free** and **open source**
