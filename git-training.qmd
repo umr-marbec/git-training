@@ -70,9 +70,9 @@ These two lines identify you in the history of a project.
 
 To create Git aliases (i.e. shortcuts):
 
--   Type `git config --global alias.tree log --graph --decorate --pretty=oneline --abbrev-commit`
--   Type `git config --global alias.br branch -vv`
--   Type `git config --global alias.re remove -vv`
+-   Type ```git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit"```
+-   Type `git config --global alias.br "branch -vv"`
+-   Type `git config --global alias.re "remove -vv"`
 
 You can now call the `git tree`, `git br` and `git re` commands.
 
@@ -196,7 +196,7 @@ class idw workspace;
 class idl local;
 ```
 
--   Type `git commit -m "Second commit"`
+-   Type `git add README.md` and `git commit -m "Second commit"`
 -   Type `git log`
 
 ```{mermaid}
@@ -233,7 +233,7 @@ gitGraph
 
 To revert a commit, i.e. to cancel changes done in a previous one:
 
-- Type `git revert 07e8835` (replace `07e8835` by your commit id)
+- Type `git revert c6dc2bc` (replace `c6dc2bc` by your commit id)
 - What happens?
 
 ```{mermaid}
@@ -245,7 +245,7 @@ gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
     commit id: "07e8835" tag: "v1.0.0"
-    commit id: "-07e8835" type: REVERSE
+    commit id: "-c6dc2bc" type: REVERSE
 ```
 
 ## Ignoring files
@@ -664,11 +664,14 @@ gitGraph
 To avoid conflicts, use `git pull` and `git push` extensively
 :::
 
-
 ## Cloning an existing repository
 
--   In `Terminal` or `Git Bash`, type `cd ..`
--   Now type `git clone https://github.com/umr-marbec/git-training.git`
+The `git clone` command allows to synchronize locally an existing remote repository.
+
+-  On GitHub, create a new repository as done previously.
+-  **This time, include a `README.md` and eventually a `LICENCE` file**
+- Copy the link to the new GitHub repository
+- On Git Bash or Terminal, type `git clone https://github.com/barriern/new-repo.git` (replace the URL by the proper name)
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -693,26 +696,16 @@ flowchart RL
 
 ```
 
-- Move to the cloned folder by typing `cd git-training`
--   Type `git log` to see the full history.
--   To update the project, type `git pull`
+- Move to the cloned folder by typing `cd new-repo` (replace with the name of your cloned folder)
+- Type `git branch -vv`, `git remote -vv` and `git log` to see the full history.
 
 ::: callout-important
 **Do not clone or initialize a Git repository in another Git repository!**
 :::
 
-## Creating a repository: the easy way!
-
-To create a new repo in a much easier way than previously discussed:
-
-- Create a repository on GitHub with a `README.md` file and eventually a `LICENCE` file.
-- Clone the repo.
-    -   The `remote` and `local` repositories are automatically synchonized
-    -   The `remote` and `local` main branches are automatically synchonized
-- Add the files in the cloned folder
-- Commit the files
-- Push the files
-- You are all set!
+::: callout-tip
+To create a Git repository from scratch the easy way, create the repository on GitHub with a `README.md`. Local and remote repositories and branches are automatically synchronized!
+:::
 
 ## Conclusion: good practice
 
