@@ -493,7 +493,7 @@ The URL must end by `.git`!
 -   It connects your `Local` repository with the `Remote` repository, called *origin*
 
 ```{mermaid}
-%%| fig-width: 6
+%%| fig-width: 3
 %%| fig-align: center
 flowchart LR
 
@@ -529,8 +529,7 @@ Now that the local and remote repositories are linked, the same thing must be do
 It connects the *local* and *remote* main branches (`-u` option stands for `--set-upstream`) and sends the local commits to the remote branch
 
 ```{mermaid}
-%%| fig-width: 10.5
-%%| fig-height: 1
+%%| fig-width: 3
 %%| fig-align: center
 flowchart LR
 
@@ -561,8 +560,7 @@ flowchart LR
 - Refresh your repository webpage. Check whether the tags are properly pushed
 
 ```{mermaid}
-%%| fig-width: 10.5
-%%| fig-height: 1
+%%| fig-width: 3
 %%| fig-align: center
 flowchart LR
 
@@ -606,7 +604,7 @@ No need to specify the `-u origin main` arguments here
 - In `Git Bash` or `Terminal`, type `git pull`
 
 ```{mermaid}
-%%| fig-width: 10.5
+%%| fig-width: 3
 %%| fig-align: center
 %%| fig-height: 1
 flowchart RL
@@ -640,9 +638,8 @@ flowchart RL
 -   Type `git pull` and `git status`. An error occurs because there is a conflict in the `README.md` file that cannot be solved by Git.
 
 ```{mermaid}
-%%| fig-width: 10
+%%| fig-width: 6
 %%| fig-align: center
-%%| fig-height: 1.5
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -674,8 +671,7 @@ These are conflicts markers. `Git` does't know whether to chose `x = 1` or `x = 
 - Refresh the GitHub page and look at the file
 
 ```{mermaid}
-%%| fig-width: 8
-%%| fig-height: 4
+%%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -703,8 +699,7 @@ The `git clone` command allows to synchronize locally an existing remote reposit
 - On Git Bash or Terminal, type `git clone https://github.com/barriern/new-repo.git` (replace the URL by the proper name)
 
 ```{mermaid}
-%%| fig-width: 10.5
-%%| fig-height: 0.8
+%%| fig-width: 6
 %%| fig-align: center
 flowchart RL
 
@@ -782,9 +777,8 @@ Working with branches allows to create derivates for a project. For example:
 - A `feature` branch for testing new features
 
 ```{mermaid}
-%%| fig-width: 10
+%%| fig-width: 6
 %%| fig-align: center
-%%| fig-height: 3
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -813,9 +807,8 @@ gitGraph
 -   Type `git br` and `git tree`
 
 ```{mermaid}
-%%| fig-width: 10
+%%| fig-width: 6
 %%| fig-align: center
-%%| fig-height: 2
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -834,9 +827,8 @@ gitGraph
 -   Type `git tree`
 
 ```{mermaid}
-%%| fig-width: 10
+%%| fig-width: 6
 %%| fig-align: center
-%%| fig-height: 2
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
@@ -854,8 +846,7 @@ gitGraph
 -   Type `git log` and `git tree`
 
 ```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 2
+%%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -883,8 +874,7 @@ During the merging process, another commit is created
 -   Type `git commit -m "Fourth commit"`
 
 ```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 3
+%%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -908,8 +898,7 @@ gitGraph
 -   Type `git add script.py` and `git commit -m "Sixth commit"`
 
 ```{mermaid}
-%%| fig-width: 10
-%%| fig-height: 4
+%%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
@@ -942,9 +931,8 @@ Order matters: it shows what has been added to `main` branch compared to the `de
 :::
 
 ```{mermaid}
-%%| fig-width: 10.5
+%%| fig-width: 6
 %%| fig-align: center
-%%| fig-height: 0.75
 flowchart LR
   id1(Develop)-->|git diff| id2(Main)
 classDef workspace fill:lightgray,stroke:black,color:black
