@@ -233,8 +233,12 @@ gitGraph
 
 To revert a commit, i.e. to cancel changes done in a previous one:
 
-- Type `git revert c6dc2bc` (replace `c6dc2bc` by your commit id)
-- What happens?
+- Type `git revert -n c6dc2bc` (replace `c6dc2bc` by your commit id)
+- Type `git status`. What happens?
+- The `README.md` file is now modified and staged (i.e. in the `Index`)
+- To see what has been changed, type `git diff --staged`
+- To commit this modification, type `git commit -m "Revert commit"`
+
 
 ```{mermaid}
 %%| fig-width: 10
@@ -248,14 +252,18 @@ gitGraph
     commit id: "-c6dc2bc" type: REVERSE
 ```
 
+::: {.callout-note}
+The `-n` option is to prevent an automatic commit. Therefore you need to commit yourself
+:::
+
 ## Ignoring files
 
-It is possible to tell Git to ignore some files by using a [.gitignore](https://git-scm.com/docs/gitignore) file.
+It is possible to tell Git to ignore some files by using a [.gitignore](https://git-scm.com/docs/gitignore) file (for instance, `.Rdata` or `.tmp` files).
 
--   Create an empty `output.log` file and type `git status`
--   Create a `.gitignore` file and write `*.log`. Type again `git status`
+-   Create an empty `output.Rdata` file and type `git status`
+-   Create a `.gitignore` file and write `*.Rdata`. Type again `git status`
 
-The `output.log` file does not appear as an `Untracked file` anymore
+The `output.Rdata` file does not appear as an `Untracked file` anymore
 
 -   Type `git add .gitignore` and `git status`
 -   Type `git commit -m "Fourth commit"`
