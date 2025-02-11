@@ -6,9 +6,8 @@
 <script src="git-training_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="git-training_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="git-training_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="git-training_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="git-training_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.57">
+<link href="git-training_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Nicolas Barrier">
   <meta name="author" content="Witold Podlejski">
@@ -32,209 +31,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="git-training_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="git-training_files/libs/revealjs/dist/theme/quarto-2adb5e6da15796016472cc07935e7718.css">
   <link href="git-training_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="git-training_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="git-training_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
   <link href="git-training_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
-
-  .callout {
-    margin-top: 1em;
-    margin-bottom: 1em;  
-    border-radius: .25rem;
-  }
-
-  .callout.callout-style-simple { 
-    padding: 0em 0.5em;
-    border-left: solid #acacac .3rem;
-    border-right: solid 1px silver;
-    border-top: solid 1px silver;
-    border-bottom: solid 1px silver;
-    display: flex;
-  }
-
-  .callout.callout-style-default {
-    border-left: solid #acacac .3rem;
-    border-right: solid 1px silver;
-    border-top: solid 1px silver;
-    border-bottom: solid 1px silver;
-  }
-
-  .callout .callout-body-container {
-    flex-grow: 1;
-  }
-
-  .callout.callout-style-simple .callout-body {
-    font-size: 1rem;
-    font-weight: 400;
-  }
-
-  .callout.callout-style-default .callout-body {
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-
-  .callout.callout-titled.callout-style-simple .callout-body {
-    margin-top: 0.2em;
-  }
-
-  .callout:not(.callout-titled) .callout-body {
-      display: flex;
-  }
-
-  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
-    padding-left: 1.6em;
-  }
-
-  .callout.callout-titled .callout-header {
-    padding-top: 0.2em;
-    margin-bottom: -0.2em;
-  }
-
-  .callout.callout-titled .callout-title  p {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-  }
-    
-  .callout.callout-titled.callout-style-simple .callout-content  p {
-    margin-top: 0;
-  }
-
-  .callout.callout-titled.callout-style-default .callout-content  p {
-    margin-top: 0.7em;
-  }
-
-  .callout.callout-style-simple div.callout-title {
-    border-bottom: none;
-    font-size: .9rem;
-    font-weight: 600;
-    opacity: 75%;
-  }
-
-  .callout.callout-style-default  div.callout-title {
-    border-bottom: none;
-    font-weight: 600;
-    opacity: 85%;
-    font-size: 0.9rem;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-
-  .callout.callout-style-default div.callout-content {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
-
-  .callout.callout-style-simple .callout-icon::before {
-    height: 1rem;
-    width: 1rem;
-    display: inline-block;
-    content: "";
-    background-repeat: no-repeat;
-    background-size: 1rem 1rem;
-  }
-
-  .callout.callout-style-default .callout-icon::before {
-    height: 0.9rem;
-    width: 0.9rem;
-    display: inline-block;
-    content: "";
-    background-repeat: no-repeat;
-    background-size: 0.9rem 0.9rem;
-  }
-
-  .callout-title {
-    display: flex
-  }
-    
-  .callout-icon::before {
-    margin-top: 1rem;
-    padding-right: .5rem;
-  }
-
-  .callout.no-icon::before {
-    display: none !important;
-  }
-
-  .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
-  }
-
-  .callout.callout-titled .callout-icon::before {
-    margin-top: .5rem;
-    padding-right: .5rem;
-  }
-
-  .callout:not(.callout-titled) .callout-icon::before {
-    margin-top: 1rem;
-    padding-right: .5rem;
-  }
-
-  /* Callout Types */
-
-  div.callout-note {
-    border-left-color: #4582ec !important;
-  }
-
-  div.callout-note .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
-  }
-
-  div.callout-note.callout-style-default .callout-title {
-    background-color: #dae6fb
-  }
-
-  div.callout-important {
-    border-left-color: #d9534f !important;
-  }
-
-  div.callout-important .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-important.callout-style-default .callout-title {
-    background-color: #f7dddc
-  }
-
-  div.callout-warning {
-    border-left-color: #f0ad4e !important;
-  }
-
-  div.callout-warning .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-warning.callout-style-default .callout-title {
-    background-color: #fcefdc
-  }
-
-  div.callout-tip {
-    border-left-color: #02b875 !important;
-  }
-
-  div.callout-tip .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
-  }
-
-  div.callout-tip.callout-style-default .callout-title {
-    background-color: #ccf1e3
-  }
-
-  div.callout-caution {
-    border-left-color: #fd7e14 !important;
-  }
-
-  div.callout-caution .callout-icon::before {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
-  }
-
-  div.callout-caution.callout-style-default .callout-title {
-    background-color: #ffe5d0
-  }
-
-  </style>
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -341,6 +142,20 @@
 <br>
 <img src="img/logo-marbec.png" align="center" width="300em">
 
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#/presentation-of-the-git-software" id="/toc-presentation-of-the-git-software">Presentation of the Git Software</a></li>
+<li><a href="#/installation-and-configurations" id="/toc-installation-and-configurations">Installation and configurations</a></li>
+<li><a href="#/getting-started-with-git-in-local" id="/toc-getting-started-with-git-in-local">Getting started with Git in local</a></li>
+<li><a href="#/using-git-with-remote-server" id="/toc-using-git-with-remote-server">Using Git with remote server</a></li>
+<li><a href="#/git-clients" id="/toc-git-clients">Git clients</a></li>
+<li><a href="#/git-branches" id="/toc-git-branches">Git branches</a></li>
+<li><a href="#/large-file-storage-lfs" id="/toc-large-file-storage-lfs">Large file storage (LFS)</a></li>
+<li><a href="#/remainder" id="/toc-remainder">Remainder</a></li>
+</ul>
+</nav>
 </section>
 <section>
 <section id="presentation-of-the-git-software" class="title-slide slide level1 center">
@@ -349,43 +164,38 @@
 </section>
 <section id="what-is-git" class="slide level2">
 <h2>What is Git?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.svg" class="quarto-figure quarto-figure-center" height="75"></p>
+</figure>
+</div>
 <ul>
-<li>Free and open source software</li>
-<li>Light and local use (without internet)</li>
-<li>The most popular Version Control Software (VCS)</li>
-<li>Manages and tracks versions of a project (code, manuscript, data)</li>
-<li>Can be linked with remote server (GitHub, Gitlab)</li>
+<li>The most popular <strong>Version Control Software</strong> (VCS)</li>
+<li><strong>Free</strong> and <strong>open source</strong></li>
+<li><strong>Light</strong> and <strong>local</strong> use (without internet)</li>
+<li>Manages and <strong>tracks versions</strong> of a project (code, manuscript, data)</li>
+<li>Can be linked with <strong>remote server</strong> (GitHub, Gitlab)</li>
 </ul>
 </section>
 <section id="what-is-git-for" class="slide level2">
 <h2>What is Git for?</h2>
 <ul>
-<li>For a single user:
+<li><p><strong>Track changes</strong> (<em>commits</em>) over time with information</p>
 <ul>
-<li><strong>Track changes</strong> (<em>commits</em>) over time with information about <strong>when</strong> and <strong>what</strong> are the changes</li>
-<li>Eventually go <strong>back in time</strong></li>
-<li><strong>Synchronize</strong> the project in the <strong>cloud</strong> with git servers (GitHub, Gitlab)</li>
+<li><strong>who</strong>, <strong>when</strong> and <strong>what</strong> are the changes</li>
 </ul></li>
-</ul>
-</section>
-<section id="what-is-git-for-1" class="slide level2">
-<h2>What is Git for ?</h2>
+<li><p>Eventually go <strong>back in time</strong></p></li>
+<li><p><strong>Highlight a specific version</strong> of the project (<em>tags</em>).</p>
 <ul>
-<li>For a collaborative project:
-<ul>
-<li><strong>Track changes</strong> (<em>commits</em>) with information about <strong>who</strong>, <strong>when</strong> and <strong>what</strong> are the changes</li>
-<li><strong>Resolve version conflict</strong> when simultaneous changes</li>
-<li><strong>Highlight a specific version</strong> of the project (<em>tags</em>)</li>
-<li>New version of a software</li>
-<li>Submitted, revised versions of a paper</li>
-<li>Create <strong>derivates</strong> of a project (<em>branches</em>)
-<ul>
-<li>Production</li>
-<li>Development</li>
-<li>Feature</li>
+<li>For example, new software versions.</li>
 </ul></li>
-<li><strong>Publish</strong> the project (open science)</li>
+<li><p><strong>Synchronize</strong> the project in the <strong>cloud</strong> with remote servers (GitHub, Gitlab)</p></li>
+<li><p><strong>Resolve version conflict</strong> when simultaneous changes</p></li>
+<li><p>Create <strong>derivates</strong> of a project (<em>branches</em>):</p>
+<ul>
+<li>production, development, feature</li>
 </ul></li>
+<li><p><strong>Publish</strong> the project (open science)</p></li>
 </ul>
 </section>
 <section id="in-short" class="slide level2">
@@ -399,7 +209,7 @@
 <div id="fig-version-1" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
 <div aria-describedby="fig-version-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="img/phd_comics.png" width="350">
+<img data-src="img/phd_comics.png" width="361">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-version-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Without Git
@@ -430,11 +240,11 @@ Figure&nbsp;2: With Git
 <section id="installing-git" class="slide level2">
 <h2>Installing Git</h2>
 <p><strong>Windows and Mac</strong></p>
-<p>Download and install Git from <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</p>
+<p>Download and install Git from <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a>.</p>
 <p>When done, open <code>Git Bash</code></p>
 <p><strong>Linux</strong></p>
 <p>Open a <code>Terminal</code> window and type:</p>
-<p><code>sudo apt install git git-lfs git-flow</code></p>
+<p><code>sudo apt install git</code></p>
 </section>
 <section id="git-configuration" class="slide level2">
 <h2>Git configuration</h2>
@@ -459,6 +269,16 @@ Figure&nbsp;2: With Git
 <ul>
 <li>Type <code>git config --global --list</code> to see the global git configuration.</li>
 </ul>
+</section>
+<section id="git-configurations-aliases" class="slide level2">
+<h2>Git configurations: aliases</h2>
+<p>To create Git aliases (i.e.&nbsp;shortcuts):</p>
+<ul>
+<li>Type <code>git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit"</code></li>
+<li>Type <code>git config --global alias.br "branch -vv"</code></li>
+<li>Type <code>git config --global alias.re "remove -vv"</code></li>
+</ul>
+<p>You can now call the <code>git tree</code>, <code>git br</code> and <code>git re</code> commands.</p>
 </section></section>
 <section>
 <section id="getting-started-with-git-in-local" class="title-slide slide level1 center">
@@ -501,15 +321,29 @@ Figure&nbsp;2: With Git
 <li><code>git add</code> : the command to add the file(s) in the <code>Index</code></li>
 <li><code>git commit</code>: the command to validate the changes (moves the files from <code>Index</code> to <code>Local</code>)</li>
 </ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>To help understand, think of moving house. Workspace=old house; Local repository=new house; Changes=boxes; Index=moving truck</p>
+</div>
+</div>
+</div>
 </section>
 <section id="getting-started" class="slide level2">
 <h2>Getting started</h2>
 <ul>
+<li>Move to the folder where you want to work by using the <code>cd</code> command</li>
 <li>Create a folder called <code>training-git</code> by typing <code>mkdir training-git</code></li>
 <li>Move to the folder by typing <code>cd training-git</code></li>
-<li>Type <code>ls -alrt</code></li>
-<li>Type <code>git init</code></li>
-<li>Type again <code>ls -alrt</code>.</li>
+<li>Type <code>ls -alrt</code>. What do you see?</li>
+<li>Type <code>git init</code>. Read the console output</li>
+<li>Type again <code>ls -alrt</code>. What is new?</li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -525,14 +359,15 @@ Figure&nbsp;2: With Git
 </div>
 </div>
 <ul>
-<li>Type <code>git status</code> and <code>git log</code></li>
+<li>Type <code>git status</code> and <code>git log</code>. What does it tell you?</li>
 </ul>
 </section>
-<section id="first-commit" class="slide level2 smaller">
+<section id="first-commit" class="slide level2">
 <h2>First commit</h2>
 <ul>
-<li><p>Create a <code>README.md</code> file. Type <code>git status</code> <span class="math inline">\(\rightarrow\)</span> <code>README.md</code> is now in <code>Workspace</code> but not in <code>Index</code> nor in <code>Local</code></p></li>
-<li><p>Type <code>git add README.md</code> and <code>git status</code></p></li>
+<li><p>Create a <code>README.md</code> file by typing <code>touch README.md</code></p></li>
+<li><p>Type <code>git status</code> <span class="math inline">\(\rightarrow\)</span> what does it tell you about <code>README.md</code> ?</p></li>
+<li><p>Type <code>git add README.md</code> and <code>git status</code> <span class="math inline">\(\rightarrow\)</span> what is the new status of the file?</p></li>
 </ul>
 <div class="cell" data-reveal="true" data-fig-height="0.8" data-layout-align="center">
 <div class="cell-output-display">
@@ -555,7 +390,7 @@ class idi index;
 </div>
 </div>
 <ul>
-<li>Type <code>git commit -m "First commit"</code> and type <code>git log</code></li>
+<li>Type <code>git commit -m "First commit"</code> and type <code>git status</code> and <code>git log</code></li>
 </ul>
 <div class="cell" data-reveal="true" data-fig-height="0.8" data-layout-align="center">
 <div class="cell-output-display">
@@ -609,8 +444,8 @@ gitGraph
 <h2>Second commit</h2>
 <ul>
 <li>Open the <code>README.md</code> file, add <code># Git training</code> and save</li>
-<li>Type <code>git status</code></li>
-<li>Type <code>git diff</code></li>
+<li>Type <code>git status</code> <span class="math inline">\(\rightarrow\)</span> what is the status of the file?</li>
+<li>Type <code>git diff</code> <span class="math inline">\(\rightarrow\)</span> what does this command do?</li>
 </ul>
 <div class="cell" data-reveal="true" data-fig-height="1" data-layout-align="center">
 <div class="cell-output-display">
@@ -633,7 +468,7 @@ class idl local;
 </div>
 </div>
 <ul>
-<li>Type <code>git commit -m "Second commit"</code></li>
+<li>Type <code>git add README.md</code> and <code>git commit -m "Second commit"</code></li>
 <li>Type <code>git log</code></li>
 </ul>
 <div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1" data-layout-align="center">
@@ -680,14 +515,55 @@ gitGraph
 <li>Type <code>git tag</code> to list all existing tags</li>
 </ul>
 </section>
-<section id="ignoring-files" class="slide level2 smaller">
-<h2>Ignoring files</h2>
-<p>It is possible to tell Git to ignore some files by using a <a href="https://git-scm.com/docs/gitignore">.gitignore</a> file.</p>
+<section id="reverting-a-commit" class="slide level2">
+<h2>Reverting a commit</h2>
+<p>To revert a commit, i.e.&nbsp;to cancel changes done in a previous one:</p>
 <ul>
-<li>Create an empty <code>output.log</code> file and type <code>git status</code></li>
-<li>Create a <code>.gitignore</code> file and write <code>*.log</code>. Type again <code>git status</code></li>
+<li>Type <code>git revert -n c6dc2bc</code> (replace <code>c6dc2bc</code> by your commit id)</li>
+<li>Type <code>git status</code>. What happens?</li>
+<li>The <code>README.md</code> file is now modified and staged (i.e.&nbsp;in the <code>Index</code>)</li>
+<li>To see what has been changed, type <code>git diff --staged</code></li>
+<li>To commit this modification, type <code>git commit -m "Revert commit"</code></li>
 </ul>
-<p>The <code>output.log</code> file does not appear as an <code>Untracked file</code> anymore</p>
+<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "07e8835" tag: "v1.0.0"
+    commit id: "-c6dc2bc" type: REVERSE
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>The <code>-n</code> option is to prevent an automatic commit. Therefore you need to commit yourself</p>
+</div>
+</div>
+</div>
+</section>
+<section id="ignoring-files" class="slide level2">
+<h2>Ignoring files</h2>
+<p>It is possible to tell Git to ignore some files by using a <a href="https://git-scm.com/docs/gitignore">.gitignore</a> file (for instance, <code>.Rdata</code> or <code>.tmp</code> files).</p>
+<ul>
+<li>Create an empty <code>output.Rdata</code> file and type <code>git status</code></li>
+<li>Create a <code>.gitignore</code> file and write <code>*.Rdata</code>. Type again <code>git status</code></li>
+</ul>
+<p>The <code>output.Rdata</code> file does not appear as an <code>Untracked file</code> anymore</p>
 <ul>
 <li>Type <code>git add .gitignore</code> and <code>git status</code></li>
 <li>Type <code>git commit -m "Fourth commit"</code></li>
@@ -702,6 +578,7 @@ gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
     commit id: "07e8835" tag: "v1.0.0"
+    commit id: "-c6dc2bc" type: REVERSE
     commit id: "9670a59"
 </pre>
 </div>
@@ -723,12 +600,12 @@ gitGraph
 </div>
 </div>
 </section>
-<section id="moving-in-the-history" class="slide level2 smaller">
+<section id="moving-in-the-history" class="slide level2">
 <h2>Moving in the history</h2>
 <ul>
 <li>Type <code>git checkout v1.0.0</code> <span class="math inline">\(\rightarrow\)</span> move to a tag</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="0.5" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
@@ -748,7 +625,7 @@ gitGraph
 <ul>
 <li>Type <code>git checkout 0f0e96a</code> <span class="math inline">\(\rightarrow\)</span> move to a specific commit</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="0.5" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
@@ -766,9 +643,9 @@ gitGraph
 </div>
 </div>
 <ul>
-<li>Type <code>git checkout main</code> <span class="math inline">\(\rightarrow\)</span> move at the latest commit (replace <code>main</code> by <code>master</code> if the latter is the name of the main branch)</li>
+<li>Type <code>git checkout main</code> <span class="math inline">\(\rightarrow\)</span> move at the latest commit</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="0.5" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
@@ -842,11 +719,11 @@ class id1,id2 local;
 </ul>
 </section></section>
 <section>
-<section id="using-git-with-online-server-github" class="title-slide slide level1 center">
-<h1>Using Git with online server (GitHub)</h1>
+<section id="using-git-with-remote-server" class="title-slide slide level1 center">
+<h1>Using Git with remote server</h1>
 
 </section>
-<section id="using-remotes" class="slide level2 smaller">
+<section id="using-remotes" class="slide level2">
 <h2>Using remotes</h2>
 <p>In addition of saving the history, Git has other advantages. It allows to:</p>
 <ul>
@@ -899,13 +776,13 @@ class id1,id2 local;
 <p>There are several remote hosting possibilities:</p>
 <p><strong>Commercial hosts</strong>:</p>
 <ul>
-<li>GitHub: <a href="https://github.com/">https://github.com/</a></li>
-<li>GitLab: <a href="https://gitlab.com/">https://gitlab.com/</a></li>
+<li>GitHub: <a href="https://github.com/" class="uri">https://github.com/</a></li>
+<li>GitLab: <a href="https://gitlab.com/" class="uri">https://gitlab.com/</a></li>
 </ul>
 <p><strong>Institutional hosts</strong>:</p>
 <ul>
-<li>GitLab IRD: <a href="https://forge.ird.fr/">https://forge.ird.fr/</a></li>
-<li>GitLab Ifremer <a href="https://gitlab.ifremer.fr/">https://gitlab.ifremer.fr/</a></li>
+<li>GitLab IRD: <a href="https://forge.ird.fr/" class="uri">https://forge.ird.fr/</a></li>
+<li>GitLab Ifremer <a href="https://gitlab.ifremer.fr/" class="uri">https://gitlab.ifremer.fr/</a></li>
 </ul>
 <p>In the following, we will use GitHub.</p>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -917,32 +794,18 @@ class id1,id2 local;
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>GitHub proposes extra-features for students, teachers and researchers. Visit <a href="https://education.github.com/benefits">https://education.github.com/benefits</a> for more informations</p>
+<p>GitHub proposes extra-features for students, teachers and researchers. Visit <a href="https://education.github.com/benefits" class="uri">https://education.github.com/benefits</a> for more informations</p>
 </div>
 </div>
-</div>
-</section>
-<section id="creation-of-a-github-repository" class="slide level2">
-<h2>Creation of a GitHub repository</h2>
-<ul>
-<li>On your GitHub page, click on <code>Repositories</code></li>
-<li>Click on the the green <code>New</code> button</li>
-<li>Set the name of your remote repository. Leave the other fields empty</li>
-<li>Click on <code>Create repository</code></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/github_makeRepo.png" class="quarto-figure quarto-figure-center" data-layout-valign="center" height="400"></p>
-</figure>
 </div>
 </section>
 <section id="creation-of-a-personal-access-token" class="slide level2">
 <h2>Creation of a personal access token</h2>
-<p>To authentificate, you need to create an authentification token (see <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">GitHub authentification of details</a> for details).</p>
+<p>To authentificate, you need to create an authentification token (see <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">GitHub authentification of details</a>).</p>
 <p>To do so, click on your profile photo and then on <code>Settings</code>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/github-settings.png" class="quarto-figure quarto-figure-center" height="600"></p>
+<p><img data-src="img/github-settings.png" class="quarto-figure quarto-figure-center" height="500"></p>
 </figure>
 </div>
 </section>
@@ -989,14 +852,28 @@ class id1,id2 local;
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/access-token-2.png" class="quarto-figure quarto-figure-center" height="250"></p>
+<p><img data-src="img/access-token-2.png" class="quarto-figure quarto-figure-center" height="300"></p>
 </figure>
 </div>
 <ul>
 <li><p>Click on the <code>Generate token</code> box button.</p></li>
-<li><p><strong>Copy and save in a <code>.txt</code> file or in a Password manager tool (KeePassXC) the token: this is your password!</strong> It should look like something like this:</p></li>
+<li><p>Copy and save in a <code>.txt</code> file or in a Password manager tool (for example KeePassXC) your token: <strong>this is your password to publish codes!</strong> It should look like something like this:</p></li>
 </ul>
 <pre><code>ghp_***************************************</code></pre>
+</section>
+<section id="creation-of-a-github-repository" class="slide level2">
+<h2>Creation of a GitHub repository</h2>
+<ul>
+<li>On your GitHub page, click on <code>Repositories</code></li>
+<li>Click on the the green <code>New</code> button</li>
+<li>Set the name of your remote repository. <strong>Leave the other fields empty</strong></li>
+<li>Click on <code>Create repository</code></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/github_makeRepo.png" class="quarto-figure quarto-figure-center" data-layout-valign="center" height="400"></p>
+</figure>
+</div>
 </section>
 <section id="linking-git-local-and-remote" class="slide level2">
 <h2>Linking Git local and remote</h2>
@@ -1013,12 +890,25 @@ class id1,id2 local;
 <p><strong>Warning</strong></p>
 </div>
 <div class="callout-content">
-<p>Replac <code>barriern</code> by your GitHub login and <code>git-train</code> by the name of your GitHub repository.</p>
+<p>Replace <code>barriern</code> by your GitHub login and <code>git-train</code> by the name of your GitHub repository.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>The URL must end by <code>.git</code>!</p>
 </div>
 </div>
 </div>
 <ul>
-<li>It connects your Local repository with a remote one, called <em>origin</em></li>
+<li>It connects your <code>Local</code> repository with the <code>Remote</code> repository, called <em>origin</em></li>
 </ul>
 <div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
 <div class="cell-output-display">
@@ -1028,7 +918,7 @@ class id1,id2 local;
 <pre class="mermaid mermaid-js">flowchart LR
 
     idl(Local)
-    idr("Remote\n(origin)")
+    idr("Remote&lt;br&gt;(origin)")
 
     idl--&gt;idr
     idr--&gt;idl
@@ -1057,10 +947,16 @@ class id1,id2 local;
 <h2>Linking Git local and remote</h2>
 <p>Now that the local and remote repositories are linked, the same thing must be done with the branches.</p>
 <ul>
-<li>Type <code>git branch -M main</code> by replacing <code>main</code> by the name of the remote branch on GitHub. It will rename the local branch with the same name.</li>
+<li>First, rename your local branch with the name expected by GitHub (either <code>main</code> or <code>master</code>):
+<ul>
+<li>Type <code>git branch -M main</code></li>
+</ul></li>
+<li>Push your branch on the remote server:
+<ul>
 <li>Type <code>git push -u origin main</code></li>
+</ul></li>
 </ul>
-<p>It connects the <em>local</em> and <em>remote</em> main branches (<code>-u</code> option) and sends the commits to the remote branch</p>
+<p>It connects the <em>local</em> and <em>remote</em> main branches (<code>-u</code> option stands for <code>--set-upstream</code>) and sends the local commits to the remote branch</p>
 <div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
 <div class="cell-output-display">
 <div>
@@ -1068,8 +964,8 @@ class id1,id2 local;
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
 
-    idl("Main\n(Local)")
-    idr("Main\n(Remote)")
+    idl("Main&lt;br&gt;(Local)")
+    idr("Main&lt;br&gt;(Remote)")
 
     idl--&gt;idr
     idr--&gt;idl
@@ -1092,12 +988,15 @@ class id1,id2 local;
 </div>
 <ul>
 <li>Type <code>git branch -vv</code></li>
+<li>Refresh your repository webpage: what do you see? <strong>what is missing?</strong></li>
 </ul>
 </section>
-<section id="linking-git-local-and-remote-2" class="slide level2">
-<h2>Linking Git local and remote</h2>
-<p>Have a look at your repository on GitHub. <strong>Tags are missing!</strong></p>
-<p>Type <code>git push --tags</code> and refresh the GitHub page.</p>
+<section id="linking-git-local-and-remote-tags" class="slide level2">
+<h2>Linking Git local and remote: tags</h2>
+<ul>
+<li>To push tags to the remote, type <code>git push --tags</code></li>
+<li>Refresh your repository webpage. Check whether the tags are properly pushed</li>
+</ul>
 <div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
 <div class="cell-output-display">
 <div>
@@ -1136,13 +1035,12 @@ class id1,id2 local;
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>No need to specify the <code>-u origin main</code> arguments since the two branches are already connected.</p>
+<p>No need to specify the <code>-u origin main</code> arguments here</p>
 </div>
 </div>
 </div>
-<p>Navigate on the GitHub page to see what has been done.</p>
 </section>
-<section id="synchronization-from-the-remote" class="slide level2 smaller">
+<section id="synchronization-from-the-remote" class="slide level2">
 <h2>Synchronization from the remote</h2>
 <ul>
 <li><p>In GitHub, click on the <code>README.md</code> file and then on the edit button</p></li>
@@ -1169,9 +1067,9 @@ class id1,id2 local;
 </div>
 </div>
 </div>
-<p>The <code>Remote</code> change of <code>README.md</code> is not yet visible in <code>Workspace</code>!</p>
 <ul>
-<li>In <code>Git Bash</code> or <code>Terminal</code>, type <code>git pull</code></li>
+<li><p>The <code>Remote</code> change of <code>README.md</code> is not yet visible in <code>Workspace</code>!</p></li>
+<li><p>In <code>Git Bash</code> or <code>Terminal</code>, type <code>git pull</code></p></li>
 </ul>
 <div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
 <div class="cell-output-display">
@@ -1205,15 +1103,15 @@ class id1,id2 local;
 <li>Look again at the <code>README.md</code> file on your computer. You should see the update.</li>
 </ul>
 </section>
-<section id="synchronization-conflicts" class="slide level2 smaller">
+<section id="synchronization-conflicts" class="slide level2">
 <h2>Synchronization: conflicts</h2>
 <ul>
-<li>On GitHub, add <code>x = 1</code> at the end of the <code>README.md</code> file. <strong>Do not type pull!</strong></li>
+<li>On GitHub, add <code>x = 1</code> at the end of the <code>README.md</code> file. <strong>Do not pull the changes!</strong></li>
 <li>On your computer, edit the <code>README.md</code> and add <code>x = 2</code>.</li>
 <li>Type <code>git add README.md</code></li>
 <li>Type <code>git commit -m "Fifth commit"</code></li>
-<li>Type <code>git push</code>. An error occurs because changes in <code>Remote</code> have not been pulled in <code>Local</code>.</li>
-<li>Type <code>git pull</code> and <code>git status</code>. An error occurs because there is a conflict in the <code>README.md</code> file which cannot be solved by Git.</li>
+<li>Type <code>git push</code>. What do you see?</li>
+<li>Type <code>git pull</code> and <code>git status</code>. An error occurs because there is a conflict in the <code>README.md</code> file that cannot be solved by Git.</li>
 </ul>
 <div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1.5" data-layout-align="center">
 <div class="cell-output-display">
@@ -1225,9 +1123,9 @@ gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
     branch origin/main
-    commit id: "x = 1"
+    commit id: "x is 1"
     checkout main
-    commit id: "x = 2"
+    commit id: "x is 2"
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -1245,13 +1143,13 @@ x = 2
 =======
 x = 1
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 70a4c105e377db282c0769606960f0afcccdd071</code></pre>
-<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Warning</strong></p>
+<p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
 <p>These are conflicts markers. <code>Git</code> does’t know whether to chose <code>x = 1</code> or <code>x = 2</code>. This is your job</p>
@@ -1259,9 +1157,11 @@ x = 1
 </div>
 </div>
 <ul>
-<li>Open the file, replace the above by <code>x = 3</code>. Commit and push the changes</li>
+<li>Open the file, remove the conflict markers and solve the value of x by setting <code>x = 3</code></li>
+<li>Add, commit and push the changes</li>
+<li>Refresh the GitHub page and look at the file</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="12" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="8" data-fig-height="4" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class=""><p></p>
@@ -1271,22 +1171,38 @@ gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
     branch origin/main
-    commit id: "x = 1"
+    commit id: "x is 1"
     checkout main
-    commit id: "x = 2"
-    merge origin/main tag: "x = 3"
+    commit id: "x is 2"
+    merge origin/main tag: "x is 3"
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>To avoid conflicts, use <code>git pull</code> and <code>git push</code> extensively</p>
+</div>
+</div>
+</div>
 </section>
-<section id="cloning-an-existing-repository" class="slide level2 smaller">
+<section id="cloning-an-existing-repository" class="slide level2">
 <h2>Cloning an existing repository</h2>
+<p>The <code>git clone</code> command allows to synchronize locally an existing remote repository.</p>
 <ul>
-<li>In <code>Terminal</code> or <code>Git Bash</code>, type <code>cd ..</code></li>
-<li>Now type <code>git clone https://github.com/umr-marbec/git-training</code></li>
+<li>On GitHub, create a new repository as done previously.</li>
+<li><strong>This time, include a <code>README.md</code> and eventually a <code>LICENCE</code> file</strong></li>
+<li>Copy the link to the new GitHub repository</li>
+<li>On Git Bash or Terminal, type <code>git clone https://github.com/barriern/new-repo.git</code> (replace the URL by the proper name)</li>
 </ul>
 <div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="0.8" data-layout-align="center">
 <div class="cell-output-display">
@@ -1317,16 +1233,34 @@ gitGraph
 </div>
 </div>
 <ul>
-<li>Type <code>git log</code> to see the full history.</li>
-<li>To update the project, type <code>git pull</code></li>
+<li>Move to the cloned folder by typing <code>cd new-repo</code> (replace with the name of your cloned folder)</li>
+<li>Type <code>git branch -vv</code>, <code>git remote -vv</code> and <code>git log</code> to see the full history.</li>
 </ul>
-<div class="callout callout-warning callout-titled callout-style-default">
+</section>
+<section id="cloning-an-existing-repository-1" class="slide level2">
+<h2>Cloning an existing repository</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Warning</strong></p>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>To create a Git repository from scratch the easy way, create the repository on GitHub with a <code>README.md</code>.</p>
+<p>Local and remote repositories and branches are automatically synchronized!</p>
+<p>Then add your files on your local folder, add, commit, push</p>
+</div>
+</div>
+</div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
 <p><strong>Do not clone or initialize a Git repository in another Git repository!</strong></p>
@@ -1334,23 +1268,10 @@ gitGraph
 </div>
 </div>
 </section>
-<section id="create-a-repository-the-simple-way" class="slide level2">
-<h2>Create a repository the simple way</h2>
-<p>To create a new repo more simply than done here:</p>
-<ul>
-<li>Create a repo. on GitHub with a <code>README.md</code> file and eventually a <code>LICENCE</code> file.</li>
-<li>Clone the repo.</li>
-<li>You are all set!
-<ul>
-<li>The <code>remote</code> and <code>local</code> repositories are synchonized</li>
-<li>The <code>remote</code> and <code>local</code> main branches are synchonized</li>
-</ul></li>
-</ul>
-</section>
 <section id="conclusion-good-practice" class="slide level2">
 <h2>Conclusion: good practice</h2>
 <ul>
-<li>Before starting editing a project, do a <code>git pull</code></li>
+<li>Before starting working on a project, do a <code>git pull</code></li>
 <li>Commit very often using <code>git commit</code> extensively</li>
 <li>Push often as well using <code>git push</code></li>
 <li>Use <code>git status</code> extensively to know what you have done</li>
@@ -1361,46 +1282,44 @@ gitGraph
 </figure>
 </div>
 </section></section>
+<section>
 <section id="git-clients" class="title-slide slide level1 center">
 <h1>Git clients</h1>
 
 </section>
-
-<section>
-<section id="git-clients-what-is-it" class="title-slide slide level1 center">
-<h1>Git clients: what is it?</h1>
+<section id="git-clients-what-is-it" class="slide level2">
+<h2>Git clients: what is it?</h2>
 <p>Git Clients are softwares that facilitate the use of Git (see <a href="https://git-scm.com/downloads/guis">Git Guis</a> for a list).</p>
 <p>Beside, most code editors include Git functionalities</p>
 </section>
-<section id="git-clients-1" class="slide level2">
-<h2>Git clients</h2>
+<section id="git-clients-vscode" class="slide level2">
+<h2>Git clients: VSCode</h2>
 
-<img data-src="img/vscode.png" class="r-stretch quarto-figure-center"><p class="caption">
+<img data-src="img/vscode.png" class="r-stretch quarto-figure-center" id="fig-vscode"><p class="caption">
 Figure&nbsp;3: VSCode
 </p></section>
-<section id="git-clients-2" class="slide level2">
-<h2>Git clients</h2>
+<section id="git-clients-rstudio" class="slide level2">
+<h2>Git clients: RStudio</h2>
 
-<img data-src="img/rstudio.png" width="350" class="r-stretch quarto-figure-center"><p class="caption">
+<img data-src="img/rstudio.png" width="350" class="r-stretch quarto-figure-center" id="fig-rstudio"><p class="caption">
 Figure&nbsp;4: RStudio
 </p></section>
-<section id="git-clients-3" class="slide level2">
-<h2>Git clients</h2>
+<section id="git-clients-netbeans" class="slide level2">
+<h2>Git clients: Netbeans</h2>
 
-<img data-src="img/netbeans.png" width="350" class="r-stretch quarto-figure-center"><p class="caption">
-Figure&nbsp;5: Netbeans
-</p></section></section>
+<img data-src="img/netbeans.png" width="350" class="r-stretch quarto-figure-center"><p class="caption">Netbeans</p></section></section>
 <section>
-<section id="going-further" class="title-slide slide level1 center">
-<h1>Going further</h1>
+<section id="git-branches" class="title-slide slide level1 center">
+<h1>Git branches</h1>
 
 </section>
-<section id="going-further-1" class="slide level2">
-<h2>Going further…</h2>
-<p>For those who want, extra slides are available on:</p>
+<section id="git-branches-1" class="slide level2">
+<h2>Git branches</h2>
+<p>Working with branches allows to create derivates for a project. For example:</p>
 <ul>
-<li>Git with <a href="https://git-lfs.github.com/">Large File Storage</a> extension.</li>
-<li>Working with branches, i.e.&nbsp;derivates of a project</li>
+<li>A <code>main</code> branch for the production version</li>
+<li>A <code>develop</code> branch for preparing the next release</li>
+<li>A <code>feature</code> branch for testing new features</li>
 </ul>
 <div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="3" data-layout-align="center">
 <div class="cell-output-display">
@@ -1429,48 +1348,6 @@ gitGraph
 </div>
 </div>
 </div>
-</section>
-<section id="large-file-storage" class="slide level2">
-<h2>Large file storage</h2>
-<p>To version (reasonably) large files (images, data samples) <span class="math inline">\(\rightarrow\)</span> Git with <a href="https://git-lfs.github.com/">LFS</a> extension.</p>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Warning</strong></p>
-</div>
-<div class="callout-content">
-<p>Make sure that the remote host is compatible with LFS (GitHub is compatible)</p>
-</div>
-</div>
-</div>
-<ul>
-<li>Type <code>git lfs install</code> to activate the extension</li>
-<li>Create a <code>data.csv</code> file and add <code>Year,Size,Species</code></li>
-<li>Type <code>git lfs track "*.csv"</code></li>
-</ul>
-<p>A <code>.gitattributes</code> file has appeared, which list all the file extensions managed by Git LFS.</p>
-</section>
-<section id="large-file-storage-1" class="slide level2">
-<h2>Large file storage</h2>
-<ul>
-<li>Type <code>git add .gitattributes data.csv</code></li>
-<li>Type <code>git commit -m "Using LFS"</code></li>
-<li>Type <code>git push</code></li>
-<li>On GitHub, click on your file <code>data.csv</code> file.</li>
-</ul>
-</section>
-<section id="creating-aliases" class="slide level2">
-<h2>Creating aliases</h2>
-<p>To create Git aliases (i.e.&nbsp;shortcuts):</p>
-<ul>
-<li>Type <code>git config --global alias.tree log --all --decorate --oneline --graph</code></li>
-<li>Type <code>git config --global alias.br branch -vv</code></li>
-<li>Type <code>git config --global alias.re remove -vv</code></li>
-</ul>
-<p>You can now call the <code>git tree</code>, <code>git br</code> and <code>git re</code> commands.</p>
 </section>
 <section id="creating-branches" class="slide level2">
 <h2>Creating branches</h2>
@@ -1646,19 +1523,9 @@ gitGraph
 <ul>
 <li>Type <code>git diff develop main</code></li>
 </ul>
-<aside class="notes">
+<div class="callout-notes">
 <p>You will see the text that has been added to the LICENCE file (69bbd79 commit)</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+</div>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1692,8 +1559,32 @@ class id1,id2 local;
 </div>
 </div>
 </section>
-<section id="deleting-a-branch" class="slide level2">
-<h2>Deleting a branch</h2>
+<section id="using-branches-on-remote-servers" class="slide level2">
+<h2>Using branches on remote servers</h2>
+<p>To push a branch on a remote server</p>
+<ul>
+<li>Switch to the branch you want to push: <code>git checkout develop</code></li>
+<li>Push the branch as follows: <code>git push -u origin develop</code>.</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>On the <code>push</code> command, the last argument is the name branch on the remote server. Make it consistent with the local branch</p>
+</div>
+</div>
+</div>
+<div class="callout-notes">
+<p>Use <code>git branch -vv</code> extensively to check the links between local/remote branches.</p>
+</div>
+</section>
+<section id="deleting-a-branch-locally" class="slide level2">
+<h2>Deleting a branch (locally)</h2>
 <ul>
 <li>Type <code>git checkout main</code></li>
 <li>Type <code>git branch -d develop</code></li>
@@ -1718,27 +1609,95 @@ class id1,id2 local;
 </div>
 </div>
 </section>
-<section id="reverting-a-commit" class="slide level2">
-<h2>Reverting a commit</h2>
+<section id="deleting-a-branch-remotely" class="slide level2">
+<h2>Deleting a branch (remotely)</h2>
+<p>Deletion from the remote branch is not automatic. To delete branch remotely:</p>
 <ul>
-<li>Type <code>git revert c6dc2bc</code> (replace <code>c6dc2bc</code> by your commit id)</li>
+<li><code>git push origin --delete develop</code></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
-gitGraph
-    commit id: "0f0e96a"
-    commit id: "c6dc2bc"
-    commit id: "-c6dc2bc" type: REVERSE
-</pre>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p></p></figure><p></p>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Make sure that the branch should be removed or has been merged. Delete locally first and then remotely</p>
 </div>
 </div>
 </div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>For the lazy people, the <a href="https://github.com/nvie/gitflow">Git Flow</a> extension, managing branches is very easy! Everything is almost done automatically!</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="large-file-storage-lfs" class="title-slide slide level1 center">
+<h1>Large file storage (LFS)</h1>
+
+</section>
+<section id="what-for" class="slide level2">
+<h2>What for?</h2>
+<p>To version (reasonably) large files (images, data samples) <span class="math inline">\(\rightarrow\)</span> Git with <a href="https://git-lfs.github.com/">LFS</a> extension.</p>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Make sure that the remote host is compatible with LFS (GitHub is compatible)</p>
+</div>
+</div>
+</div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Do not use for data that change extensively. It can be used for example to store toy datasets to show how a package work (vignettes, documentation)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="lfs-install" class="slide level2">
+<h2>LFS install</h2>
+<ul>
+<li>LFS is automatically installed with Git on Windows.</li>
+<li>On Linux, it can be installed using <code>sudo apt install git-lfs</code></li>
+<li>When it is installed, you need to activate it. To do so, type <code>git lfs install</code></li>
+</ul>
+</section>
+<section id="tracking-files-with-lfs" class="slide level2">
+<h2>Tracking files with LFS</h2>
+<ul>
+<li>Create a <code>data.csv</code> file and add <code>Year,Size,Species</code></li>
+<li>Type <code>git lfs track "*.csv"</code></li>
+</ul>
+<p>A <code>.gitattributes</code> file has appeared, which list all the file extensions managed by Git LFS.</p>
+<ul>
+<li>Type <code>git add .gitattributes data.csv</code></li>
+<li>Type <code>git commit -m "Using LFS"</code></li>
+<li>Type <code>git push</code></li>
+<li>On GitHub, click on your file <code>data.csv</code> file.</li>
+</ul>
 </section></section>
 <section>
 <section id="remainder" class="title-slide slide level1 center">
@@ -1787,11 +1746,11 @@ gitGraph
 <ul>
 <li>SSH key: easy way on Linux distributions
 <ul>
-<li>Tuto here: <a href="https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html">https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html</a></li>
+<li>Tuto here: <a href="https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html" class="uri">https://jdblischak.github.io/2014-09-18-chicago/novice/git/05-sshkeys.html</a></li>
 </ul></li>
 <li>Authentication Token
 <ul>
-<li>Tuto here: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></li>
+<li>Tuto here: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token" class="uri">https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></li>
 </ul></li>
 </ul>
 </section>
@@ -1826,15 +1785,15 @@ gitGraph
 <li>Plateau bioinformatique, Montpellier: Formation Git(Lab) (05/04/2018)</li>
 <li>UMR AMAP (Atelier MAIA P3M), Montpellier: Introduction à GIT (04/04/2019)</li>
 </ul>
-<div class="quarto-auto-generated-content">
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="figs/marbec-git.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
-</div>
-</section></section>
-    </div>
-  </div>
+</div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="git-training_files/libs/revealjs/dist/reveal.js"></script>
@@ -1863,7 +1822,8 @@ gitGraph
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': true,
  
         // Display controls in the bottom right corner
@@ -2017,7 +1977,7 @@ gitGraph
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -2122,8 +2082,6 @@ gitGraph
       });
       clipboard.on('success', onCopySuccess);
       if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
         const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
           text: getTextToCopy,
           container: window.document.getElementById('quarto-embedded-source-code-modal')
