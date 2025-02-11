@@ -22,6 +22,7 @@ format:
     scrollable: true
     template-partials:
       - title-slide.html
+    auto-stretch: false
   pdf:
     toc: false
     number-sections: false
