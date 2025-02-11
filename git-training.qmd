@@ -276,6 +276,7 @@ gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
     commit id: "07e8835" tag: "v1.0.0"
+    commit id: "-c6dc2bc" type: REVERSE
     commit id: "9670a59"
 ```
 
@@ -415,15 +416,6 @@ In the following, we will use GitHub.
 GitHub proposes extra-features for students, teachers and researchers. Visit <https://education.github.com/benefits> for more informations
 :::
 
-## Creation of a GitHub repository
-
--   On your GitHub page, click on `Repositories`
--   Click on the the green `New` button
--   Set the name of your remote repository. Leave the other fields empty
--   Click on `Create repository`
-
-![](img/github_makeRepo.png){height="400" fig-align="center" layout-valign="center"}
-
 ## Creation of a personal access token
 
 To authentificate, you need to create an authentification token (see [GitHub authentification of details](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)).
@@ -460,6 +452,15 @@ To do so, click on your profile photo and then on `Settings`:
 ghp_***************************************
 ```
 
+## Creation of a GitHub repository
+
+-   On your GitHub page, click on `Repositories`
+-   Click on the the green `New` button
+-   Set the name of your remote repository. **Leave the other fields empty**
+-   Click on `Create repository`
+
+![](img/github_makeRepo.png){height="400" fig-align="center" layout-valign="center"}
+
 ## Linking Git local and remote
 
 -   In `Terminal` or `Git Bash`, type the following line:
@@ -470,7 +471,11 @@ ghp_***************************************
 Replace `barriern` by your GitHub login and `git-train` by the name of your GitHub repository.
 :::
 
--   It connects your Local repository with the Remote repository, called *origin*
+::: callout-important
+The URL must end by `.git`!
+:::
+
+-   It connects your `Local` repository with the `Remote` repository, called *origin*
 
 ```{mermaid}
 %%| fig-width: 10.5
@@ -502,7 +507,7 @@ flowchart LR
 
 Now that the local and remote repositories are linked, the same thing must be done with the branches.
 
--  First, rename your local branch with the same name as the remote branch:
+-  First, rename your local branch with the name expected by GitHub (either `main` or `master`):
     -    Type `git branch -M main`
 - Push your branch on the remote server:
     - Type `git push -u origin main`
@@ -534,7 +539,7 @@ flowchart LR
 ```
 
 -  Type `git branch -vv`
--  Refresh your repository webpage: what do you see? what is missing?
+-  Refresh your repository webpage: what do you see? **what is missing?**
 
 ## Linking Git local and remote: tags
 
@@ -618,7 +623,7 @@ flowchart RL
 -   Type `git add README.md`
 -   Type `git commit -m "Fifth commit"`
 -   Type `git push`. What do you see?
--   Type `git pull` and `git status`. An error occurs because there is a conflict in the `README.md` file which cannot be solved by Git.
+-   Type `git pull` and `git status`. An error occurs because there is a conflict in the `README.md` file that cannot be solved by Git.
 
 ```{mermaid}
 %%| fig-width: 10
@@ -646,12 +651,13 @@ x = 1
 >>>>>>> 70a4c105e377db282c0769606960f0afcccdd071
 ```
 
-::: callout-warning
+::: callout-important
 These are conflicts markers. `Git` does't know whether to chose `x = 1` or `x = 2`. This is your job
 :::
 
--  Open the file, replace the above by `x = 3` and remove the conflict markers.
+-  Open the file, remove the conflict markers and solve the value of x by setting `x = 3`
 -  Add, commit and push the changes
+- Refresh the GitHub page and look at the file
 
 ```{mermaid}
 %%| fig-width: 8
@@ -668,7 +674,8 @@ gitGraph
     merge origin/main tag: "x is 3"
 ```
 
-::: callout-important
+
+::: callout-tip
 To avoid conflicts, use `git pull` and `git push` extensively
 :::
 
@@ -707,12 +714,18 @@ flowchart RL
 - Move to the cloned folder by typing `cd new-repo` (replace with the name of your cloned folder)
 - Type `git branch -vv`, `git remote -vv` and `git log` to see the full history.
 
-::: callout-important
-**Do not clone or initialize a Git repository in another Git repository!**
-:::
+## Cloning an existing repository
 
 ::: callout-tip
-To create a Git repository from scratch the easy way, create the repository on GitHub with a `README.md`. Local and remote repositories and branches are automatically synchronized!
+To create a Git repository from scratch the easy way, create the repository on GitHub with a `README.md`.
+
+Local and remote repositories and branches are automatically synchronized!
+
+Then add your files on your local folder, add, commit, push
+:::
+
+::: callout-important
+**Do not clone or initialize a Git repository in another Git repository!**
 :::
 
 ## Conclusion: good practice
