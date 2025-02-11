@@ -246,6 +246,21 @@ Figure&nbsp;2: With Git
 <p>Open a <code>Terminal</code> window and type:</p>
 <p><code>sudo apt install git</code></p>
 </section>
+<section id="a-bit-of-unix" class="slide level2">
+<h2>A bit of Unix</h2>
+<p>To use Git on Git Bash or Terminal, we need to learn some basic Unix commands:</p>
+<ul>
+<li>Change directory: <code>cd my/new/directory</code></li>
+<li>Go to parent directory: <code>cd ..</code></li>
+<li>Find current directory: <code>pwd</code></li>
+<li>List directory content: <code>ls</code></li>
+<li>Create new folder: <code>mkdir -p folder_name</code></li>
+<li>Create an empty file: <code>touch file.txt</code></li>
+<li>Copy a file: <code>cp file.txt save_file.txt</code></li>
+<li>Remove a file/folder: <code>rm -r file.txt</code></li>
+<li>Rename/Move a file: <code>mv file.text my/dest/renamed.txt</code></li>
+</ul>
+</section>
 <section id="git-configuration" class="slide level2">
 <h2>Git configuration</h2>
 <p>On <code>Git Bash</code> or in the <code>Terminal</code>:</p>
@@ -287,12 +302,11 @@ Figure&nbsp;2: With Git
 </section>
 <section id="git-architecture" class="slide level2">
 <h2>Git architecture</h2>
-<div class="cell" data-reveal="true" data-fig-height="2" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="local-arch">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js" data-label="local-arch">flowchart LR
     idw(Workspace)
     idi(Index)
     idl(Local)
@@ -310,7 +324,6 @@ Figure&nbsp;2: With Git
 
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -371,10 +384,11 @@ Figure&nbsp;2: With Git
 </ul>
 <div class="cell" data-reveal="true" data-fig-height="0.8" data-layout-align="center">
 <div class="cell-output-display">
+<div id="fig-add" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-add-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js" data-label="fig-add">flowchart LR
   idw(Workspace) --&gt;|git add| idi(Index)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
@@ -385,7 +399,11 @@ class idw workspace;
 class idi index;
 </pre>
 </div>
-<p></p></figure><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-add-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
@@ -394,10 +412,9 @@ class idi index;
 </ul>
 <div class="cell" data-reveal="true" data-fig-height="0.8" data-layout-align="center">
 <div class="cell-output-display">
+<div id="commit">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js" data-label="commit">flowchart LR
   idw(Index) --&gt;|git commit| idl(Local)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
@@ -408,21 +425,18 @@ class idw index;
 class idl local;
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
 <div class="cell" data-reveal="true" data-fig-height="1" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph1">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph1">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
    commit id: "0f0e96a"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -449,10 +463,9 @@ gitGraph
 </ul>
 <div class="cell" data-reveal="true" data-fig-height="1" data-layout-align="center">
 <div class="cell-output-display">
+<div id="diff">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js" data-label="diff">flowchart LR
   idw(Local) --&gt;|git diff| idl(Workspace)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
@@ -463,7 +476,6 @@ class idw workspace;
 class idl local;
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -471,49 +483,19 @@ class idl local;
 <li>Type <code>git add README.md</code> and <code>git commit -m "Second commit"</code></li>
 <li>Type <code>git log</code></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="5" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph2">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph2">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
-</section>
-<section id="creating-tags" class="slide level2">
-<h2>Creating tags</h2>
-<ul>
-<li>Open the <code>README.md</code> file and add <code>## Version v1.0.0</code>.</li>
-<li>Type <code>git add README.md</code></li>
-<li>Type <code>git commit -m "Third commit"</code></li>
-<li>Type <code>git tag v1.0.0</code> and <code>git log</code></li>
-</ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1.5" data-layout-align="center">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
-gitGraph
-    commit id: "0f0e96a"
-    commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<ul>
-<li>Type <code>git tag</code> to list all existing tags</li>
-</ul>
 </section>
 <section id="reverting-a-commit" class="slide level2">
 <h2>Reverting a commit</h2>
@@ -525,20 +507,17 @@ gitGraph
 <li>To see what has been changed, type <code>git diff --staged</code></li>
 <li>To commit this modification, type <code>git commit -m "Revert commit"</code></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="5" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph5">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph5">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
     commit id: "-c6dc2bc" type: REVERSE
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -558,7 +537,7 @@ gitGraph
 </section>
 <section id="ignoring-files" class="slide level2">
 <h2>Ignoring files</h2>
-<p>It is possible to tell Git to ignore some files by using a <a href="https://git-scm.com/docs/gitignore">.gitignore</a> file (for instance, <code>.Rdata</code> or <code>.tmp</code> files).</p>
+<p>It is possible to tell Git to ignore some files by using a <a href="https://git-scm.com/docs/gitignore">.gitignore</a> file (for example <code>.Rdata</code> or <code>.tmp</code> files).</p>
 <ul>
 <li>Create an empty <code>output.Rdata</code> file and type <code>git status</code></li>
 <li>Create a <code>.gitignore</code> file and write <code>*.Rdata</code>. Type again <code>git status</code></li>
@@ -568,21 +547,18 @@ gitGraph
 <li>Type <code>git add .gitignore</code> and <code>git status</code></li>
 <li>Type <code>git commit -m "Fourth commit"</code></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-height="2" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="5" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph6">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph6">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
     commit id: "-c6dc2bc" type: REVERSE
     commit id: "9670a59"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -600,65 +576,90 @@ gitGraph
 </div>
 </div>
 </section>
+<section id="creating-tags" class="slide level2">
+<h2>Creating tags</h2>
+<ul>
+<li>Open the <code>README.md</code> file and add <code>## Version v1.0.0</code>.</li>
+<li>Type <code>git add README.md</code></li>
+<li>Type <code>git commit -m "Third commit"</code></li>
+<li>Type <code>git tag v1.0.0</code> and <code>git log</code></li>
+</ul>
+<div class="cell" data-reveal="true" data-fig-width="5" data-layout-align="center">
+<div class="cell-output-display">
+<div id="graph3">
+<div>
+<pre class="mermaid mermaid-js" data-label="graph3">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "-c6dc2bc" type: REVERSE
+    commit id: "9670a59"
+    commit id: "07e8835" tag: "v1.0.0"
+</pre>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>Type <code>git tag</code> to list all existing tags</li>
+</ul>
+</section>
 <section id="moving-in-the-history" class="slide level2">
 <h2>Moving in the history</h2>
 <ul>
 <li>Type <code>git checkout v1.0.0</code> <span class="math inline">\(\rightarrow\)</span> move to a tag</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="0.5" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="3" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph8">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph8">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0" type:HIGHLIGHT
+    commit id: "-c6dc2bc" type: REVERSE
     commit id: "9670a59"
+    commit id: "07e8835" tag: "v1.0.0" type:HIGHLIGHT
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
 <ul>
 <li>Type <code>git checkout 0f0e96a</code> <span class="math inline">\(\rightarrow\)</span> move to a specific commit</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="0.5" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="3" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph8">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph8">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a" type:HIGHLIGHT
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
+    commit id: "-c6dc2bc" type: REVERSE
     commit id: "9670a59"
+    commit id: "07e8835" tag: "v1.0.0"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
 <ul>
 <li>Type <code>git checkout main</code> <span class="math inline">\(\rightarrow\)</span> move at the latest commit</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="0.5" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="3" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph9">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph9">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-    commit id: "0f0e96a"
+    commit id: "0f0e96a" type:HIGHLIGHT
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
-    commit id: "9670a59" type:HIGHLIGHT
+    commit id: "-c6dc2bc" type: REVERSE
+    commit id: "9670a59"
+    commit id: "07e8835" tag: "v1.0.0" type:HIGHLIGHT
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -694,12 +695,11 @@ gitGraph
 </div>
 </div>
 </div>
-<div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="0.75" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="5" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph10">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js" data-label="graph10">flowchart LR
   id1(0f0e96a)--&gt;|git diff| id2(v1.0.0)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
@@ -709,7 +709,6 @@ classDef remote fill:yellow,stroke:black,color:black
 class id1,id2 local;
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -737,12 +736,11 @@ class id1,id2 local;
 </ul></li>
 </ul>
 <p>To do so, a <span class="math inline">\(4^{th}\)</span> component in the Git architecture must be considered: the <code>Remote</code> repository. It contains a <strong>remote</strong> version of the history of your project</p>
-<div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="2" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="5" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph11">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js" data-label="graph11">flowchart LR
     idw(Workspace)
     idi(Index)
     idl(Local)
@@ -766,7 +764,6 @@ class id1,id2 local;
 
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -910,12 +907,11 @@ class id1,id2 local;
 <ul>
 <li>It connects your <code>Local</code> repository with the <code>Remote</code> repository, called <em>origin</em></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="3" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph12">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js" data-label="graph12">flowchart LR
 
     idl(Local)
     idr("Remote&lt;br&gt;(origin)")
@@ -935,7 +931,6 @@ class id1,id2 local;
 
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -957,12 +952,11 @@ class id1,id2 local;
 </ul></li>
 </ul>
 <p>It connects the <em>local</em> and <em>remote</em> main branches (<code>-u</code> option stands for <code>--set-upstream</code>) and sends the local commits to the remote branch</p>
-<div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="3" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph13">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js" data-label="graph13">flowchart LR
 
     idl("Main&lt;br&gt;(Local)")
     idr("Main&lt;br&gt;(Remote)")
@@ -982,7 +976,6 @@ class id1,id2 local;
 
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -997,12 +990,11 @@ class id1,id2 local;
 <li>To push tags to the remote, type <code>git push --tags</code></li>
 <li>Refresh your repository webpage. Check whether the tags are properly pushed</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="3" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph14">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js" data-label="graph14">flowchart LR
 
     idl(Local)
     idr("Remote")
@@ -1022,7 +1014,6 @@ class id1,id2 local;
 
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1071,12 +1062,11 @@ class id1,id2 local;
 <li><p>The <code>Remote</code> change of <code>README.md</code> is not yet visible in <code>Workspace</code>!</p></li>
 <li><p>In <code>Git Bash</code> or <code>Terminal</code>, type <code>git pull</code></p></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="1" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="3" data-fig-height="1" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph15">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart RL
+<pre class="mermaid mermaid-js" data-label="graph15">flowchart RL
 
     idr(Remote)
     idw(Workspace)
@@ -1095,7 +1085,6 @@ class id1,id2 local;
 
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1113,12 +1102,11 @@ class id1,id2 local;
 <li>Type <code>git push</code>. What do you see?</li>
 <li>Type <code>git pull</code> and <code>git status</code>. An error occurs because there is a conflict in the <code>README.md</code> file that cannot be solved by Git.</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="1.5" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph16">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph16">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
@@ -1128,7 +1116,6 @@ gitGraph
     commit id: "x is 2"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1161,12 +1148,11 @@ x = 1
 <li>Add, commit and push the changes</li>
 <li>Refresh the GitHub page and look at the file</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="8" data-fig-height="4" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph17">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph17">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
@@ -1177,7 +1163,6 @@ gitGraph
     merge origin/main tag: "x is 3"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1204,12 +1189,11 @@ gitGraph
 <li>Copy the link to the new GitHub repository</li>
 <li>On Git Bash or Terminal, type <code>git clone https://github.com/barriern/new-repo.git</code> (replace the URL by the proper name)</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="0.8" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph18">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart RL
+<pre class="mermaid mermaid-js" data-label="graph18">flowchart RL
 
     idr(Remote)
     idw(Workspace)
@@ -1228,7 +1212,6 @@ gitGraph
 
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1294,20 +1277,39 @@ gitGraph
 </section>
 <section id="git-clients-vscode" class="slide level2">
 <h2>Git clients: VSCode</h2>
-
-<img data-src="img/vscode.png" class="r-stretch quarto-figure-center" id="fig-vscode"><p class="caption">
-Figure&nbsp;3: VSCode
-</p></section>
+<div id="fig-vscode" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-vscode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="img/vscode.png">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vscode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: VSCode
+</figcaption>
+</figure>
+</div>
+</section>
 <section id="git-clients-rstudio" class="slide level2">
 <h2>Git clients: RStudio</h2>
-
-<img data-src="img/rstudio.png" width="350" class="r-stretch quarto-figure-center" id="fig-rstudio"><p class="caption">
-Figure&nbsp;4: RStudio
-</p></section>
+<div id="fig-rstudio" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-rstudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="img/rstudio.png" width="350">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rstudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: RStudio
+</figcaption>
+</figure>
+</div>
+</section>
 <section id="git-clients-netbeans" class="slide level2">
 <h2>Git clients: Netbeans</h2>
-
-<img data-src="img/netbeans.png" width="350" class="r-stretch quarto-figure-center"><p class="caption">Netbeans</p></section></section>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/netbeans.png" width="350"></p>
+<figcaption>Netbeans</figcaption>
+</figure>
+</div>
+</section></section>
 <section>
 <section id="git-branches" class="title-slide slide level1 center">
 <h1>Git branches</h1>
@@ -1321,12 +1323,11 @@ Figure&nbsp;4: RStudio
 <li>A <code>develop</code> branch for preparing the next release</li>
 <li>A <code>feature</code> branch for testing new features</li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="3" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph19">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph19">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
@@ -1344,7 +1345,6 @@ gitGraph
     commit id: "d9d02608"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1359,12 +1359,11 @@ gitGraph
 <li>Type <code>git commit -m "3rd commit"</code></li>
 <li>Type <code>git br</code> and <code>git tree</code></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="2" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph20">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph20">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
@@ -1372,7 +1371,6 @@ gitGraph
     commit id: "214e348"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1387,12 +1385,11 @@ gitGraph
 <li>Type <code>git commit -m "Third commit"</code></li>
 <li>Type <code>git tree</code></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="2" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph21">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph21">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
@@ -1403,7 +1400,6 @@ gitGraph
     commit id: "69bbd79"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1414,12 +1410,11 @@ gitGraph
 <li>On the <code>main</code> branch, type <code>git merge develop -m "merge-develop"</code></li>
 <li>Type <code>git log</code> and <code>git tree</code></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="2" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph22">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph22">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
@@ -1431,7 +1426,6 @@ gitGraph
     merge develop
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1458,12 +1452,11 @@ gitGraph
 <li>Type <code>git add script.R</code></li>
 <li>Type <code>git commit -m "Fourth commit"</code></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="3" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph23">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph23">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
@@ -1478,7 +1471,6 @@ gitGraph
     commit id: "0a9ba0c"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1490,12 +1482,11 @@ gitGraph
 <li>Create a <code>script.py</code> file</li>
 <li>Type <code>git add script.py</code> and <code>git commit -m "Sixth commit"</code></li>
 </ul>
-<div class="cell" data-reveal="true" data-fig-width="10" data-fig-height="4" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph24">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+<pre class="mermaid mermaid-js" data-label="graph24">%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
@@ -1513,7 +1504,6 @@ gitGraph
     commit id: "d9d02608"
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -1539,12 +1529,11 @@ gitGraph
 </div>
 </div>
 </div>
-<div class="cell" data-reveal="true" data-fig-width="10.5" data-fig-height="0.75" data-layout-align="center">
+<div class="cell" data-reveal="true" data-fig-width="6" data-layout-align="center">
 <div class="cell-output-display">
+<div id="graph25">
 <div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js" data-label="graph25">flowchart LR
   id1(Develop)--&gt;|git diff| id2(Main)
 classDef workspace fill:lightgray,stroke:black,color:black
 classDef index fill:lightblue,stroke:black,color:black
@@ -1554,7 +1543,6 @@ classDef remote fill:yellow,stroke:black,color:black
 class id1,id2 local;
 </pre>
 </div>
-<p></p></figure><p></p>
 </div>
 </div>
 </div>
