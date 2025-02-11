@@ -101,7 +101,7 @@ You can now call the `git tree`, `git br` and `git re` commands.
 ## Git architecture
 
 ```{mermaid}
-%%|label: fig-local-arch
+%%|label: local-arch
 %%| fig-width: 6
 %%| fig-align: center
 flowchart LR
@@ -173,7 +173,7 @@ class idi index;
 -   Type `git commit -m "First commit"` and type `git status` and `git log`
 
 ```{mermaid}
-%%|label: fig-commit
+%%|label: commit
 %%| fig-height: 0.8
 %%| fig-align: center
 flowchart LR
@@ -188,7 +188,7 @@ class idl local;
 ```
 
 ```{mermaid}
-%%|label: fig-graph1
+%%|label: graph1
 %%| fig-height: 1
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
@@ -207,7 +207,7 @@ gitGraph
 -   Type `git diff`  $\rightarrow$ what does this command do?
 
 ```{mermaid}
-%%|label: fig-diff
+%%|label: diff
 %%| fig-height: 1
 %%| fig-align: center
 flowchart LR
@@ -225,7 +225,7 @@ class idl local;
 -   Type `git log`
 
 ```{mermaid}
-%%|label: fig-graph2
+%%|label: graph2
 %%| fig-width: 5
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
@@ -233,26 +233,6 @@ gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
 ```
-
-## Creating tags
-
--   Open the `README.md` file and add `## Version v1.0.0`.
--   Type `git add README.md`
--   Type `git commit -m "Third commit"`
--   Type `git tag v1.0.0` and `git log`
-
-```{mermaid}
-%%|label: fig-graph3
-%%| fig-width: 5
-%%| fig-align: center
-%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
-gitGraph
-    commit id: "0f0e96a"
-    commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
-```
-
--   Type `git tag` to list all existing tags
 
 ## Reverting a commit
 
@@ -266,14 +246,13 @@ To revert a commit, i.e. to cancel changes done in a previous one:
 
 
 ```{mermaid}
-%%|label: fig-graph5
+%%|label: graph5
 %%| fig-width: 5
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
     commit id: "-c6dc2bc" type: REVERSE
 ```
 
@@ -283,7 +262,7 @@ The `-n` option is to prevent an automatic commit. Therefore you need to commit 
 
 ## Ignoring files
 
-It is possible to tell Git to ignore some files by using a [.gitignore](https://git-scm.com/docs/gitignore) file (for instance, `.Rdata` or `.tmp` files).
+It is possible to tell Git to ignore some files by using a [.gitignore](https://git-scm.com/docs/gitignore) file (for example `.Rdata` or `.tmp` files).
 
 -   Create an empty `output.Rdata` file and type `git status`
 -   Create a `.gitignore` file and write `*.Rdata`. Type again `git status`
@@ -294,14 +273,13 @@ The `output.Rdata` file does not appear as an `Untracked file` anymore
 -   Type `git commit -m "Fourth commit"`
 
 ```{mermaid}
-%%|label: fig-graph6
+%%|label: graph6
 %%| fig-width: 5
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
     commit id: "-c6dc2bc" type: REVERSE
     commit id: "9670a59"
 ```
@@ -310,48 +288,74 @@ gitGraph
 To list the ignored files, type `git ls-files --others --ignored --exclude-from=.gitignore`
 :::
 
+## Creating tags
+
+-   Open the `README.md` file and add `## Version v1.0.0`.
+-   Type `git add README.md`
+-   Type `git commit -m "Third commit"`
+-   Type `git tag v1.0.0` and `git log`
+
+```{mermaid}
+%%|label: graph3
+%%| fig-width: 5
+%%| fig-align: center
+%%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
+gitGraph
+    commit id: "0f0e96a"
+    commit id: "c6dc2bc"
+    commit id: "-c6dc2bc" type: REVERSE
+    commit id: "9670a59"
+    commit id: "07e8835" tag: "v1.0.0"
+```
+
+-   Type `git tag` to list all existing tags
+
+
 ## Moving in the history
 
 -   Type `git checkout v1.0.0` $\rightarrow$ move to a tag
 
 ```{mermaid}
-%%|label: fig-graph8
+%%|label: graph8
 %%| fig-width: 3
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a"
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0" type:HIGHLIGHT
+    commit id: "-c6dc2bc" type: REVERSE
     commit id: "9670a59"
+    commit id: "07e8835" tag: "v1.0.0" type:HIGHLIGHT
 ```
 
 -   Type `git checkout 0f0e96a` $\rightarrow$ move to a specific commit
 
 ```{mermaid}
-%%|label: fig-graph8
+%%|label: graph8
 %%| fig-width: 3
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
     commit id: "0f0e96a" type:HIGHLIGHT
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
+    commit id: "-c6dc2bc" type: REVERSE
     commit id: "9670a59"
+    commit id: "07e8835" tag: "v1.0.0"
 ```
 
 -   Type `git checkout main` $\rightarrow$ move at the latest commit
 
 ```{mermaid}
-%%|label: fig-graph9
+%%|label: graph9
 %%| fig-width: 3
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-    commit id: "0f0e96a"
+    commit id: "0f0e96a" type:HIGHLIGHT
     commit id: "c6dc2bc"
-    commit id: "07e8835" tag: "v1.0.0"
-    commit id: "9670a59" type:HIGHLIGHT
+    commit id: "-c6dc2bc" type: REVERSE
+    commit id: "9670a59"
+    commit id: "07e8835" tag: "v1.0.0" type:HIGHLIGHT
 ```
 
 ::: callout-tip
@@ -367,7 +371,7 @@ Order matters when using `git diff`. Differences are shown with the reference st
 :::
 
 ```{mermaid}
-%%|label: fig-graph10
+%%|label: graph10
 %%| fig-width: 5
 %%| fig-align: center
 flowchart LR
@@ -398,7 +402,7 @@ In addition of saving the history, Git has other advantages. It allows to:
 To do so, a $4^{th}$ component in the Git architecture must be considered: the `Remote` repository. It contains a **remote** version of the history of your project
 
 ```{mermaid}
-%%|label: fig-graph11
+%%|label: graph11
 %%| fig-width: 5
 %%| fig-align: center
 flowchart LR
@@ -507,7 +511,7 @@ The URL must end by `.git`!
 -   It connects your `Local` repository with the `Remote` repository, called *origin*
 
 ```{mermaid}
-%%|label: fig-graph12
+%%|label: graph12
 %%| fig-width: 3
 %%| fig-align: center
 flowchart LR
@@ -544,7 +548,7 @@ Now that the local and remote repositories are linked, the same thing must be do
 It connects the *local* and *remote* main branches (`-u` option stands for `--set-upstream`) and sends the local commits to the remote branch
 
 ```{mermaid}
-%%|label: fig-graph13
+%%|label: graph13
 %%| fig-width: 3
 %%| fig-align: center
 flowchart LR
@@ -576,7 +580,7 @@ flowchart LR
 - Refresh your repository webpage. Check whether the tags are properly pushed
 
 ```{mermaid}
-%%|label: fig-graph14
+%%|label: graph14
 %%| fig-width: 3
 %%| fig-align: center
 flowchart LR
@@ -621,7 +625,7 @@ No need to specify the `-u origin main` arguments here
 - In `Git Bash` or `Terminal`, type `git pull`
 
 ```{mermaid}
-%%|label: fig-graph15
+%%|label: graph15
 %%| fig-width: 3
 %%| fig-align: center
 %%| fig-height: 1
@@ -656,7 +660,7 @@ flowchart RL
 -   Type `git pull` and `git status`. An error occurs because there is a conflict in the `README.md` file that cannot be solved by Git.
 
 ```{mermaid}
-%%|label: fig-graph16
+%%|label: graph16
 %%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
@@ -690,7 +694,7 @@ These are conflicts markers. `Git` does't know whether to chose `x = 1` or `x = 
 - Refresh the GitHub page and look at the file
 
 ```{mermaid}
-%%|label: fig-graph17
+%%|label: graph17
 %%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
@@ -719,7 +723,7 @@ The `git clone` command allows to synchronize locally an existing remote reposit
 - On Git Bash or Terminal, type `git clone https://github.com/barriern/new-repo.git` (replace the URL by the proper name)
 
 ```{mermaid}
-%%|label: fig-graph18
+%%|label: graph18
 %%| fig-width: 6
 %%| fig-align: center
 flowchart RL
@@ -798,7 +802,7 @@ Working with branches allows to create derivates for a project. For example:
 - A `feature` branch for testing new features
 
 ```{mermaid}
-%%|label: fig-graph19
+%%|label: graph19
 %%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
@@ -829,7 +833,7 @@ gitGraph
 -   Type `git br` and `git tree`
 
 ```{mermaid}
-%%|label: fig-graph20
+%%|label: graph20
 %%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
@@ -850,7 +854,7 @@ gitGraph
 -   Type `git tree`
 
 ```{mermaid}
-%%|label: fig-graph21
+%%|label: graph21
 %%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
@@ -870,7 +874,7 @@ gitGraph
 -   Type `git log` and `git tree`
 
 ```{mermaid}
-%%|label: fig-graph22
+%%|label: graph22
 %%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
@@ -899,7 +903,7 @@ During the merging process, another commit is created
 -   Type `git commit -m "Fourth commit"`
 
 ```{mermaid}
-%%|label: fig-graph23
+%%|label: graph23
 %%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
@@ -924,7 +928,7 @@ gitGraph
 -   Type `git add script.py` and `git commit -m "Sixth commit"`
 
 ```{mermaid}
-%%|label: fig-graph24
+%%|label: graph24
 %%| fig-width: 6
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
@@ -958,7 +962,7 @@ Order matters: it shows what has been added to `main` branch compared to the `de
 :::
 
 ```{mermaid}
-%%|label: fig-graph25
+%%|label: graph25
 %%| fig-width: 6
 %%| fig-align: center
 flowchart LR
