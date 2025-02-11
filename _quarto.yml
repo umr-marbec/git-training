@@ -1,5 +1,6 @@
 title: Git training
 logo: figs/marbec-git.png
+mermaid-format: png
 author:
   - name: Nicolas Barrier
     orcid: 0000-0002-1693-4719
@@ -30,3 +31,4 @@ format:
     linestretch: 1.5
     fontsize: 13pt
     output-file: git-training.pdf
+    keep-tex: false
