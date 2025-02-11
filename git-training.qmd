@@ -59,6 +59,20 @@ Open a `Terminal` window and type:
 
 `sudo apt install git`
 
+## A bit of Unix
+
+To use Git on Git Bash or Terminal, we need to learn some basic Unix commands:
+
+-   Change directory: `cd my/new/directory`
+-   Go to parent directory: `cd ..`
+-   Find current directory: `pwd`
+-   List directory content: `ls`
+-   Create new folder: `mkdir -p folder_name`
+-   Create an empty file: `touch file.txt`
+-   Copy a file: `cp file.txt save_file.txt`
+-   Remove a file/folder: `rm -r file.txt`
+-   Rename/Move a file: `mv file.text my/dest/renamed.txt`
+
 ## Git configuration
 
 On `Git Bash` or in the `Terminal`:
