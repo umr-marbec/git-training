@@ -84,7 +84,8 @@ On `Git Bash` or in the `Terminal`:
 These two lines identify you in the history of a project.
 :::
 
--   Type `git config --global --list` to see the global git configuration.
+- Type `git config --global pull.rebase false`
+- Type `git config --global --list` to see the global git configuration.
 
 ## Git configurations: aliases
 
