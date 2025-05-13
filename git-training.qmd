@@ -343,7 +343,7 @@ gitGraph
     commit id: "07e8835" tag: "v1.0.0"
 ```
 
--   Type `git checkout main` $\rightarrow$ move at the latest commit
+-   Type `git checkout main` $\rightarrow$ move at the latest commit of the main branch
 
 ```{mermaid}
 %%|label: graph9
@@ -351,7 +351,7 @@ gitGraph
 %%| fig-align: center
 %%{init: { 'logLevel': 'debug', 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}}}%%
 gitGraph
-    commit id: "0f0e96a" type:HIGHLIGHT
+    commit id: "0f0e96a"
     commit id: "c6dc2bc"
     commit id: "-c6dc2bc" type: REVERSE
     commit id: "9670a59"
